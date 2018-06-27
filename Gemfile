@@ -64,3 +64,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # activeadmin
 gem 'activeadmin'
 gem 'devise'
+
+# ajax
+gem 'rails-ujs'
+gem 'jquery-rails'
+
+# simple_form
+gem 'simple_form'
