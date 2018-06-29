@@ -1,10 +1,10 @@
-class UsersController < ApplicationController
+class UsersWebsController < ApplicationController
   def index
-    @users = User.all
+    @users_webs = UsersWeb.all
   end
 
   def new
-    @user = User.new
+    @users_web = UsersWeb.new
     respond_to do |format|
       format.html
       format.js
@@ -12,10 +12,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @users = User.all
-    @user = User.new(users_params)
+    @users_webs = UsersWeb.all
+    @users_web = UsersWeb.new(users_web_params)
     respond_to do |format|
-      if @user.save
+      if @users_web.save
         format.html
         format.js
       else
@@ -24,20 +24,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def update
-  end
-
-  def edit
-  end
-
   def destroy
-    @users = User.all
-    user = User.find(params[:id])
+    @users_webs = UsersWeb.all
+    users_web = UsersWeb.find(params[:id])
     respond_to do |format|
-      if user.destroy
+      if users_web.destroy
         format.html
         format.js
       else
@@ -48,7 +39,8 @@ class UsersController < ApplicationController
 
   private
 
-  def users_params
-    params.require(:user).permit(:name, :program_id, :error_id)
+  def users_web_params
+    params.require(:users_web).permit(:name, :url, :genre)
   end
+
 end

@@ -1,0 +1,9 @@
+<%= form_with model: @users_web, local: false do |f| %>
+  <%= f.label "ジャンル" %>
+  <%= f.text_field :genre %>
+  <%= f.label "用途" %>
+  <%= f.text_field :name %>
+  <%= f.label "URL" %>
+  <%= f.text_field :url %>
+  <%= f.submit :class=>"btn-primary" %>
+<% end %>
