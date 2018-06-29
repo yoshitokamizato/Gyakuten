@@ -61,10 +61,16 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    autoprefixer-rails (8.6.3)
+      execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
+    bootstrap (4.1.1)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.3.0)
@@ -157,6 +163,7 @@ GEM
     pg (1.0.0)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
+    popper_js (1.12.9)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -261,6 +268,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   bootsnap (>= 1.1.0)
+  bootstrap (~> 4.1.1)
   byebug
   capybara (>= 2.15, < 4.0)
   chromedriver-helper

@@ -1,0 +1,2 @@
+class UsersWeb < ApplicationRecord
+end

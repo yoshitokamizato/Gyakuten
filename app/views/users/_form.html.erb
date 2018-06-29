@@ -1,4 +1,4 @@
-<%= simple_form_for @user, remote: true do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit ,"追加" %>
+<%= form_with model: @user, locaal: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit :class=>"btn-primary" %>
 <% end %>
