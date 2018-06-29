@@ -74,3 +74,6 @@ gem 'simple_form'
 
 # bootstrap
 gem 'bootstrap', '~> 4.1.1'
+
+# fontawsome
+gem 'font-awesome-rails'

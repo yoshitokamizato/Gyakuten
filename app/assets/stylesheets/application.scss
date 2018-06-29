@@ -11,12 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
  */
 
 @import "bootstrap";
 @import "users_webs";
-
-$blue : #002ecc;
 
 .container {
   width: 1200px;
