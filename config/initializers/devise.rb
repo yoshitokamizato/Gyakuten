@@ -8,12 +8,11 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = '10f1ffc6e70481eabe24eb7df8f5bcb2df0397e25aea6237febfe6cdb85946c9ddcaee36cd51c88fb175379f838cd217002f724a3ceefb21acce5e27e26555ca'
-
+  config.secret_key = '3a25a5ce7ee79bbdfc8a4cb17942daeee683f82b422e816b67fedc28fbfdfd265105806bba538873665f589cd2ce6fec8a0a9ca4455b8860e8c4f7c138028c3c'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  # config.parent_controller = 'DeviseController'
+  config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -25,7 +24,7 @@ Devise.setup do |config|
   # config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
-  # config.parent_mailer = 'ActionMailer::Base'
+  config.parent_mailer = 'ActionMailer::Base'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -95,7 +94,7 @@ Devise.setup do |config|
   # avoid CSRF token fixation attacks. This means that, when using AJAX
   # requests for sign in and sign up, you need to get a new CSRF token
   # from the server. You can disable this option at your own risk.
-  # config.clean_up_csrf_token_on_authentication = true
+  config.clean_up_csrf_token_on_authentication = true
 
   # When false, Devise will not attempt to reload routes on eager load.
   # This can reduce the time taken to boot the app but if your application
@@ -115,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '75bc9d1fea4930321313c81de89245a89591f9fe22a643fa34179b931f20c3a5e8415c8eaf9864876e75b1010fd13b31f9edcba053f91601a94ebfed4a981d3a'
+  config.pepper = '75bc9d1fea4930321313c81de89245a89591f9fe22a643fa34179b931f20c3a5e8415c8eaf9864876e75b1010fd13b31f9edcba053f91601a94ebfed4a981d3a'
 
   # Send a notification to the original email when the users's email is changed.
   # config.send_email_changed_notification = false
@@ -129,7 +128,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the users cannot access the website without confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 2.days
 
   # A period that the users is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the users can confirm
@@ -137,7 +136,7 @@ Devise.setup do |config|
   # their account can't be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a users can take
   # before confirming their account.
-  # config.confirm_within = 3.days
+  config.confirm_within = 3.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email

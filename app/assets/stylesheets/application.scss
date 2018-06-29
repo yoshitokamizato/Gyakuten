@@ -19,6 +19,13 @@
 
 .container {
   width: 1200px;
-  padding: 100px;
+  padding: 50px 150px;
   margin: 0 auto;
+}
+
+.nav-bar {
+  padding-top: 50px;
+  .btn {
+    width: 150px;
+  }
 }

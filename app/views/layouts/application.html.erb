@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <div class="text-center nav-bar">
+      <%= link_to "ユーザ一覧", users_path, class: "btn btn-primary"  %>
+      <%= link_to "記事", users_webs_path, class: "btn btn-primary"  %>
+    </div>
     <div class="container">
       <%= yield %>
     </div>
