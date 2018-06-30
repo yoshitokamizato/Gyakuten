@@ -77,3 +77,6 @@ gem 'bootstrap', '~> 4.1.1'
 
 # fontawsome
 gem 'font-awesome-rails'
+
+# kaminari
+gem 'kaminari'
