@@ -1,5 +1,5 @@
 <div id="users_web">
-  <h1>Web</h1>
+  <h1><%= fa_icon("laptop") %>&nbsp;&nbsp;Web</h1>
   <div id="web-table" >
     <%= render :partial => "index" %>
   </div>
@@ -7,6 +7,8 @@
     <div id="users-web-form"></div>
   </div>
   <div class="text-center">
-    <%= link_to "記事を追加", new_users_web_path, id: "add-link", class: "btn btn-primary",remote: true %>
+    <%= link_to new_users_web_path, id: "add-link", class: "btn btn-primary",remote: true do %>
+      <%= fa_icon("search-plus") %>&nbsp;&nbsp;記事を追加
+    <% end  %>
   </div>
 </div>
