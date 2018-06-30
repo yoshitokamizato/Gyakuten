@@ -15,17 +15,31 @@
  */
 
 @import "bootstrap";
-@import "users_webs";
 
-.container {
-  width: 1200px;
-  padding: 50px 150px;
-  margin: 0 auto;
+@media screen and (min-width:0px) {
+  /*0px以上で適用する内容*/
+  @import "smart_phones";
 }
 
-.nav-bar {
-  padding-top: 50px;
-  .btn {
-    width: 150px;
+@media screen and (min-width:300px){
+  /*300px以上で適用する内容*/
+}
+
+@media screen and (min-width:1000px){
+  /*600px以上で適用する内容*/
+  @import "users_webs";
+
+  .container {
+    width: 1200px;
+    padding: 50px 150px;
+    margin: 0 auto;
   }
+
+  .nav-bar {
+    padding-top: 50px;
+    .btn {
+      width: 150px;
+    }
+  }
+
 }
