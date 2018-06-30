@@ -5,7 +5,4 @@
   <td>
     <%= link_to "#{users_web.name}", users_web.url, :target => "_blank" %>
   </td>
-  <td class="text-center">
-    <%= link_to "削除", users_web_path(users_web), data: { confirm: '削除する?' }, method: :delete, remote: true %>
-  </td>
 </tr>
