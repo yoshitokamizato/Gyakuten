@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: error-collection_production
-  username: error-collection
-  password: <%= ENV['ERROR-COLLECTION_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
