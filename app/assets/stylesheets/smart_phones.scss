@@ -4,8 +4,16 @@
   padding: 50px 0;
 }
 
-.nav-bar {
-  height: 110px;
+.navbar {
+
+  a {
+    font-size: 3em;
+  }
+
+  .navbar-nav a {
+    font-size: 2em;
+  }
+
 }
 
 #users_web {
