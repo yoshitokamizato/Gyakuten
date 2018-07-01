@@ -10,7 +10,17 @@
   </head>
 
   <body>
-
+  <nav class="navbar navbar-dark bg-primary">
+    <%= link_to "Error Collection", users_webs_path, class: "navbar-brand",remote: true %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to "参考記事", users_webs_path, class: "nav-item nav-link active",remote: true %>
+      </div>
+    </div>
+  </nav>
     <div class="container">
       <%= yield %>
     </div>
