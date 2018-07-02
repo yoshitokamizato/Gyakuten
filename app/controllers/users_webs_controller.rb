@@ -19,7 +19,8 @@ class UsersWebsController < ApplicationController
         format.html
         format.js
       else
-        format.js {render :new}
+        @message = @users_web.errors.full_messages
+        format.js
       end
     end
   end
