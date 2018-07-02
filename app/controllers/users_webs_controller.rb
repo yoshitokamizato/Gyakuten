@@ -20,7 +20,7 @@ class UsersWebsController < ApplicationController
         format.js
       else
         @message = @users_web.errors.full_messages
-        format.js
+        format.js {render :index}
       end
     end
   end

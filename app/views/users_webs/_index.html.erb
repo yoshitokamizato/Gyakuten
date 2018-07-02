@@ -1,3 +1,9 @@
+<% @message&.each do |message| %>
+  <div class="error text-center">
+    <%= message %>
+  </div>
+<% end %>
+
 <div class="table-container">
   <table class="table table-striped">
     <thead class="bg-primary">
@@ -15,9 +21,4 @@
   <div class="kaminari-container">
     <%= paginate @users_webs %>
   </div>
-  <% @message&.each do |message| %>
-    <div class="text-center">
-      <%= message %>
-    </div>
-  <% end %>
 </div>
