@@ -1,14 +1,16 @@
 <div id="users_web">
+  <div class="users-web-form-container">
+    <div class="text-center d-sm-none d-xl-block">
+      <%= link_to new_users_web_path, id: "add-link", class: "btn btn-primary",remote: true do %>
+        <%= fa_icon("search-plus") %>&nbsp;&nbsp;記事を追加
+      <% end  %>
+    </div>
+    <div class="text-center">
+      <div id="users-web-form"></div>
+    </div>
+  </div>
   <h1><%= fa_icon("laptop") %>&nbsp;&nbsp;Web</h1>
   <div id="web-table" >
     <%= render :partial => "index" %>
-  </div>
-  <div class="text-center">
-    <div id="users-web-form"></div>
-  </div>
-  <div class="text-center d-sm-none d-xl-block">
-    <%= link_to new_users_web_path, id: "add-link", class: "btn btn-primary",remote: true do %>
-      <%= fa_icon("search-plus") %>&nbsp;&nbsp;記事を追加
-    <% end  %>
   </div>
 </div>
