@@ -16,6 +16,21 @@
 
 @import "bootstrap";
 
+td {
+  textarea {
+    height: 200px;
+    width: 100%;
+  }
+}
+
+.btn {
+  padding-bottom: 3px;
+}
+
+.add-button {
+  padding: 10px;
+}
+
 @media screen and (min-width:0px) {
   /*0px以上で適用する内容*/
   @import "smart_phones";
