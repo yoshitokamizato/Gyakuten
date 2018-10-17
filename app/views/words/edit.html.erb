@@ -1,18 +1,22 @@
-<%= form_for @word, url: word_path, html: { mathod: :patch } do |f| %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>何についての言及か？</th>
-      <th>名言の内容</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td><%= f.text_area :about %></td>
-        <td><%= f.text_area :words, :rows => 4, :cols => 50  %></td>
-        <td><%= f.submit "送信" %></td>
-    </tr>
-  </tbody>
-</table>
+<%= form_for @word, url: word_path do |f| %>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>何についての言及か？</td>
+        <td><%= f.text_field :about %></td>
+      </tr>
+      <tr>
+        <td>名言の内容</td>
+        <td><%= f.text_area :words, :rows => 4, :cols => 50 %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div class="text-center">
+            <%= f.submit "送信", class: "submit btn btn-primary" %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>
