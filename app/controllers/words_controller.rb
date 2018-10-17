@@ -1,0 +1,3 @@
+class WordsWebsController < ApplicationController
+
+end
