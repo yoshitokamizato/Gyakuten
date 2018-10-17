@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.order("id desc")
+    @words = Word.order("id desc").page(params[:page]).per(30)
   end
 
   def new
