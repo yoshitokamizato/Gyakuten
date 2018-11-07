@@ -1,8 +1,8 @@
 <section id="contents">
   <%= params[:flash][:error] if params[:flash].present? %>
-  <% @movies.each do |movie| %>
+  <% @texts.each do |text| %>
     <h2>
-      <%= link_to movie.title, movie_path(movie.id) %>
+      <%= link_to text.title, movie_path(text.id) %>
     </h2>
   <% end %>
 </section>
