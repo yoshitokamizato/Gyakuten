@@ -1,0 +1,11 @@
+<% @movies.each do |movie| %>
+  <h2>
+    <%= movie.title %>
+  </h2>
+  <div class="text-center">
+    <%= movie.contents.html_safe %>
+  </div>
+  <div>
+    <%= movie.desc %>
+  </div>
+<% end %>

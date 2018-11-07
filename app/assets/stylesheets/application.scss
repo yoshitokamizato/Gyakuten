@@ -17,8 +17,8 @@
 @import "bootstrap";
 
 .table {
-  .w-2 {
-    width: 20%;
+  .w-25 {
+    width: 25%;
   }
   input {
     width: 100%;
@@ -43,6 +43,12 @@ td {
 .add-button {
   padding: 10px;
 }
+
+pre {
+  border: 0.1px solid;
+  padding: 10px;
+}
+
 
 @media screen and (min-width:0px) {
   /*0px以上で適用する内容*/

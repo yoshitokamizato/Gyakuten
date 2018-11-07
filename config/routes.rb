@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :users
   resources :users_webs
   resources :words
+  resources :movies
 
 end
