@@ -1,3 +1,4 @@
+<%= params[:flash][:error] if params[:flash].present? %>
 <% @movies.each do |movie| %>
   <h2>
     <%= link_to movie.title, movie_path(movie.id) %>

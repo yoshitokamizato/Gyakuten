@@ -1,12 +1,13 @@
-class MoviesController < ApplicationController
+class ContentsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
+    @texts = Text.all
     @movies = Movie.all
   end
 
   def show
-    @movies = Movie.all
+    @texts = Text.all
   end
 
   def move_to_index

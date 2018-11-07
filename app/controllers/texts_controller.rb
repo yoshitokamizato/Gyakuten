@@ -1,12 +1,12 @@
-class MoviesController < ApplicationController
+class TextsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @movies = Movie.all
+    @texts = Text.all
   end
 
   def show
-    @movies = Movie.all
+    @text = Text.find(params[:id])
   end
 
   def move_to_index
