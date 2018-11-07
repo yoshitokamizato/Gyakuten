@@ -3,13 +3,13 @@
   <h2>動画コンテンツ</h2>
   <% @movies.each.with_index(1) do |movie, i| %>
     <div>
-      No.<%= i %>　<%= link_to movie.title, movie_path(movie.id) %>
+      No.<%= i %>　<%= movie.genre %>　<%= link_to movie.title, movie_path(movie.id) %>
     </div>
   <% end %>
   <h2>テキストコンテンツ</h2>
   <% @texts.each.with_index(1) do |text, i| %>
     <div>
-      No.<%= i %>　<%= link_to text.title, text_path(text.id) %>
+      No.<%= i %>　<%= text.genre %>　<%= link_to text.title, text_path(text.id) %>
     </div>
   <% end %>
 </section>
