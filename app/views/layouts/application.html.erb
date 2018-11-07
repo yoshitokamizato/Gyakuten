@@ -16,6 +16,15 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <% if user_signed_in? %>
+        <div class="navbar-nav">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </div>
+      <% else %>
+        <div class="navbar-nav">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+        </div>
+      <% end %>
       <div class="navbar-nav">
         <%= link_to "動画教材", movies_path, class: "nav-item nav-link active" %>
       </div>
