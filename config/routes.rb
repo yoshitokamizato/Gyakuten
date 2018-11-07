@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :words
   resources :movies
   resources :texts
+  resources :contents
 
 end

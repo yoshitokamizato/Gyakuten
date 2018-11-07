@@ -1,3 +1,4 @@
 <div>
-<%= markdown("text").html_safe %>
+  <%= @text.title %>
+  <%= markdown(@text.contents).html_safe %>
 </div>

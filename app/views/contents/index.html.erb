@@ -1,0 +1,13 @@
+<%= params[:flash][:error] if params[:flash].present? %>
+<h2>動画コンテンツ</h2>
+<% @movies.each do |movie| %>
+  <div>
+    <%= link_to movie.title, movies_path(movie.id) %>
+  </div>
+<% end %>
+<h2>テキストコンテンツ</h2>
+<% @texts.each do |text| %>
+  <div>
+    <%= link_to text.title, text_path(text.id) %>
+  </div>
+<% end %>
