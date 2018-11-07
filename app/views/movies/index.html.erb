@@ -1,0 +1,30 @@
+<h1>Contents#index</h1>
+<% @movie %>
+<%= @movie.html_safe %>
+<p>Find me in app/views/contents/index.html.erb</p>
+<%
+text = <<~TEXT
+***
+# 見出し
+```ruby
+puts 'Hello, World'
+users = ["hoge", "fuga", "hogefuga"]
+
+users.each do |user|
+  puts user
+end
+```
+
+```html
+<p>ほげほげ</p>
+```
+
+|表|内容|
+|---|---|
+|1|ほげ|
+***
+TEXT
+%>
+<div>
+<%= markdown(text).html_safe %>
+</div>
