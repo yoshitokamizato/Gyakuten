@@ -16,6 +16,13 @@
 
 @import "bootstrap";
 
+#nav {
+  .bg-primary {
+    background-color: #ff253e;
+  }
+}
+
+
 .table {
   .w-25 {
     width: 25%;
@@ -58,4 +65,5 @@ pre {
 @media screen and (min-width:1000px){
   /*600px以上で適用する内容*/
   @import "users_webs";
+  @import "contents";
 }
