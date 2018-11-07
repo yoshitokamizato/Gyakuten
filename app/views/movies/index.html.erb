@@ -1,30 +1,8 @@
-<h1>Contents#index</h1>
-<% @movie %>
-<%= @movie.html_safe %>
-<p>Find me in app/views/contents/index.html.erb</p>
-<%
-text = <<~TEXT
-***
-# 見出し
-```ruby
-puts 'Hello, World'
-users = ["hoge", "fuga", "hogefuga"]
-
-users.each do |user|
-  puts user
-end
-```
-
-```html
-<p>ほげほげ</p>
-```
-
-|表|内容|
-|---|---|
-|1|ほげ|
-***
-TEXT
-%>
+<% @movies.each do |movie| %>
+  <h2>
+    <%= link_to movie.title, movie_path(movie.id) %>
+  </h2>
+<% end %>
 <div>
-<%= markdown(text).html_safe %>
+<%= markdown("text").html_safe %>
 </div>
