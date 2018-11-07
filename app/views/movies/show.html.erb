@@ -1,13 +1,11 @@
 <section id="contents">
-  <% @movies.each do |movie| %>
-    <h2>
-      <%= movie.title %>
-    </h2>
-    <div class="text-center movie">
-      <%= movie.contents.html_safe %>
-    </div>
-    <div>
-      <%= markdown(movie.desc).html_safe %>
-    </div>
-  <% end %>
+  <h2>
+    <%= @movie.title %>
+  </h2>
+  <div class="text-center movie">
+    <%= @movie.contents.html_safe %>
+  </div>
+  <div>
+    <%= markdown(@movie.desc).html_safe %>
+  </div>
 </section>
