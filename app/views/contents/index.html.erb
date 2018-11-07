@@ -1,15 +1,58 @@
 <section id="contents">
   <%= params[:flash][:error] if params[:flash].present? %>
   <h2>動画コンテンツ</h2>
-  <% @movies.each.with_index(1) do |movie, i| %>
-    <div>
-      No.<%= i %>　<%= movie.genre %>　<%= link_to movie.title, movie_path(movie.id) %>
-    </div>
-  <% end %>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead class="bg-danger text-white">
+        <tr>
+          <th class="w-2">No.</th>
+          <th class="w-2">ジャンル</th>
+          <th class="w-5">内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each.with_index(1) do |movie, i| %>
+          <tr>
+            <td>
+              <%= i %>
+            </td>
+            <td>
+              <%= movie.genre %>
+            </td>
+            <td>
+              <%= link_to movie.title, movie_path(movie.id) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
   <h2>テキストコンテンツ</h2>
-  <% @texts.each.with_index(1) do |text, i| %>
-    <div>
-      No.<%= i %>　<%= text.genre %>　<%= link_to text.title, text_path(text.id) %>
-    </div>
-  <% end %>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead class="bg-danger text-white">
+      <tr>
+        <th class="w-2">No.</th>
+        <th class="w-2">ジャンル</th>
+        <th class="w-5">内容</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @texts.each.with_index(1) do |text, i| %>
+        <tr>
+          <td>
+            <%= i %>
+          </td>
+          <td>
+            <%= text.genre %>
+          </td>
+          <td>
+            <%= link_to text.title, text_path(text.id) %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </section>
