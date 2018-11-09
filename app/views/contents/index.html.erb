@@ -1,20 +1,19 @@
 <section id="contents">
-  <%= params[:flash][:error] if params[:flash].present? %>
   <h2 class="text-center">Movie</h2>
   <div class="table-container">
     <table class="table table-striped">
       <thead class="bg-danger text-white">
         <tr>
-          <th class="w-1">No.</th>
+          <th class="w-1">スキルレベル</th>
           <th class="w-2">ジャンル</th>
           <th class="w-5">内容</th>
         </tr>
       </thead>
       <tbody>
-        <% @movies.each.with_index(1) do |movie, i| %>
+        <% @contents[:movie].each.with_index(1) do |movie, i| %>
           <tr>
             <td>
-              <%= i %>
+              <p>Lv.<%= i %></p>
             </td>
             <td>
               <%= movie.genre %>
@@ -33,16 +32,16 @@
     <table class="table table-striped">
       <thead class="bg-danger text-white">
       <tr>
-        <th class="w-1">No.</th>
+        <th class="w-1">スキルレベル</th>
         <th class="w-2">ジャンル</th>
         <th class="w-5">内容</th>
       </tr>
       </thead>
       <tbody>
-      <% @texts.each.with_index(1) do |text, i| %>
+      <% @contents[:text].each.with_index(1) do |text, i| %>
         <tr>
           <td>
-            <%= i %>
+            <p>Lv.<%= i %></p>
           </td>
           <td>
             <%= text.genre %>

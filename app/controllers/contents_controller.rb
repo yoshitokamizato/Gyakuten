@@ -1,8 +1,7 @@
 class ContentsController < ApplicationController
 
   def index
-    @texts = Text.all.order("id ASC")
-    @movies = Movie.all.order("id ASC")
+    @contents = Content.build_objects
   end
 
   def show
