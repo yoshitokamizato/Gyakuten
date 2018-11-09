@@ -1,8 +1,29 @@
 <section id="contents">
-  <%= params[:flash][:error] if params[:flash].present? %>
-  <% @texts.each do |text| %>
-    <h2>
-      <%= link_to text.title, movie_path(text.id) %>
-    </h2>
-  <% end %>
+  <h2 class="text-center">Text</h2>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead class="bg-danger text-white">
+      <tr>
+        <th class="w-1">No.</th>
+        <th class="w-2">ジャンル</th>
+        <th class="w-5">内容</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @texts.each.with_index(1) do |text, i| %>
+        <tr>
+          <td>
+            <%= i %>
+          </td>
+          <td>
+            <%= text.genre %>
+          </td>
+          <td>
+            <%= link_to text.title, text_path(text.id) %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </section>
