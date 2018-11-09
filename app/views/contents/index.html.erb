@@ -13,7 +13,7 @@
         <% @contents[:movie].each.with_index(1) do |movie, i| %>
           <tr>
             <td>
-              <p>Lv.<%= i %></p>
+              Lv.<%= i %>
             </td>
             <td>
               <%= movie.genre %>
@@ -41,7 +41,7 @@
       <% @contents[:text].each.with_index(1) do |text, i| %>
         <tr>
           <td>
-            <p>Lv.<%= i %></p>
+            Lv.<%= i %>
           </td>
           <td>
             <%= text.genre %>
@@ -70,7 +70,7 @@
       <% @contents[:line].each.with_index(1) do |line, i| %>
         <tr>
           <td>
-            <p><%= i %></p>
+            <%= i %>
           </td>
           <td>
             <%= line.genre %>
