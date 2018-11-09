@@ -56,6 +56,18 @@ pre {
   padding: 10px;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    padding: 0 20px;
+  }
+}
 
 @media screen and (min-width:0px) {
   /*0px以上で適用する内容*/

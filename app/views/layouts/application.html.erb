@@ -10,38 +10,43 @@
   </head>
 
   <body>
-  <section id="nav">
-    <% color = controller.controller_name == "lines" ? "bg-success" : "bg-danger" %>
-    <nav class="navbar navbar-dark <%= color %>">
-      <%= link_to "Gyakuten", contents_path, class: "navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <%= link_to "教材一覧", contents_path, class: "nav-item nav-link active" %>
-        </div>
-        <div class="navbar-nav">
-          <%= link_to "参考記事", users_webs_path, class: "nav-item nav-link active" %>
-        </div>
-        <div class="navbar-nav">
-          <%= link_to "りゅうけんさん名言集", words_path, class: "nav-item nav-link active" %>
-        </div>
-        <% if user_signed_in? %>
+    <section id="nav">
+      <% color = controller.controller_name == "lines" ? "bg-success" : "bg-danger" %>
+      <nav class="navbar navbar-dark <%= color %>">
+        <%= link_to "Gyakuten", contents_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+            <%= link_to "教材一覧", contents_path, class: "nav-item nav-link active" %>
           </div>
-        <% else %>
           <div class="navbar-nav">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+            <%= link_to "参考記事", users_webs_path, class: "nav-item nav-link active" %>
           </div>
-        <% end %>
-      </div>
-    </nav>
-  </section>
+          <div class="navbar-nav">
+            <%= link_to "りゅうけんさん名言集", words_path, class: "nav-item nav-link active" %>
+          </div>
+          <% if user_signed_in? %>
+            <div class="navbar-nav">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+            </div>
+          <% else %>
+            <div class="navbar-nav">
+              <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+    </section>
 
-    <div class="container">
+    <div id="container">
       <%= yield %>
     </div>
+
+    <footer class="footer <%= color %>">
+      <%= link_to "教材一覧", contents_path, class: "text-white" %>
+      <%= link_to "ブログ", "http://utina.yoshitokamizato.com/", class: "text-white", target: "_blank" %>
+    </footer>
   </body>
 </html>

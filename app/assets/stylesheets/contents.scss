@@ -1,8 +1,9 @@
-.container {
-  height: 200px;
+#container {
   width: 100%;
-  padding: 50px 0;
+  padding: 50px 0 80px 0;
   max-width: 710px;
+  margin: 0 auto;
+
   p {
     font-size: 17px;
   }
@@ -13,71 +14,23 @@
     font-size: 17px;
   }
 
-  #contents {
-    h1 {
-      padding: 20px 0px 10px 0px;
-      font-size: 30px;
-    }
-
-    h2 {
-      padding: 20px 0px 10px 0px;
-      font-size: 30px;
-    }
-
-    .movie {
-      padding: 50px 0px 20px 0px;
-    }
-
-    table {
-      table-layout: fixed;
-      font-size: 17px;
-      thead {
-        color: white;
-      }
-      a { //リンクをテーブルの中で折り返して表示　※現在は使用してないが記録として
-        white-space: pre;           /* CSS 2.0 */
-        white-space: pre-wrap;      /* CSS 2.1 */
-        white-space: pre-line;      /* CSS 3.0 */
-        white-space: -pre-wrap;     /* Opera 4-6 */
-        white-space: -o-pre-wrap;   /* Opera 7 */
-        white-space: -moz-pre-wrap; /* Mozilla */
-        white-space: -hp-pre-wrap;  /* HP Printers */
-        word-wrap: break-word;      /* IE 5+ */
-      }
-      .w-1 {
-        width: 10%;
-      }
-      .w-2 {
-        width: 20%;
-      }
-      .w-5 {
-        width: 50%;
-      }
-    }
-  }
-}
-
-.navbar {
-  a {
-    font-size: 30px;
-  }
-  .navbar-nav a {
-    font-size: 20px;
-  }
-}
-
-#users_web {
   h1 {
-    font-size: 50px;
-  }
-  #web-table {
+    padding: 20px 0px 10px 0px;
     font-size: 30px;
   }
-  .table-container {
-    padding: 30px 0;
+
+  h2 {
+    padding: 20px 0px 10px 0px;
+    font-size: 30px;
   }
+
+  .movie {
+    padding: 50px 0px 20px 0px;
+  }
+
   table {
     table-layout: fixed;
+    font-size: 17px;
     thead {
       color: white;
     }
@@ -91,29 +44,30 @@
       white-space: -hp-pre-wrap;  /* HP Printers */
       word-wrap: break-word;      /* IE 5+ */
     }
+    .w-1 {
+      width: 10%;
+    }
+    .w-2 {
+      width: 20%;
+    }
+    .w-5 {
+      width: 50%;
+    }
   }
-  .w-1 {
-    width: 13%;
+
+}
+
+.navbar {
+  a {
+    font-size: 30px;
   }
-  .w-2 {
-    width: 20%;
-  }
-  .w-5 {
-    width: 50%;
-  }
-  .btn {
-    margin: 30px;
-  }
-  .kaminari-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .navbar-nav a {
+    font-size: 20px;
   }
 }
 
 #line-contents {
   width: 450px;
-  margin: 0 auto;
   h2 {
     padding: 30px 0px 10px 0px;
   }
@@ -122,8 +76,6 @@
 
 #movie-contents {
   width: 70%;
-  margin: 0 auto;
-
   .movie-desc {
     padding-top: 30px;
     p {
