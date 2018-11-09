@@ -1,11 +1,4 @@
 <section id="contents">
-  <% if params[:flash].present? %>
-    <div class="alert alert-danger text-center" role="alert">
-      <%= link_to new_user_session_path, class: "text-danger" do %>
-        <strong><%= params[:flash][:error]  %></strong>
-      <% end %>
-    </div>
-  <% end %>
   <h2 class="text-center">Movie</h2>
   <div class="table-container">
     <table class="table table-striped">
