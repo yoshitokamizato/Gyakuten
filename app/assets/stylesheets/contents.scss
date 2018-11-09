@@ -11,7 +11,7 @@
   }
 
   .movie {
-    padding: 20px 0px;
+    padding: 50px 0px 20px 0px;
   }
 
   table {
@@ -38,5 +38,13 @@
     .w-5 {
       width: 50%;
     }
+  }
+}
+
+#line-contents {
+  width: 450px;
+  margin: 0 auto;
+  h2 {
+    padding: 30px 0px 10px 0px;
   }
 }

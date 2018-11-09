@@ -19,7 +19,7 @@
               <%= movie.genre %>
             </td>
             <td>
-              <%= link_to movie.title, movie_path(movie.id) %>
+              <%= link_to movie.title, movie_path(movie.id), :target => "_blank" %>
             </td>
           </tr>
         <% end %>
@@ -47,7 +47,36 @@
             <%= text.genre %>
           </td>
           <td>
-            <%= link_to text.title, text_path(text.id) %>
+            <%= link_to text.title, text_path(text.id), :target => "_blank" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2 class="text-center">LINE@</h2>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead class="bg-success text-white">
+      <tr>
+        <th class="w-1">No.</th>
+        <th class="w-2">ジャンル</th>
+        <th class="w-5">内容</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @contents[:line].each.with_index(1) do |line, i| %>
+        <tr>
+          <td>
+            <p><%= i %></p>
+          </td>
+          <td>
+            <%= line.genre %>
+          </td>
+          <td>
+            <%= link_to line.title, line_path(line.id), :target => "_blank" %>
           </td>
         </tr>
       <% end %>
