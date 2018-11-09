@@ -1,57 +1,48 @@
-.container {
-  width: 100%;
+#container {
+  width: 90%;
+  margin: 0 auto;
   padding: 50px 0;
-  max-width: 865px;
   p {
     font-size: 2em;
   }
-  pre {
+  h1 {
+    padding: 20px 0px 10px 0px;
+    font-size: 5em;
+  }
+
+  h2 {
+    padding: 20px 0px 10px 0px;
+    font-size: 5em;
+  }
+
+  .movie {
+    padding: 50px 0px 20px 0px;
+  }
+
+  table {
+    table-layout: fixed;
     font-size: 1.5em;
-  }
-  li {
-    font-size: 2em;
-  }
-
-  #contents {
-    h1 {
-      padding: 20px 0px 10px 0px;
-      font-size: 4em;
+    thead {
+      color: white;
     }
-
-    h2 {
-      padding: 20px 0px 10px 0px;
-      font-size: 4em;
+    a { //リンクをテーブルの中で折り返して表示　※現在は使用してないが記録として
+      white-space: pre;           /* CSS 2.0 */
+      white-space: pre-wrap;      /* CSS 2.1 */
+      white-space: pre-line;      /* CSS 3.0 */
+      white-space: -pre-wrap;     /* Opera 4-6 */
+      white-space: -o-pre-wrap;   /* Opera 7 */
+      white-space: -moz-pre-wrap; /* Mozilla */
+      white-space: -hp-pre-wrap;  /* HP Printers */
+      word-wrap: break-word;      /* IE 5+ */
     }
-
-    .movie {
-      padding: 50px 0px 20px 0px;
+    .w-1 {
+      width: 10%;
     }
-
-    table {
-      table-layout: fixed;
-      font-size: 1.5em;
-      thead {
-        color: white;
-      }
-      a { //リンクをテーブルの中で折り返して表示　※現在は使用してないが記録として
-        white-space: pre;           /* CSS 2.0 */
-        white-space: pre-wrap;      /* CSS 2.1 */
-        white-space: pre-line;      /* CSS 3.0 */
-        white-space: -pre-wrap;     /* Opera 4-6 */
-        white-space: -o-pre-wrap;   /* Opera 7 */
-        white-space: -moz-pre-wrap; /* Mozilla */
-        white-space: -hp-pre-wrap;  /* HP Printers */
-        word-wrap: break-word;      /* IE 5+ */
-      }
-      .w-1 {
-        width: 10%;
-      }
-      .w-2 {
-        width: 20%;
-      }
-      .w-5 {
-        width: 50%;
-      }
+    .w-2 {
+      width: 20%;
+    }
+    .w-5 {
+      width: 50%;
     }
   }
 }
@@ -126,7 +117,7 @@
   .movie-desc {
     padding-top: 30px;
     p {
-      font-size: 2em;
+      font-size: 1.5em;
     }
   }
 }
