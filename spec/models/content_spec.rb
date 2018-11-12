@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Content, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
 
   # bundle exec rails generate rspec:model Content
   it "オブジェクトが取得できること" do
