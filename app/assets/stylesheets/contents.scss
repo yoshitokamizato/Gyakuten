@@ -98,11 +98,17 @@
 }
 
 #text-contents {
+
+  table {
+    padding: 10px;
+  }
+
   table, th, td {
     border-collapse: collapse;
     border: 1px solid #ccc;
     line-height: 1.5;
     padding: 10px;
+    font-size: 14px;
   }
 
   table.type06 th {
@@ -111,6 +117,7 @@
     font-weight: bold;
     vertical-align: top;
   }
+
   table.type06 td {
     width: 350px;
     padding: 10px;
