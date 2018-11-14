@@ -133,13 +133,17 @@
 #text-contents {
   margin: 0 auto;
 
+  table {
+    margin: 30px auto;
+  }
+
   table, th, td {
     border-collapse: collapse;
     border: 1px solid #ccc;
     line-height: 1.5;
     padding: 10px;
     font-size: 1.4em;
-    margin: 0 auto;
+    color: #000;
   }
 
   table.type06 th {
