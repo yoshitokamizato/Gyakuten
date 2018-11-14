@@ -1,4 +1,5 @@
 <section id="contents">
+  <input class="form-control" id="myInput" type="text" placeholder="Search Curriculum">
   <h2 class="text-center text-danger">Movie</h2>
   <div class="table-container">
     <table class="table table-striped">
@@ -9,7 +10,7 @@
           <th class="w-5">内容</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="myTable">
         <% @contents[:movie].each.with_index(1) do |movie, i| %>
           <tr>
             <td>
@@ -37,7 +38,7 @@
         <th class="w-5">内容</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody id="myTable">
       <% @contents[:text].each.with_index(1) do |text, i| %>
         <tr>
           <td>
@@ -83,4 +84,16 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+      $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
+
 </section>
