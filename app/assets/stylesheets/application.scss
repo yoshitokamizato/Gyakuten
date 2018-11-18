@@ -13,7 +13,7 @@
  *= require_self
  *= require font-awesome
  */
-
+@import "bootstrap/functions";
 @import "bootstrap";
 
 #nav {
@@ -55,7 +55,6 @@ pre {
   border: 0.1px solid;
   padding: 10px;
 }
-
 
 @media screen and (min-width:0px) {
   /*0px以上で適用する内容*/

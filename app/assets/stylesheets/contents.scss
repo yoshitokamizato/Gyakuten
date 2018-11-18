@@ -84,6 +84,15 @@
   }
 }
 
+#contents {
+  .desc {
+    padding-bottom: 50px;
+    .popover {
+      width: 1000px;
+    }
+  }
+}
+
 #line-contents {
   width: 450px;
   h2 {
