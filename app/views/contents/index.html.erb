@@ -1,9 +1,17 @@
 <section id="contents">
   <div class="text-center desc">
+    <h2 class="text-danger">How To</h2>
     <% text = "動画やテキストなど自分が学びやすい媒体を使って学習を進めていってください。動画はBGM的な感じで流してもいい復習になります。" %>
-    <button type="button" data-html="true" class="btn btn-lg btn-danger" data-toggle="popover" data-content="<%= text %>">How to use</button>
+    <button type="button" data-html="true" class="btn btn-lg btn-danger" data-toggle="popover" data-content="<%= text %>">教材</button>
+    <% study = "プログラミングの学習順序としては、Git/Github・Ruby・SQL・Ruby on Railsの順番で進めてください。特にGit/Githubは、初心者が軽視しがちですが現場では超重要なスキルです。" %>
+    <button type="button" data-html="true" class="btn btn-lg btn-danger" data-toggle="popover" data-content="<%= study %>">学習順序</button>
+    <% mind = "プログラマーの仕事はエラー解決です。ぜひ、エラーを楽しんでください。もちろん、調べてもわからないところはいつでもご質問ください。" %>
+    <button type="button" data-html="true" class="btn btn-lg btn-danger" data-toggle="popover" data-content="<%= mind %>">学習姿勢</button>
   </div>
-  <input class="form-control" id="myInput" type="text" placeholder="Search Curriculum..">
+  <div class="text-center search-form">
+    <h2 class="text-danger">Search Curriculum</h2>
+    <input class="form-control" id="myInput" type="text" placeholder="Ruby..">
+  </div>
   <h2 class="text-center text-danger">Movie</h2>
   <div class="table-container">
     <table class="table table-striped">
