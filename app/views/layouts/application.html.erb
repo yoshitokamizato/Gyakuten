@@ -25,12 +25,6 @@
           <div class="navbar-nav">
             <%= link_to "収益化講座", moneys_path, class: "nav-item nav-link active" %>
           </div>
-          <div class="navbar-nav">
-            <%= link_to "参考記事", users_webs_path, class: "nav-item nav-link active" %>
-          </div>
-          <div class="navbar-nav">
-            <%= link_to "りゅうけんさん名言集", words_path, class: "nav-item nav-link active" %>
-          </div>
           <% if user_signed_in? %>
             <div class="navbar-nav">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
