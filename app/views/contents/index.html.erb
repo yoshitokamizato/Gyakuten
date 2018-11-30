@@ -32,7 +32,7 @@
               <%= movie.genre %>
             </td>
             <td>
-              <%= link_to movie.title, movie_path(movie.id), :target => "_blank" %>
+              <%= link_to movie.title, movie_path(movie.id), target: "_blank" %>
             </td>
           </tr>
         <% end %>
@@ -60,7 +60,7 @@
             <%= text.genre %>
           </td>
           <td>
-            <%= link_to text.title, text_path(text.id), :target => "_blank" %>
+            <%= link_to text.title, text_path(text.id), target: "_blank" %>
           </td>
         </tr>
       <% end %>
@@ -89,7 +89,7 @@
             <%= line.genre %>
           </td>
           <td>
-            <%= link_to line.title, line_path(line.id), :target => "_blank" %>
+            <%= link_to line.title, line_path(line.id), target: "_blank" %>
           </td>
         </tr>
       <% end %>

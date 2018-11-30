@@ -1,0 +1,6 @@
+<section id="movie-contents">
+  <h1><%= @money.title.html_safe %></h1>
+  <div class="movie-desc">
+    <%= markdown(@money.contents).html_safe %>
+  </div>
+</section>
