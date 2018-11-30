@@ -6,31 +6,46 @@
       <% end %>
     </div>
   <% end %>
+  <div class="text-center search-form">
+    <h2 class="text-danger">Search Curriculum</h2>
+    <input class="form-control" id="myInput" type="text" placeholder="検索..">
+  </div>
   <h2 class="text-center">Money</h2>
   <div class="table-container">
     <table class="table table-striped">
       <thead class="bg-danger text-white">
-      <tr>
-        <th class="w-1">No.</th>
-        <th class="w-2">ジャンル</th>
-        <th class="w-5">内容</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @moneys.each.with_index(1) do |money, i| %>
         <tr>
-          <td>
-            <%= i %>
-          </td>
-          <td>
-            <%= money.genre %>
-          </td>
-          <td>
-            <%= link_to money.title, money_path(money.id), target: "_blank" %>
-          </td>
+          <th class="w-1">No.</th>
+          <th class="w-2">ジャンル</th>
+          <th class="w-5">内容</th>
         </tr>
-      <% end %>
+      </thead>
+      <tbody id="myTable">
+        <% @moneys.each.with_index(1) do |money, i| %>
+          <tr>
+            <td>
+              <%= i %>
+            </td>
+            <td>
+              <%= money.genre %>
+            </td>
+            <td>
+              <%= link_to money.title, money_path(money.id), target: "_blank" %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
+
+  <script>
+      $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
 </section>
