@@ -5,5 +5,7 @@ class CreateErrors < ActiveRecord::Migration[5.2]
       t.integer :program_id
       t.timestamps
     end
+
+    add_index :errors, :program_id
   end
 end

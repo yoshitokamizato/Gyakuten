@@ -6,5 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :error_id
       t.timestamps
     end
+
+    add_index :users, :program_id
+    add_index :users, :error_id
   end
 end
