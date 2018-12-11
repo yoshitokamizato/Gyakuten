@@ -13,31 +13,30 @@
   <body>
     <section id="nav">
       <% color = controller.controller_name == "lines" ? "bg-success" : "bg-danger" %>
-      <nav class="navbar navbar-dark <%= color %>">
+      <nav class="navbar navbar-expand-lg navbar-dark <%= color %>">
         <%= link_to "Gyakuten", contents_path, class: "navbar-brand" %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <%= link_to "Rails講座", contents_path, class: "nav-item nav-link active" %>
-          </div>
-          <div class="navbar-nav">
-            <%= link_to "収益化講座", moneys_path, class: "nav-item nav-link active" %>
-          </div>
-          <% if user_signed_in? %>
-            <div class="navbar-nav">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
-            </div>
-          <% else %>
-            <div class="navbar-nav">
-              <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
-            </div>
-          <% end %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <%= link_to "Rails講座", contents_path, class: "nav-item nav-link active" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "収益化講座", moneys_path, class: "nav-item nav-link active" %>
+            </li>
+            <li class="nav-item">
+              <% if user_signed_in? %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+              <% else %>
+                <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </nav>
     </section>
-
 
     <div id="container">
       <%= yield %>
