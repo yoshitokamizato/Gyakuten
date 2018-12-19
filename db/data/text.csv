@@ -9128,6 +9128,146 @@ end
 ```
 
 ここまできたら、実際に[http://localhost:3000/users/new](http://localhost:3000/users/new)にアクセスし、実際に画像の投稿と表示ができれば完了です。お疲れ様でした！",2018-11-07 05:04:42 UTC,2018-11-07 05:04:42 UTC
+,Ruby on Rails,RailsアプリへのMarkdownの導入,"# RailsアプリにMarkdownを導入する方法
+Ruby on RailsアプリでMarkdownを記述できるようにする方法をご紹介します。
+
+この機能は、ほとんどHTMLを記述せずに画面を実装でき、コードもシンタックスハイライト付きで綺麗に表示できるため、プログラミングの教材作成にぴったりです。
+
+# 導入手順
+まずは、アプリを作成します。
+
+```
+rails new markdown_sample
+```
+
+アプリが作成できたら、 `cd` コマンドでアプリのディレクトリに移動します。
+
+```
+cd markdown_sample
+```
+
+移動ができたら、アプリに対応するデータベースを作成しましょう。
+
+```
+bundle exec rake db:create
+```
+
+データベースが作成できたら、以下の `gem` を `Gemfile` に加えます。
+
+```ruby
+# markdown
+gem 'redcarpet', '~> 2.3.0'
+# シンタックスハイライト
+gem 'coderay'
+```
+
+`helpers` の中にある `application_helper.rb` に以下の記述を追記します。
+
+```ruby
+module ApplicationHelper
+    require ""redcarpet""
+    require ""coderay""
+
+    class HTMLwithCoderay < Redcarpet::Render::HTML
+        def block_code(code, language)
+            language = language.split(':')[0] if language.present?
+
+            case language.to_s
+            when 'rb'
+                lang = 'ruby'
+            when 'yml'
+                lang = 'yaml'
+            when 'css'
+                lang = 'css'
+            when 'html'
+                lang = 'html'
+            when ''
+                lang = 'md'
+            else
+                lang = language
+            end
+
+            CodeRay.scan(code, lang).div
+        end
+    end
+
+    def markdown(text)
+        html_render = HTMLwithCoderay.new(filter_html: true, hard_wrap: true)
+        options = {
+            autolink: true,
+            space_after_headers: true,
+            no_intra_emphasis: true,
+            fenced_code_blocks: true,
+            tables: true,
+            hard_wrap: true,
+            xhtml: true,
+            lax_html_blocks: true,
+            strikethrough: true
+        }
+        markdown = Redcarpet::Markdown.new(html_render, options)
+        markdown.render(text)
+    end
+end
+```
+
+以上でRuby on RailsアプリへのMarkdownの導入が終わりです。これで、Markdownの記述をHTMLのタグに自動変換できるようになりました。
+
+つまり、HTMLを使用せず、MarkdownでWebアプリケーションの画面が作れるようになったということです。
+
+それでは、動作確認をしましょう。
+
+まずは、コントローラとビューを作成します。以下のコマンドで一気に作成しましょう。
+
+```
+rails g controller users index
+```
+
+コントローラとビューが作成できたら、以下のコードを `/app/views/users/index.html.erb` に記述します。
+
+```
+<%=
+  text =<<~TEXT
+    # 大見出し
+    ## 中見出し
+    ### 小見出し
+    \```
+    puts ""hello""
+    \```
+  TEXT
+ %>
+<%= markdown(text).html_safe %>
+```
+
+記述が終わったら、 ルーティングを設定します。
+
+
+```ruby
+Rails.application.routes.draw do
+  root to: 'users#index'
+end
+```
+
+ルーティングの設定が終わったら、サーバーを起動させます。
+
+```
+rails s
+```
+
+サーバーが起動したら、以下のURLにアクセスしてください。
+
+```
+http://localhost:3000/
+```
+
+Markdownで表示されることが確認できたら実装は終了です。
+
+# まとめ
+MarkdownをRuby on Railsアプリに導入することで、かなり爆速で画面を作成することができるようになります。
+
+プログラミング関連の教材を販売する際にも、Railsアプリを立ち上げてMarkdownで画面を作成すれば大幅に教材開発の効率を上げることができるので、ぜひ導入してみてください。
+
+お疲れ様でした。
+",,
 ,Ruby on Rails,テストコードの実装,"# RSpecの導入
 RSpecとは、Ruby on Railsで作ったクラスやメソッドをテストし、品質を担保するためのテストフレームワークです。
 
@@ -9454,8 +9594,7 @@ RSpec.describe User, type: :model do
     end
   end
 end
-```
-",,
+```",,
 38,Ruby on Rails,React の導入,"# Reactとは
 `React` とは、画面を構成するパーツ（コンポーネント）を作るためのライブラリです。
 
