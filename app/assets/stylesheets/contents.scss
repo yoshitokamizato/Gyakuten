@@ -106,12 +106,20 @@
   font-size: 20px;
 }
 
-#movie-contents {
+#movie {
   width: 90%;
-  .movie-desc {
-    padding-top: 30px;
-    p {
-      font-size: 17px;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
     }
   }
 }

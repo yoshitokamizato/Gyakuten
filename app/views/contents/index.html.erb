@@ -12,33 +12,6 @@
     <h2 class="text-danger">Search Curriculum</h2>
     <input class="form-control" id="myInput" type="text" placeholder="検索..">
   </div>
-  <h2 class="text-center text-danger">Movie</h2>
-  <div class="table-container">
-    <table class="table table-striped">
-      <thead class="bg-danger text-white">
-        <tr>
-          <th class="w-1">スキル</th>
-          <th class="w-2">ジャンル</th>
-          <th class="w-5">内容</th>
-        </tr>
-      </thead>
-      <tbody id="myTable">
-        <% @contents[:movie].each.with_index(1) do |movie, i| %>
-          <tr>
-            <td>
-              Lv.<%= i %>
-            </td>
-            <td>
-              <%= movie.genre %>
-            </td>
-            <td>
-              <%= link_to movie.title, movie_path(movie.id), target: "_blank" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
 
   <h2 class="text-center text-danger">Text</h2>
   <div class="table-container">
@@ -61,35 +34,6 @@
           </td>
           <td>
             <%= link_to text.title, text_path(text.id), target: "_blank" %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
-
-
-  <h2 class="text-center text-success">LINE@</h2>
-  <div class="table-container">
-    <table class="table table-striped">
-      <thead class="bg-success text-white">
-      <tr>
-        <th class="w-1">No.</th>
-        <th class="w-2">ジャンル</th>
-        <th class="w-5">内容</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @contents[:line].each.with_index(1) do |line, i| %>
-        <tr>
-          <td>
-            <%= i %>
-          </td>
-          <td>
-            <%= line.genre %>
-          </td>
-          <td>
-            <%= link_to line.title, line_path(line.id), target: "_blank" %>
           </td>
         </tr>
       <% end %>

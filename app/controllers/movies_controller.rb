@@ -2,7 +2,8 @@ class MoviesController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @movies = Movie.all
+    @level = params[:page] ? (params[:page].to_i * 10) : 1
+    @movies = Movie.all.page(params[:page]).per(10)
   end
 
   def show

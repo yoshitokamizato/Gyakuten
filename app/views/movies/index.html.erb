@@ -1,4 +1,4 @@
-<section id="movie-contents">
+<section id="movie">
   <% if params[:flash].present? %>
     <div class="alert alert-danger text-center" role="alert">
       <%= link_to new_user_session_path, class: "text-danger" do %>
@@ -6,31 +6,16 @@
       <% end %>
     </div>
   <% end %>
-  <h2 class="text-center">Movie</h2>
-  <div class="table-container">
-    <table class="table table-striped">
-      <thead class="bg-danger text-white">
-      <tr>
-        <th class="w-1">No.</th>
-        <th class="w-2">ジャンル</th>
-        <th class="w-5">内容</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @movies.each.with_index(1) do |movie, i| %>
-        <tr>
-          <td>
-            <%= i %>
-          </td>
-          <td>
-            <%= movie.genre %>
-          </td>
-          <td>
-            <%= link_to movie.title, movie_path(movie.id) %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+  <div class="text-center">
+    <h2>Movie</h2>
+    <% @movies.each.with_index(@level) do |movie, i| %>
+      <div class="movie-contents">
+        Lv.<%= i %>：<%= movie.title %>
+        <%= movie.contents.html_safe %>
+      </div>
+    <% end %>
+    <div class="paginate-container">
+      <%= paginate @movies %>
+    </div>
   </div>
 </section>

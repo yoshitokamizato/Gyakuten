@@ -1,8 +1,8 @@
 <section id="contents">
-  <h2 class="text-center">Movie</h2>
+  <h2 class="text-center text-success">LINE@</h2>
   <div class="table-container">
     <table class="table table-striped">
-      <thead class="bg-danger text-white">
+      <thead class="bg-success text-white">
       <tr>
         <th class="w-1">No.</th>
         <th class="w-2">ジャンル</th>
@@ -19,7 +19,7 @@
             <%= line.genre %>
           </td>
           <td>
-            <%= link_to line.title, line_path(line.id) %>
+            <%= link_to line.title, line_path(line.id), target: "_blank" %>
           </td>
         </tr>
       <% end %>
