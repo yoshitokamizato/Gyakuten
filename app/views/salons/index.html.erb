@@ -7,14 +7,14 @@
     </div>
   <% end %>
   <div class="text-center">
-    <% @movies.each.with_index(@level) do |movie, i| %>
+    <% @salons.each.with_index(@level) do |salon, i| %>
       <div class="movie-contents">
-        Lv.<%= i %>：<%= movie.title %>
-        <%= movie.contents.html_safe %>
+        Lv.<%= i %>：<%= salon.title %>
+        <%= salon.contents.html_safe %>
       </div>
     <% end %>
     <div class="paginate-container">
-      <%= paginate @movies %>
+      <%= paginate @salons %>
     </div>
   </div>
 </section>

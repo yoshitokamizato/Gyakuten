@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :texts
   resources :lines
   resources :moneys
+  resources :salons
 
 end

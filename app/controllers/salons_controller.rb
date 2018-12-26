@@ -1,13 +1,9 @@
-class MoneysController < ApplicationController
+class SalonsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
     @level = params[:page] ? (params[:page].to_i * 10) : 1
-    @movies = Movie.where(genre: "Money").page(params[:page]).per(10)
-  end
-
-  def show
-    @money = Money.find(params[:id])
+    @salons = Movie.where(genre: "Salon").page(params[:page]).per(10)
   end
 
   def move_to_index

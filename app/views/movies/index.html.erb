@@ -7,7 +7,6 @@
     </div>
   <% end %>
   <div class="text-center">
-    <h2>Movie</h2>
     <% @movies.each.with_index(@level) do |movie, i| %>
       <div class="movie-contents">
         Lv.<%= i %>：<%= movie.title %>
