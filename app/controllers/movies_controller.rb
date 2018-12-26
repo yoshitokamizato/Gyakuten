@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 
   def index
     @level = params[:page] ? (params[:page].to_i * 10) : 1
-    @movies = Movie.all.page(params[:page]).per(10)
+    @movies = Movie.where(genre: ["Basic", "Git", "Ruby", "Ruby on Rails"]).page(params[:page]).per(10)
   end
 
   def show
