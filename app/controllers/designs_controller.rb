@@ -1,10 +1,10 @@
-class MoneysController < ApplicationController
+class DesignsController < ApplicationController
   before_action :move_to_index, only: :index
   before_action :get_page, only: :index
 
   def index
     @level = Movie.count_level(@page)
-    @moneys = Movie.disp_money(@page)
+    @designs = Movie.disp_design(@page)
   end
 
   private

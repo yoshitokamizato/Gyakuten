@@ -124,6 +124,60 @@
   }
 }
 
+#design {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
+#money {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
+#salon {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
 #text-contents {
 
   table {
@@ -138,19 +192,6 @@
     font-size: 14px;
     color: #000;
   }
-
-  // table.type06 th {
-  //   width: 150px;
-  //   padding: 10px;
-  //   font-weight: bold;
-  //   vertical-align: top;
-  // }
-  //
-  // table.type06 td {
-  //   width: 350px;
-  //   padding: 10px;
-  //   vertical-align: top;
-  // }
 
   tr:nth-child(even) {
     background: #d9d9d9;

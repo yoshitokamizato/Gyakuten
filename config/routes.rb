@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   resources :lines
   resources :moneys
   resources :salons
+  resources :designs
 
 end

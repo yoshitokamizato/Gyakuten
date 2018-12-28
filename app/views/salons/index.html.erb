@@ -1,20 +1,28 @@
-<section id="movie">
-  <% if params[:flash].present? %>
-    <div class="alert alert-danger text-center" role="alert">
-      <%= link_to new_user_session_path, class: "text-danger" do %>
-        <strong><%= params[:flash][:error]  %></strong>
+<section id="salon">
+  <div class="container">
+    <div class="rows">
+      <% if params[:flash].present? %>
+        <div class="alert alert-danger text-center" role="alert">
+          <%= link_to new_user_session_path, class: "text-danger" do %>
+            <strong><%= params[:flash][:error]  %></strong>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
-  <div class="text-center">
-    <% @salons.each.with_index(@level) do |salon, i| %>
-      <div class="movie-contents">
-        Lv.<%= i %>：<%= salon.title %>
-        <%= salon.contents.html_safe %>
+      <div class="text-center">
+        <% @salons.each.with_index(@level) do |salon, i| %>
+          <div class="col-xs-12">
+            <div class="movie-title">
+              Lv.<%= i %>：<%= salon.title %>
+            </div>
+            <div class="movie-contents">
+              <%= salon.contents.html_safe %>
+            </div>
+          </div>
+        <% end %>
+        <div class="paginate-container">
+          <%= paginate @salons %>
+        </div>
       </div>
-    <% end %>
-    <div class="paginate-container">
-      <%= paginate @salons %>
     </div>
   </div>
 </section>
