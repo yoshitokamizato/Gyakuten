@@ -12,7 +12,7 @@
         <% @salons.each.with_index(@level) do |salon, i| %>
           <div class="col-xs-12">
             <div class="movie-title">
-              Lv.<%= i %>：<%= salon.title %>
+              No.<%= i %>：<%= salon.title %>
             </div>
             <div class="movie-contents">
               <%= salon.contents.html_safe %>
