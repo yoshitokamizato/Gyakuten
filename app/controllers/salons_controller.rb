@@ -1,12 +1,20 @@
 class SalonsController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, only: :index
+  before_action :get_page, only: :index
 
   def index
-    @level = params[:page] ? (params[:page].to_i * 10) - 9 : 1
-    @salons = Movie.where(genre: "Salon").page(params[:page]).per(10)
+    @level = Movie.count_level(@page)
+    @salons = Movie.disp_salon(@page)
   end
+
+  private
 
   def move_to_index
     redirect_to action: :index, flash: {error: "ログインしてください"} unless user_signed_in?
   end
+
+  def get_page
+    @page = params[:page]
+  end
+
 end

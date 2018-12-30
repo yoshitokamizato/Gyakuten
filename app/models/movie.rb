@@ -19,4 +19,8 @@ class Movie < ApplicationRecord
     Movie.where(genre: "Design").page(page).per(PER_PAGE)
   end
 
+  def self.disp_salon(page)
+    Movie.where(genre: "Salon").order("id DESC").page(page).per(PER_PAGE)
+  end
+
 end
