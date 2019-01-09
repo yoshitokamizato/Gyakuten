@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :move_to_index
+  before_action :move_to_index, except: :index
 
   def index
     page = params[:page]
