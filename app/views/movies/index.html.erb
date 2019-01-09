@@ -9,19 +9,21 @@
         </div>
       <% end %>
       <div class="text-center">
-        <% @movies.each.with_index(@level) do |movie, i| %>
-          <div class="col-xs-12">
-            <div class="movie-title">
-              Lv.<%= i %>：<%= movie.title %>
+        <% if user_signed_in? %>
+          <% @movies.each.with_index(@level) do |movie, i| %>
+            <div class="col-xs-12">
+              <div class="movie-title">
+                Lv.<%= i %>：<%= movie.title %>
+              </div>
+              <div class="movie-contents">
+                <%= movie.contents.html_safe %>
+              </div>
             </div>
-            <div class="movie-contents">
-              <%= movie.contents.html_safe %>
-            </div>
+          <% end %>
+          <div class="paginate-container">
+            <%= paginate @movies %>
           </div>
         <% end %>
-        <div class="paginate-container">
-          <%= paginate @movies %>
-        </div>
       </div>
     </div>
   </div>
