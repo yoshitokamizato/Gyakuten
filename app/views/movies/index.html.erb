@@ -16,9 +16,11 @@
                 Lv.<%= i %>：<%= movie.title %>
               </div>
               <div class="movie-contents">
-                <%= movie.contents.html_safe %>
+                <%= movie.contents.html_safe if movie.contents.present? %>
                 <div class="movie-description">
-                  <%= movie.desc %>
+                  <%  if movie.desc.present? %>
+                    <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
+                  <% end %>
                 </div>
               </div>
             </div>
