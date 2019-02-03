@@ -40,6 +40,9 @@ gem 'kaminari'
 
 gem 'rails_best_practices'
 
+# rails c
+gem 'rb-readline'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
