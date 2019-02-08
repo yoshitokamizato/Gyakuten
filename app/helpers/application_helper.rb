@@ -1,6 +1,7 @@
 module ApplicationHelper
     require "redcarpet"
     require "coderay"
+    require "uri"
 
     class HTMLwithCoderay < Redcarpet::Render::HTML
         def block_code(code, language)
@@ -26,7 +27,12 @@ module ApplicationHelper
     end
 
     def markdown(text)
-        html_render = HTMLwithCoderay.new(filter_html: true, hard_wrap: true)
+        html_render = HTMLwithCoderay.new(
+          filter_html: true,
+          hard_wrap: true,
+          link_attributes: { rel: 'nofollow', target: "_blank" }
+        )
+        
         options = {
             autolink: true,
             space_after_headers: true,
