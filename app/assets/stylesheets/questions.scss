@@ -1,0 +1,29 @@
+#questions {
+  a {
+    text-decoration: none;
+    display: block;
+    color: #333333;
+    border: solid 2px #333333;
+    border-radius: 10px;
+    transition: .4s;
+    .title {
+      font-size: 22px;
+      line-height: 2;
+    }
+    .info {
+      padding: 10px 10px 10px 20px;
+      color: #BBBBBB;
+    }
+  }
+  a:hover {
+    border: solid 2px #DC3545;
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+    transition: .4s;
+  }
+  .question {
+    height: 115px;
+    padding: 10px;
+  }
+}
