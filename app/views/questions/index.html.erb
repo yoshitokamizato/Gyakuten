@@ -1,21 +1,23 @@
 <section id="questions">
   <div class="container">
     <% @questions.each do |question| %>
-      <%= link_to(question_path(question.id)) do %>
-        <div class="question">
-          <div class="row">
-            <div class="col-md-7">
-                <p class="title"><%= truncate(question.title, length: 30) %></p>
-            </div>
-            <div class="col-md-5">
-              <div class="info text-right">
-                <p>質問日　<%= question.created_at.strftime('%Y年%m月%d日') %></p>
-                <p><%= question.count %> Views</p>
+      <div class="question-container">
+        <%= link_to(question_path(question.id)) do %>
+          <div class="question">
+            <div class="row">
+              <div class="col-md-7">
+                  <p class="title"><%= truncate(question.title, length: 30) %></p>
+              </div>
+              <div class="col-md-5">
+                <div class="info text-right">
+                  <p>質問日　<%= question.created_at.strftime('%Y年%m月%d日') %></p>
+                  <p><%= question.count %> Views</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </section>
