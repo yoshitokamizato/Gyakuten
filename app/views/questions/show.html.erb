@@ -1,3 +1,16 @@
-<%= @question.title %>
-<%= markdown(@question.details).html_safe %>
-<%= markdown(@question.solution).html_safe %>
+<section id="question">
+  <div class="title">
+    <h3>【質問】</h3>
+    <%= @question.title %>
+  </div>
+  <hr>
+  <div class="detail">
+    <h3>【詳細】</h3>
+    <%= markdown(@question.details).html_safe %>
+  </div>
+  <hr>
+  <div class="solution">
+    <h3>【回答】</h3>
+    <%= markdown(@question.solution).html_safe %>
+  </div>
+</section>
