@@ -6,7 +6,11 @@
           <div class="question">
             <div class="row">
               <div class="col-md-7">
-                  <p class="title"><%= truncate(question.title, length: 30) %></p>
+                <div class="title-container">
+                  <p class="title">
+                    <%= truncate(question.title, length: 50) %>
+                  </p>
+                </div>
               </div>
               <div class="col-md-5">
                 <div class="info text-right">

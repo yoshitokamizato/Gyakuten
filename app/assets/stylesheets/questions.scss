@@ -9,6 +9,9 @@
     border: solid 2px #505050;
     border-radius: 10px;
     transition: .4s;
+    .title-container {
+      word-wrap: normal;
+    }
     .title {
       font-size: 22px;
       line-height: 2;
