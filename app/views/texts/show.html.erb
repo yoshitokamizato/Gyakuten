@@ -1,6 +1,4 @@
 <section id="text-contents">
-  <div>
-    <p><%= @text.title %></p>
-    <%= markdown(@text.contents).html_safe %>
-  </div>
+  <h2><%= @text.title %></h2>
+  <%= markdown(@text.contents).html_safe %>
 </section>
