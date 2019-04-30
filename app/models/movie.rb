@@ -20,7 +20,7 @@ class Movie < ApplicationRecord
   end
 
   def self.disp_salon(page)
-    Movie.where(genre: "Salon").order('id ASC').order("id DESC").page(page).per(PER_PAGE)
+    Movie.where(genre: "Salon").order("id DESC").page(page).per(PER_PAGE)
   end
 
 end
