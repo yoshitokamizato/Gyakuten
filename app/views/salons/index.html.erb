@@ -9,10 +9,10 @@
         </div>
       <% end %>
       <div class="text-center">
-        <% @salons.each.with_index(@level) do |salon, i| %>
+        <% @salons.each do |salon| %>
           <div class="col-xs-12">
             <div class="movie-title">
-              No.<%= i %>：<%= salon.title %>
+              <%= salon.title %>
             </div>
             <div class="movie-contents">
               <%= salon.contents.html_safe %>
