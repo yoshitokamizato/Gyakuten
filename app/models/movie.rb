@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
 
   PER_PAGE = 10
-  PROGRAMMING = ["Basic", "git", "Ruby", "Ruby on Rails"]
+  PROGRAMMING = ["Basic", "git", "Ruby", "Ruby on Rails", "AWS"]
 
   def self.count_level(page)
     page ? ((page.to_i * PER_PAGE) - (PER_PAGE - 1)) : 1
@@ -13,10 +13,6 @@ class Movie < ApplicationRecord
 
   def self.disp_money(page)
     Movie.where(genre: "Money").order('id ASC').page(page).per(PER_PAGE)
-  end
-
-  def self.disp_design(page)
-    Movie.where(genre: "Design").order('id ASC').page(page).per(PER_PAGE)
   end
 
   def self.disp_salon(page)
