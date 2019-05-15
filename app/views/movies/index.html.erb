@@ -1,10 +1,10 @@
 <section id="movie">
   <div class="container">
     <div class="rows">
-      <% if params[:flash].present? %>
+      <% if flash[:error].present? %>
         <div class="alert alert-danger text-center" role="alert">
           <%= link_to new_user_session_path, class: "text-danger" do %>
-            <strong><%= params[:flash][:error]  %></strong>
+            <strong><%= flash[:error]  %></strong>
           <% end %>
         </div>
       <% end %>
