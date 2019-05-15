@@ -27,7 +27,7 @@
             <%= text.genre %>
           </td>
           <td>
-            <%= link_to text.title, text_path(text.id) %>
+            <%= link_to text.title, text_path(text.id), {:target => "_blank"} %>
           </td>
         </tr>
       <% end %>
