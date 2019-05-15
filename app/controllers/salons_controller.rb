@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
-  before_action :move_to_index, only: :index
-  before_action :get_page, only: :index
+  before_action :move_to_index
+  before_action :get_page
 
   def index
     @level = Movie.count_level(@page)
