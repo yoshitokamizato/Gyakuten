@@ -8,21 +8,23 @@
           <% end %>
         </div>
       <% end %>
-      <div class="text-center">
-        <% @salons.each do |salon| %>
-          <div class="col-xs-12">
-            <div class="movie-title">
-              <%= salon.title %>
+      <% if user_signed_in? %>
+        <div class="text-center">
+          <% @salons.each do |salon| %>
+            <div class="col-xs-12">
+              <div class="movie-title">
+                <%= salon.title %>
+              </div>
+              <div class="movie-contents">
+                <%= salon.contents.html_safe %>
+              </div>
             </div>
-            <div class="movie-contents">
-              <%= salon.contents.html_safe %>
-            </div>
+          <% end %>
+          <div class="paginate-container">
+            <%= paginate @salons %>
           </div>
-        <% end %>
-        <div class="paginate-container">
-          <%= paginate @salons %>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
