@@ -2,8 +2,7 @@ require 'csv'
 
 class Import
   # rake import_csv:movie_data
-  def self.movie_data
-    path = Rails.root + 'db/data/movies.csv'
+  def self.movie_data(path = 'db/data/movies.csv')
     Movie.delete_all
     data_list = []
     CSV.foreach(path, headers: true) do |row|
