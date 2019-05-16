@@ -2,7 +2,7 @@ class TextsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @texts = Text.all
+    @texts = Text.all.order('id ASC')
   end
 
   def show
