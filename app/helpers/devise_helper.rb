@@ -5,12 +5,14 @@ module DeviseHelper
     html = ''
 
     flash.each do |name, msg|
-      html += <<-HTML
-        <div class="alert alert-error alert-danger"> <button type="button"
-        class="close" data-dismiss="alert">x</button>
-          #{msg}
-        </div>
-      HTML
+      if name == 'alert'
+        html += <<-HTML
+          <div class="alert alert-error alert-danger"> <button type="button"
+          class="close" data-dismiss="alert">x</button>
+            #{msg}
+          </div>
+        HTML
+      end
     end
 
 
