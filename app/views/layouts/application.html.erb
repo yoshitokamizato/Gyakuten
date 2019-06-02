@@ -39,7 +39,8 @@
               <% if user_signed_in? %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
               <% else %>
-                <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+                <a href="#" class="nav-item nav-link active" data-toggle="modal" data-target="#signUpModal">ログイン</a>
+                <%= render partial: 'devise/sessions/new' %>
               <% end %>
             </li>
           </ul>

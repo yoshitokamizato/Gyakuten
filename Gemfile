@@ -21,6 +21,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # activeadmin
 gem 'activeadmin'
 gem 'devise'
+gem 'devise-bootstrap-views'
 
 # ajax
 gem 'rails-ujs'
