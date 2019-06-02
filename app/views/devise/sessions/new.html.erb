@@ -1,4 +1,5 @@
 <section id="login-container">
+  <%= devise_error_messages! %>
   <h1>ログイン</h1>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
