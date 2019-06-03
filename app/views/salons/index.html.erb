@@ -18,6 +18,11 @@
               <div class="movie-contents">
                 <%= salon.contents.html_safe %>
               </div>
+              <div class="movie-description">
+                <%  if salon.desc.present? %>
+                  <%= link_to "ソースコード", "#{salon.desc}", { target: "_blank" } %>
+                <% end %>
+              </div>
             </div>
           <% end %>
           <div class="paginate-container">
