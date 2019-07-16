@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   resources :texts
   resources :lines
   resources :moneys
-  resources :salons
+  resources :salons, only: :index
+  resources :lives, only: :index
+  resources :talks, only: :index
   resources :designs
   resources :questions, only: [:index, :show]
 

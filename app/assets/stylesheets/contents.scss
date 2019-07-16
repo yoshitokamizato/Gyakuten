@@ -178,6 +178,42 @@
   }
 }
 
+#talk {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
+#live {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
 #text-contents {
 
   table {
