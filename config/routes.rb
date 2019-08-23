@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   resources :users_webs
   resources :words
   resources :contents
-  resources :movies
+  resources :movies, only: :index
+  resources :marketings, only: :index
   resources :texts
   resources :lines
   resources :moneys

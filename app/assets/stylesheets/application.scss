@@ -60,12 +60,12 @@ pre {
 }
 
 @media screen and (min-width:0px) {
-  /*0px以上で適用する内容*/
   @import "smart_phones";
 }
 
 @media screen and (min-width:1000px){
-  /*600px以上で適用する内容*/
+  @import "movie";
+  @import "marketing";
   @import "users_webs";
   @import "contents";
   @import "questions";

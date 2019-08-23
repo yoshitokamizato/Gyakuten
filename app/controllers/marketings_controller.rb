@@ -1,10 +1,10 @@
-class MoviesController < ApplicationController
+class MarketingsController < ApplicationController
   before_action :move_to_index
 
   def index
     page = params[:page]
-    @level = Movie.count_level(page)
-    @movies = Movie.disp_programming(page)
+    @level = Marketing.count_level(page)
+    @marketings = Marketing.search_all_movie(page)
   end
 
   private
