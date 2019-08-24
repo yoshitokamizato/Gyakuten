@@ -20,11 +20,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <%= link_to "動画教材", movies_path, class: "nav-item nav-link active" %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "テキスト教材", texts_path, class: "nav-item nav-link active" %>
+            <li class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Rails
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "動画教材", movies_path, class: "nav-item nav-link active text-danger" %>
+                <%= link_to "テキスト教材", texts_path, class: "nav-item nav-link active text-danger" %>
+              </div>
             </li>
             <li class="nav-item">
               <%= link_to "ライブコーディング", lives_path, class: "nav-item nav-link active" %>
