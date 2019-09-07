@@ -8,9 +8,11 @@
     <h3>【詳細】</h3>
     <p><%= markdown(@question.details).html_safe %></p>
   </div>
-  <hr>
-  <div class="solution">
-    <h3>【回答】</h3>
-    <p><%= markdown(@question.solution).html_safe %></p>
-  </div>
+  <% if @question.solution %>
+    <hr>
+    <div class="solution">
+      <h3>【回答】</h3>
+      <p><%= markdown(@question.solution).html_safe %></p>
+    </div>
+  <% end %>
 </section>
