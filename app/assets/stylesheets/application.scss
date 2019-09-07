@@ -71,3 +71,19 @@ pre {
   @import "questions";
   @import "loggins";
 }
+
+/*質問投稿用*/
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+#container {
+  .initial-height {
+    height: initial;
+  }
+}

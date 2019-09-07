@@ -1,6 +1,7 @@
 <div class="container">
   <h1>新規投稿</h1>
   <%= form_with model: @question, local: true do |f| %>
+    <%= render 'error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :title, "【質問】", class: 'control-label' %>
       <%= f.text_area :title, class: 'form-control initial-height', rows: 3 %>
