@@ -11,9 +11,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to questions_path, success: '記事を作成しました。'
+      redirect_to questions_path
     else
-      flash[:warning] = @post.errors.full_messages.join(', ')
+      @questions = Question.all.order("created_at DESC")
       render 'questions/index'
     end
   end

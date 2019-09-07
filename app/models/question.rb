@@ -1,4 +1,7 @@
 class Question < ApplicationRecord
+  validates :title, presence: true
+  validates :details, presence: true
+
   def self.build_and_count_up(id)
     question = Question.find(id)
     question.record_timestamps = false
