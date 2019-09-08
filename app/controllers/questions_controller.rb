@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
+      flash[:success] = "質問を投稿しました。"
       redirect_to questions_path
     else
       @questions = Question.all.order("created_at DESC")
