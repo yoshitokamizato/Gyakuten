@@ -1,4 +1,5 @@
 class Question < ApplicationRecord
+  belongs_to :user
   validates :title, presence: { message: "【質問】は空欄にできません" }
   validates :details, presence: { message: "【詳細】は空欄にできません" }
 

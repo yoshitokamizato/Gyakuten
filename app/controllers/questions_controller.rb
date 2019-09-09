@@ -9,13 +9,27 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.build(question_params)
     if @question.save
       flash[:success] = "質問を投稿しました。"
       redirect_to questions_path
     else
       @questions = Question.all.order("created_at DESC")
       render 'questions/index'
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      flash[:success] = "質問を修正しました。"
+      redirect_to questions_path
+    else
+      render 'questions/edit'
     end
   end
 
