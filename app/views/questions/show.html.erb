@@ -1,6 +1,6 @@
 <%= render 'shared/flash_message' %>
 <%= render 'shared/error_messages', object: @solution %>
-<% if @question.user_id == current_user.id && @solutions.blank? %>
+<% if @solutions.blank? %>
   <%= link_to "質問内容を修正", edit_question_path(@question), class: "btn btn-warning btn-block btn-lg" %>
 <% end %>
 <section id="question">

@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_092457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "count", default: 0
-    t.integer "user_id"
   end
 
   create_table "solutions", force: :cascade do |t|

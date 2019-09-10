@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = current_user.questions.build(question_params)
+    @question = Question.new(question_params)
     if @question.save
       flash[:success] = "質問を投稿しました。"
       redirect_to questions_path
@@ -43,8 +43,8 @@ class QuestionsController < ApplicationController
 
   def ensure_correct_user
     @question = Question.find(params[:id])
-    # ログインidと質問者idが異なる場合，または，質問への回答が存在する場合にリダイレクト
-    if @question.user_id != current_user.id || @question.solutions.length.positive?
+    # 質問への回答が存在する場合にリダイレクト
+    if @question.solutions.length.positive?
       flash[:warning] = "権限がありません。"
       redirect_to questions_path
     end
