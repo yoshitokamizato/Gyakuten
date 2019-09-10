@@ -1,7 +1,8 @@
-<% if @question.user_id == current_user.id %>
+<%= render 'shared/flash_message' %>
+<%= render 'shared/error_messages', object: @solution %>
+<% if @question.user_id == current_user.id && @solutions.blank? %>
   <%= link_to "質問内容を修正", edit_question_path(@question), class: "btn btn-warning btn-block btn-lg" %>
 <% end %>
-<%#= render 'answer_form' %>
 <section id="question">
   <div class="title">
     <h3>【質問】</h3>
@@ -12,11 +13,16 @@
     <h3>【詳細】</h3>
     <p><%= markdown(@question.details).html_safe %></p>
   </div>
-  <% if @question.solution %>
-    <hr>
-    <div class="solution">
-      <h3>【回答】</h3>
-      <p><%= markdown(@question.solution).html_safe %></p>
-    </div>
+  <% if @solutions.present? %>
+    <% @solutions.each.with_index(1) do |solution, index| %>
+      <!-- 回答が１つしかない場合は，【回答1】でなく【回答】と表示するためにindexをnilに変更-->
+      <% index = nil if @solutions.length == 1 %>
+      <hr>
+      <div class="solution">
+        <h3>【回答<%= index %>】</h3>
+        <p><%= markdown(solution.content).html_safe %></p>
+      </div>
+    <% end %>
   <% end %>
 </section>
+<%= render 'questions/solution_form' %>

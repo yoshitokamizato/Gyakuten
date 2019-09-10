@@ -1,8 +1,7 @@
 <div class="container">
   <h1><%= title %></h1>
-  <%= render 'flash_message'%>
   <%= form_with model: @question, local: true do |f| %>
-    <%= render 'error_messages', object: f.object %>
+    <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :title, "【質問】", class: 'control-label' %>
       <%= f.text_area :title,

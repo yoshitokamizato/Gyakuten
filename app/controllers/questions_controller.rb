@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update]
+
   def index
     @questions = Question.all.order("created_at DESC")
     @question = Question.new
@@ -6,6 +8,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.build_and_count_up(params[:id])
+    @solutions = Solution.where(question_id: @question.id)
+    @solution = @question.solutions.new
   end
 
   def create
@@ -20,11 +24,9 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
 
   def update
-    @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:success] = "質問を修正しました。"
       redirect_to questions_path
@@ -37,5 +39,14 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:title, :details)
+  end
+
+  def ensure_correct_user
+    @question = Question.find(params[:id])
+    # ログインidと質問者idが異なる場合，または，質問への回答が存在する場合にリダイレクト
+    if @question.user_id != current_user.id || @question.solutions.length.positive?
+      flash[:warning] = "権限がありません。"
+      redirect_to questions_path
+    end
   end
 end
