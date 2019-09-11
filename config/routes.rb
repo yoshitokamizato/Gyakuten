@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :moneys
   resources :salons
   resources :designs
-  resources :questions, only: [:index, :show]
-
+  resources :questions, only: [:index, :show, :create, :edit, :update]
+  resources :questions do
+    resource :solutions, only: [:create]
+  end
 end
