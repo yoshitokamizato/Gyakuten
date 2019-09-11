@@ -1,0 +1,20 @@
+#marketing {
+  width: 90%;
+  margin: 0 auto;
+  .marketing-title {
+    font-size: 20px;
+  }
+  .marketing-contents {
+    padding-bottom: 70px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
