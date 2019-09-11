@@ -16,6 +16,8 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.save
       flash[:success] = "質問を投稿しました。"
+      cookies.signed[:my_question] = { value: @question.id,
+                                       expires: 1.weeks.from_now.utc }
       redirect_to questions_path
     else
       @questions = Question.all.order("created_at DESC")
@@ -44,7 +46,9 @@ class QuestionsController < ApplicationController
   def ensure_correct_user
     @question = Question.find(params[:id])
     # 質問への回答が存在する場合にリダイレクト
-    if @question.solutions.length.positive?
+    if (@question.solutions.length.positive? ||
+        cookies[:my_question].nil? ||
+        cookies.signed[:my_question].to_i != @question.id)
       flash[:warning] = "権限がありません。"
       redirect_to questions_path
     end
