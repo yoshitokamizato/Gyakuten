@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :salons, only: :index
   resources :lives, only: :index
   resources :talks, only: :index
+  resources :videoedittings, only: :index
   resources :designs
   resources :questions, only: [:index, :show, :create, :edit, :update]
   resources :questions do

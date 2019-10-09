@@ -10,23 +10,23 @@
       <% end %>
       <% if user_signed_in? %>
         <div class="text-center">
-          <% @salons.each do |salon| %>
+          <% @talks.each do |talk| %>
             <div class="col-xs-12">
               <div class="movie-title">
-                <%= salon.title %>
+                <%= talk.title %>
               </div>
               <div class="movie-contents">
-                <%= salon.contents.html_safe %>
+                <%= talk.contents.html_safe %>
                 <div class="disp-source">
-                  <%  if salon.desc.present? %>
-                    <%= link_to "ソースコード", "#{salon.desc}", { target: "_blank" } %>
+                  <%  if talk.desc.present? %>
+                    <%= link_to "ソースコード", "#{talk.desc}", { target: "_blank" } %>
                   <% end %>
                 </div>
               </div>
             </div>
         <% end %>
           <div class="paginate-container">
-            <%= paginate @salons %>
+            <%= paginate @talks %>
           </div>
         </div>
       <% end %>

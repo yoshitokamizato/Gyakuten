@@ -1,10 +1,9 @@
-class TalksController < ApplicationController
+class VideoedittingsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_page
 
   def index
-    @level = Movie.count_level(@page)
-    @talks = Movie.disp_talks(@page)
+    @modvieedittings = Movie.disp_modvieedittings(@page)
   end
 
   private

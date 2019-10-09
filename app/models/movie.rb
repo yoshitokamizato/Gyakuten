@@ -23,6 +23,10 @@ class Movie < ApplicationRecord
     Movie.where(genre: "Talk").order("id DESC").page(page).per(PER_PAGE)
   end
 
+  def self.disp_modvieedittings(page)
+    Movie.where(genre: "Movie").order("id ASC").page(page).per(PER_PAGE)
+  end
+
   def self.disp_lives(page)
     Movie.where(genre: "Live").order("id DESC").page(page).per(PER_PAGE)
   end
