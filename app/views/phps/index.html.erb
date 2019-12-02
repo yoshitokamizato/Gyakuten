@@ -1,14 +1,14 @@
-<section id="writings">
+<section id="phps">
   <div class="container">
     <div class="rows">
       <div class="text-center">
-        <% @writing_movies.each do |writing_movie| %>
+        <% @php_movies.each do |php_movie| %>
           <div class="col-xs-12">
             <div class="movie-title">
-              <%= writing_movie.title %>
+              <%= php_movie.title %>
             </div>
             <div class="movie-contents">
-              <%= writing_movie.contents.html_safe %>
+              <%= php_movie.contents.html_safe %>
             </div>
           </div>
         <% end %>

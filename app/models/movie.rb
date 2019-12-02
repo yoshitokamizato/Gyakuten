@@ -31,6 +31,10 @@ class Movie < ApplicationRecord
     Movie.where(genre: "Writing").order("id ASC")
   end
 
+  def self.disp_phps
+    Movie.where(genre: "Php").order("id ASC")
+  end
+
   def self.disp_lives(page)
     Movie.where(genre: "Live").order("id DESC").page(page).per(PER_PAGE)
   end
