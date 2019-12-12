@@ -1,5 +1,5 @@
 class SalonsController < ApplicationController
-  before_action :move_to_index
+  before_action :authenticate_user!
   before_action :get_page
 
   def index
@@ -9,12 +9,8 @@ class SalonsController < ApplicationController
 
   private
 
-  def move_to_index
-    flash[:error] = "ログインしてください" unless user_signed_in?
-  end
-
-  def get_page
-    @page = params[:page]
-  end
+    def get_page
+      @page = params[:page]
+    end
 
 end
