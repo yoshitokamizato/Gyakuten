@@ -96,12 +96,6 @@
   .search-form {
     padding-bottom: 30px;
   }
-  .cover img {
-    width: 80%;
-  }
-  .cover p {
-    font-size: 16px;
-  }
 }
 
 #line-contents {
@@ -201,5 +195,21 @@
 
   tr:nth-child(even) {
     background: #d9d9d9;
+  }
+}
+
+#take_of_rails {
+  width: 40vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  .cover img {
+    width: 80%;
+  }
+  .cover p {
+    font-size: 16px;
+  }
+  :hover {
+    opacity: 0.9;
   }
 }

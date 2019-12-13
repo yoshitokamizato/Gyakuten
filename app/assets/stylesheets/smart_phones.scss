@@ -91,12 +91,6 @@
   .desc {
     visibility: hidden;
   }
-  .cover img {
-    width: 80%;
-  }
-  .cover p {
-    font-size: 1.3em;
-  }
 }
 
 #users_web {
@@ -272,5 +266,21 @@
   }
   .solution {
     padding-top: 70px;
+  }
+}
+
+#take_of_rails {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  .cover img {
+    width: 80%;
+  }
+  .cover p {
+    font-size: 1.3em;
+  }
+  :hover {
+    opacity: 0.9;
   }
 }
