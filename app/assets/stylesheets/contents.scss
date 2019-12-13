@@ -106,24 +106,6 @@
   font-size: 20px;
 }
 
-#movie {
-  width: 90%;
-  margin: 0 auto;
-  .movie-contents {
-    padding-bottom: 70px;
-  }
-  .paginate-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .paginate-container {
-      .page-link {
-        background-color: #B00100;
-      }
-    }
-  }
-}
-
 #design {
   width: 90%;
   margin: 0 auto;
@@ -161,6 +143,78 @@
 }
 
 #salon {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
+#talk {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
+#writings {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
+#phps {
+  width: 90%;
+  margin: 0 auto;
+  .movie-contents {
+    padding-bottom: 30px;
+  }
+  .paginate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .paginate-container {
+      .page-link {
+        background-color: #B00100;
+      }
+    }
+  }
+}
+
+#live {
   width: 90%;
   margin: 0 auto;
   .movie-contents {

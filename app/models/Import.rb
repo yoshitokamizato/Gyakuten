@@ -21,7 +21,7 @@ class Import
   end
 
   # rake import_csv:text_data
-  def self.text_data(path = 'db/data/text.csv')
+  def self.text_data(path = 'db/data/texts.csv')
     Text.delete_all
     data_list = []
     CSV.foreach(path, headers: true) do |row|

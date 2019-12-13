@@ -8,9 +8,6 @@
           <% end %>
         </div>
       <% end %>
-      <!-- 追加箇所 -->
-      <%= render 'shared/take_of_rails' %>
-
       <% if user_signed_in? %>
         <div class="text-center">
           <% @salons.each do |salon| %>
@@ -20,9 +17,14 @@
               </div>
               <div class="movie-contents">
                 <%= salon.contents.html_safe %>
+                <div class="disp-source">
+                  <%  if salon.desc.present? %>
+                    <%= link_to "ソースコード", "#{salon.desc}", { target: "_blank" } %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          <% end %>
+        <% end %>
           <div class="paginate-container">
             <%= paginate @salons %>
           </div>

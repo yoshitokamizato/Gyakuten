@@ -1,0 +1,18 @@
+<section id="talk">
+  <div class="container">
+    <div class="rows">
+      <div class="text-center">
+        <% @viedeoedittings.each do |modvieeditting| %>
+          <div class="col-xs-12">
+            <div class="movie-title">
+              <%= modvieeditting.title %>
+            </div>
+            <div class="movie-contents">
+              <%= modvieeditting.contents.html_safe %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

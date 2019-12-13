@@ -1,0 +1,38 @@
+<section id="live">
+  <div class="container">
+    <div class="rows">
+      <% if flash[:error].present? %>
+        <div class="alert alert-danger text-center" role="alert">
+          <%= link_to new_user_session_path, class: "text-danger" do %>
+            <strong><%= flash[:error]  %></strong>
+          <% end %>
+        </div>
+      <% end %>
+      <!-- 追加箇所 -->
+      <%= render 'shared/take_of_rails' %>
+      
+      <% if user_signed_in? %>
+        <div class="text-center">
+          <% @salons.each do |salon| %>
+            <div class="col-xs-12">
+              <div class="movie-title">
+                <%= salon.title %>
+              </div>
+              <div class="movie-contents">
+                <%= salon.contents.html_safe %>
+                <div class="disp-source">
+                  <%  if salon.desc.present? %>
+                    <%= link_to "ソースコード", "#{salon.desc}", { target: "_blank" } %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+          <div class="paginate-container">
+            <%= paginate @salons %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
