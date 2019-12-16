@@ -257,7 +257,11 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  padding: 40px 0px;
   .cover img {
+    border: solid #505050 1px;
+    border-radius: 10px;
+    padding: 5px;
     width: 80%;
   }
   .cover p {
