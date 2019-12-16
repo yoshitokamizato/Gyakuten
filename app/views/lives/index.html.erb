@@ -8,6 +8,9 @@
           <% end %>
         </div>
       <% end %>
+      <!-- 追加箇所 -->
+      <%= render 'shared/take_of_rails' %>
+      
       <% if user_signed_in? %>
         <div class="text-center">
           <% @salons.each do |salon| %>

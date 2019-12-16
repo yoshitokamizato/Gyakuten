@@ -8,6 +8,9 @@
           <% end %>
         </div>
       <% end %>
+      <!-- 追加箇所 -->
+      <%= render 'shared/take_of_rails' %>
+
       <div class="text-center">
         <% if user_signed_in? %>
           <% @movies.each.with_index(@level) do |movie, i| %>
