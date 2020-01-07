@@ -287,6 +287,26 @@
   }
 }
 
+#aws-contents {
+
+  table {
+    margin: 30px auto;
+  }
+
+  table, th, td {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    line-height: 1.5;
+    padding: 10px;
+    font-size: 14px;
+    color: #000;
+  }
+
+  tr:nth-child(even) {
+    background: #d9d9d9;
+  }
+}
+
 #take_of_rails {
   width: 40vw;
   position: relative;

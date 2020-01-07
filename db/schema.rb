@@ -67,6 +67,13 @@ ActiveRecord::Schema.define(version: 2020_02_16_061114) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "aws", force: :cascade do |t|
+    t.string "title"
+    t.text "contents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "errors", force: :cascade do |t|
     t.string "name"
     t.integer "program_id"
@@ -121,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_061114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "count", default: 0
+    t.integer "user_id"
   end
 
   create_table "solutions", force: :cascade do |t|
@@ -128,6 +136,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_061114) do
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "texts", force: :cascade do |t|
