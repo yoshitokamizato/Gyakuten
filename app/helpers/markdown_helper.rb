@@ -4,44 +4,60 @@ module MarkdownHelper
   require "uri"
 
   class HTMLwithCoderay < Redcarpet::Render::HTML
-    def block_code(code, language)
-      path, lang = set_path_and_lang(language)
-      "#{file_name(path)}#{CodeRay.scan(code, lang).div}"
+    def block_code(code, options)
+      # ```options
+      # code
+      # ```
+      # というマークダウンの書き方への対応
+      path, lang = set_path_and_lang(options)
+      # code に適用するシンタックスハイライトを lang で決定
+      # options にファイル名が存在する場合は，フィル名をコード枠の左上に表示させる
+      "#{path_decoration(path)}#{CodeRay.scan(code, lang).div}"
     end
 
     private
 
-    def set_path_and_lang(language)
-      path = nil
-
-      if language.present?
-        array = language.split(':')
+    def set_path_and_lang(options)
+      # options は４通りの形式に対応できるようにする
+      # 1. 無し
+      # 2. html
+      # 3. app/views/layouts/application.html.erb
+      # 4. html:app/views/layouts/application.html.erb
+      if options.blank?
+        # 1. options が無いケース
+        path = nil
+        lang = 'md'
+      else
+        # 2 〜 4 のケース
+        array = options.split(':')
         if array[0].include?('.')
+          # 3. app/views/layouts/application.html.erb のケース
           path = array[0]
-          language = array[0].split('.')[1]
+          lang = array[0].split('.')[1]
         elsif array.length > 1
+          # 4. html:app/views/layouts/application.html.erb のケース
           path = array[1]
-          language = array[0]
+          lang = array[0]
         else
-          language = array[0]
+          # 2. html のケース
+          path = nil
+          lang = array[0]
         end
       end
 
-      lang = case language.to_s
+      lang = case lang
              when 'rb'
                'ruby'
              when 'yml'
                'yaml'
-             when ''
-               'md'
              else
-               language
+               lang
              end
 
       [path, lang]
     end
 
-    def file_name(path)
+    def path_decoration(path)
       return if path.nil?
       "<div class=\"text-danger\">#{path}</div>"
     end
