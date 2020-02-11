@@ -39,7 +39,7 @@ gem 'font-awesome-rails'
 # kaminari
 gem 'kaminari'
 
-gem 'rails_best_practices'
+# gem 'rails_best_practices'
 
 # rails c
 gem 'rb-readline'
@@ -50,6 +50,9 @@ gem 'slack-notifier'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  # RuboCop
+  gem 'rubocop-rspec'
+  gem 'rubocop-rails'
 end
 
 group :development do
