@@ -4,5 +4,4 @@ class WritingsController < ApplicationController
   def index
     @writing_movies = Movie.disp_writings
   end
-
 end

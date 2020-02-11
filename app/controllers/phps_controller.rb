@@ -4,5 +4,4 @@ class PhpsController < ApplicationController
   def index
     @php_movies = Movie.disp_phps
   end
-
 end

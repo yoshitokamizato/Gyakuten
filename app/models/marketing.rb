@@ -6,6 +6,6 @@ class Marketing < ApplicationRecord
   end
 
   def self.search_all_movie(page)
-    Marketing.all.order('id ASC').page(page).per(PER_PAGE)
+    Marketing.all.order("id ASC").page(page).per(PER_PAGE)
   end
 end

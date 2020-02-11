@@ -7,7 +7,7 @@ class Question < ApplicationRecord
     question = Question.find(id)
     question.record_timestamps = false
     question.count += 1
-    question.save
+    question.save!
     question.record_timestamps = true
 
     question
