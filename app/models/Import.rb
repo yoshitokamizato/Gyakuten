@@ -1,59 +1,58 @@
-require 'csv'
+require "csv"
 
 class Import
   # rake import_csv:movie_data
-  def self.movie_data(path = 'db/data/movies.csv')
+  def self.movie_data(path = "db/data/movies.csv")
     Movie.delete_all
     data_list = []
     CSV.foreach(path, headers: true) do |row|
       data_list << {
-          title: row["Title"],
-          contents: row["Contents"],
-          desc: row["Desc"],
-          genre: row["Genre"]
+        title: row["Title"],
+        contents: row["Contents"],
+        desc: row["Desc"],
+        genre: row["Genre"],
       }
     end
     puts "start import"
     Movie.create!(data_list)
     puts "success import"
-  rescue ActiveModel::UnknownAttributeError => invalid
-    puts "failed import #{invalid}"
+  rescue ActiveModel::UnknownAttributeError => e
+    puts "failed import #{e}"
   end
 
   # rake import_csv:text_data
-  def self.text_data(path = 'db/data/texts.csv')
+  def self.text_data(path = "db/data/texts.csv")
     Text.delete_all
     data_list = []
     CSV.foreach(path, headers: true) do |row|
       data_list << {
-          title: row["Title"],
-          contents: row["Contents"],
-          genre: row["Genre"]
+        title: row["Title"],
+        contents: row["Contents"],
+        genre: row["Genre"],
       }
     end
     puts "start import"
     Text.create!(data_list)
     puts "success import"
-  rescue ActiveModel::UnknownAttributeError => invalid
-    puts "failed import #{invalid}"
+  rescue ActiveModel::UnknownAttributeError => e
+    puts "failed import #{e}"
   end
 
   # rake import_csv:money_data
-  def self.money_data(path = 'db/data/money.csv')
+  def self.money_data(path = "db/data/money.csv")
     Money.delete_all
     data_list = []
     CSV.foreach(path, headers: true) do |row|
       data_list << {
-          title: row["Title"],
-          contents: row["Contents"],
-          genre: row["Genre"]
+        title: row["Title"],
+        contents: row["Contents"],
+        genre: row["Genre"],
       }
     end
     puts "start import"
     Money.create!(data_list)
     puts "success import"
-  rescue ActiveModel::UnknownAttributeError => invalid
-    puts "failed import #{invalid}"
+  rescue ActiveModel::UnknownAttributeError => e
+    puts "failed import #{e}"
   end
-
 end

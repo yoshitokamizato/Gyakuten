@@ -10,7 +10,7 @@
 #  genre      :string
 #
 
-require 'test_helper'
+require "test_helper"
 
 class UsersWebTest < ActiveSupport::TestCase
   # test "the truth" do

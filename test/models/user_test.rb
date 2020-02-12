@@ -20,7 +20,7 @@
 #  last_sign_in_ip        :inet
 #
 
-require 'test_helper'
+require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   # test "the truth" do

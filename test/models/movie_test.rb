@@ -11,7 +11,7 @@
 #  genre      :string
 #
 
-require 'test_helper'
+require "test_helper"
 
 class MovieTest < ActiveSupport::TestCase
   # test "the truth" do

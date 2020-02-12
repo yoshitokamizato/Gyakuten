@@ -1,76 +1,79 @@
-source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+source "https://rubygems.org"
+git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby "2.6.2"
 
-gem 'rails', '~> 5.2.0'
-gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem "coffee-rails", "~> 4.2"
+gem "jbuilder", "~> 2.5"
+gem "pg", ">= 0.18", "< 2.0"
+gem "puma", "~> 3.11"
+gem "rails", "~> 5.2.0"
+gem "sass-rails", "~> 5.0"
+gem "turbolinks", "~> 5"
+gem "uglifier", ">= 1.3.0"
 # markdown
-gem 'redcarpet', '~> 2.3.0'
+gem "redcarpet", "~> 2.3.0"
 # シンタックスハイライト
-gem 'coderay'
+gem "coderay"
 
-gem 'bootsnap', '>= 1.1.0', require: false
+gem "bootsnap", ">= 1.1.0", require: false
 
 # activeadmin
-gem 'activeadmin'
-gem 'devise'
-gem 'devise-bootstrap-views'
+gem "activeadmin"
+gem "devise"
+gem "devise-bootstrap-views"
 
 # ajax
-gem 'rails-ujs'
-gem 'jquery-rails'
+gem "jquery-rails"
+gem "rails-ujs"
 
 # simple_form
-gem 'simple_form'
+gem "simple_form"
 
 # bootstrap
-gem 'bootstrap', '~> 4.1.1'
+gem "bootstrap", "~> 4.1.1"
 
 # fontawsome
-gem 'font-awesome-rails'
+gem "font-awesome-rails"
 
 # kaminari
-gem 'kaminari'
+gem "kaminari"
 
-gem 'rails_best_practices'
+# gem 'rails_best_practices'
 
 # rails c
-gem 'rb-readline'
+gem "rb-readline"
 
 # Slackへ通知を送る
-gem 'slack-notifier'
+gem "slack-notifier"
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
+  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails"
+  # RuboCop
+  gem "rubocop-rails"
+  gem "rubocop-rspec"
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "web-console", ">= 3.3.0"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "spring"
+  gem "spring-watcher-listen", "~> 2.0.0"
 
   # Annotate
-  gem 'annotate'
+  gem "annotate"
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
+  gem "capybara", ">= 2.15", "< 4.0"
+  gem "selenium-webdriver"
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem "chromedriver-helper"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

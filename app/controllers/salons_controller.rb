@@ -12,5 +12,4 @@ class SalonsController < ApplicationController
     def get_page
       @page = params[:page]
     end
-
 end
