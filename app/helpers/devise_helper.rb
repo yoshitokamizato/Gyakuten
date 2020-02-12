@@ -1,20 +1,19 @@
 module DeviseHelper
   def devise_error_messages!
-    return '' if flash.empty?
+    return "" if flash.empty?
 
-    html = ''
+    html = ""
 
     flash.each do |name, msg|
-      if name == 'alert'
-        html += <<-HTML
+      next unless name == "alert"
+
+      html += <<-HTML
           <div class="alert alert-error alert-danger"> <button type="button"
           class="close" data-dismiss="alert">x</button>
             #{msg}
           </div>
-        HTML
-      end
+      HTML
     end
-
 
     html.html_safe
   end

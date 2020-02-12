@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: movies
+#
+#  id         :bigint           not null, primary key
+#  title      :text
+#  contents   :text
+#  desc       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  genre      :string
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

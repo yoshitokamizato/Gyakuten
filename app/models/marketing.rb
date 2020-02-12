@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: marketings
+#
+#  id         :bigint           not null, primary key
+#  genre      :string
+#  title      :text
+#  contents   :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Marketing < ApplicationRecord
   PER_PAGE = 10
 
@@ -6,6 +18,6 @@ class Marketing < ApplicationRecord
   end
 
   def self.search_all_movie(page)
-    Marketing.all.order('id ASC').page(page).per(PER_PAGE)
+    Marketing.all.order("id ASC").page(page).per(PER_PAGE)
   end
 end

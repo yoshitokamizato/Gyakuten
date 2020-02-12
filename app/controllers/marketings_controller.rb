@@ -9,8 +9,7 @@ class MarketingsController < ApplicationController
 
   private
 
-  def move_to_index
-    flash[:error] = "ログインしてください" unless user_signed_in?
-  end
-
+    def move_to_index
+      flash[:error] = "ログインしてください" unless user_signed_in?
+    end
 end
