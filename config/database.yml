@@ -83,4 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: error-collection_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
