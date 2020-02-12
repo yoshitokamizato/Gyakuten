@@ -3,38 +3,30 @@ class MoviesController < ApplicationController
 
   def index
 
-    if params[:content_name]
+    case params[:content_name]
+    when "lives"
+      @level = Movie.count_level(@page)
+      @salons = Movie.disp_lives(@page)
+      render template: "lives/index"
 
-      case params[:content_name]
-      when "movies"
-        page = params[:page]
-        @level = Movie.count_level(page)
-        @movies = Movie.disp_programming(page)
-        render template: "movies/index"
+    when "phps"
+      @php_movies = Movie.disp_phps
+      render template: "phps/index"
 
-      when "lives"
-        @level = Movie.count_level(@page)
-        @salons = Movie.disp_lives(@page)
-        render template: "lives/index"
+    when "talks"
+      @level = Movie.count_level(@page)
+      @talks = Movie.disp_talks(@page)
+      render template: "talks/index"
 
-      when "phps"
-        @php_movies = Movie.disp_phps
-        render template: "phps/index"
+    when "videoedittings"
+      @viedeoedittings = Movie.disp_modvieedittings
+      render template: "videoedittings/index"
 
-      when "talks"
-        @level = Movie.count_level(@page)
-        @talks = Movie.disp_talks(@page)
-        render template: "talks/index"
+    when "writings"
+      @writing_movies = Movie.disp_writings
+      render template: "writings/index"
 
-      when "videoedittings"
-        @viedeoedittings = Movie.disp_modvieedittings
-        render template: "videoedittings/index"
-
-      when "writings"
-        @writing_movies = Movie.disp_writings
-        render template: "writings/index"
-      end
-
+    # params[:content_name]がない場合は動画教材ページを表示する
     else
       page = params[:page]
       @level = Movie.count_level(page)
