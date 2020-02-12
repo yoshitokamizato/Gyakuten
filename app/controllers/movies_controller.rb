@@ -26,12 +26,6 @@ class MoviesController < ApplicationController
         @talks = Movie.disp_talks(@page)
         render template: "talks/index"
 
-      when "marketings"
-        page = params[:page]
-        @level = Marketing.count_level(page)
-        @marketings = Marketing.search_all_movie(page)
-        render template: "marketings/index"
-
       when "videoedittings"
         @viedeoedittings = Movie.disp_modvieedittings
         render template: "videoedittings/index"
