@@ -13,21 +13,41 @@
 
       <div class="text-center">
         <% if user_signed_in? %>
-          <% @movies.each.with_index(@level) do |movie, i| %>
-            <div class="col-xs-12">
-              <div class="movie-title">
-                Lv.<%= i %>：<%= movie.title %>
-              </div>
-              <div class="movie-contents">
-                <%= movie.contents.html_safe if movie.contents.present? %>
-                <div class="movie-description">
-                  <%  if movie.desc.present? %>
-                    <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
-                  <% end %>
+
+          <div class="col-xs-12">
+            <% if @content_name == "movies" %>
+              <% @movies.each.with_index(@level) do |movie, i| %>
+                  <div class="movie-title">
+                    Lv.<%= i %>：<%= movie.title %>
+                  </div>
+                  <div class="movie-contents">
+                    <%= movie.contents.html_safe if movie.contents.present? %>
+                    <div class="movie-description">
+                      <%  if movie.desc.present? %>
+                        <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
+                      <% end %>
+                    </div>
+                  </div>
+              <% end %>
+            <% else %>
+              <% @movies.each do |movie| %>
+                <div class="col-xs-12">
+                  <div class="movie-title">
+                    <%= movie.title %>
+                  </div>
+                  <div class="movie-contents">
+                    <%= movie.contents.html_safe if movie.contents.present? %>
+                    <div class="disp-source">
+                      <%  if movie.desc.present? %>
+                        <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
+                      <% end %>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          <% end %>
+              <% end %>
+            <% end %>
+          </div>
+
           <div class="paginate-container">
             <%= paginate @movies %>
           </div>
