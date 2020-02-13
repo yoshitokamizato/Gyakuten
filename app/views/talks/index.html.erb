@@ -10,7 +10,7 @@
       <% end %>
       <% if user_signed_in? %>
         <div class="text-center">
-          <% @talks.each do |talk| %>
+          <% @movies.each do |talk| %>
             <div class="col-xs-12">
               <div class="movie-title">
                 <%= talk.title %>
@@ -24,9 +24,9 @@
                 </div>
               </div>
             </div>
-        <% end %>
+          <% end %>
           <div class="paginate-container">
-            <%= paginate @talks %>
+            <%= paginate @movies %>
           </div>
         </div>
       <% end %>

@@ -10,10 +10,10 @@
       <% end %>
       <!-- 追加箇所 -->
       <%= render 'shared/take_of_rails' %>
-      
+
       <% if user_signed_in? %>
         <div class="text-center">
-          <% @salons.each do |salon| %>
+          <% @movies.each do |salon| %>
             <div class="col-xs-12">
               <div class="movie-title">
                 <%= salon.title %>
@@ -29,7 +29,7 @@
             </div>
         <% end %>
           <div class="paginate-container">
-            <%= paginate @salons %>
+            <%= paginate @movies %>
           </div>
         </div>
       <% end %>
