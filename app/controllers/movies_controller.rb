@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_page
 
   def index
     @level = Movie.count_level(@page)
@@ -13,28 +12,24 @@ class MoviesController < ApplicationController
   def categorized_movies
     case params[:content_name]
     when "lives"
-      Movie.disp_lives(@page)
+      Movie.disp_lives(params[:page])
 
     when "phps"
-      Movie.disp_phps(@page)
+      Movie.disp_phps(params[:page])
 
     when "talks"
-      Movie.disp_talks(@page)
+      Movie.disp_talks(params[:page])
 
     when "videoedittings"
-      Movie.disp_modvieedittings(@page)
+      Movie.disp_modvieedittings(params[:page])
 
     when "writings"
-      Movie.disp_writings(@page)
+      Movie.disp_writings(params[:page])
 
     # params[:content_name]がない場合は動画教材ページを表示する
     else
-      Movie.disp_programming(@page)
+      Movie.disp_programming(params[:page])
     end
-  end
-
-  def get_page
-    @page = params[:page]
   end
 
 end
