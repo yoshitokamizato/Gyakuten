@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_index
   before_action :get_page
 
   def index
@@ -32,10 +31,6 @@ class MoviesController < ApplicationController
     else
       Movie.disp_programming(@page)
     end
-  end
-
-  def move_to_index
-    flash[:error] = "ログインしてください" unless user_signed_in?
   end
 
   def get_page
