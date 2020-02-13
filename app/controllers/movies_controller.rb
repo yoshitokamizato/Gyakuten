@@ -9,27 +9,26 @@ class MoviesController < ApplicationController
 
   private
 
-  def categorized_movies
-    case params[:content_name]
-    when "lives"
-      Movie.disp_lives(params[:page])
+    def categorized_movies
+      case params[:content_name]
+      when "lives"
+        Movie.disp_lives(params[:page])
 
-    when "phps"
-      Movie.disp_phps(params[:page])
+      when "phps"
+        Movie.disp_phps(params[:page])
 
-    when "talks"
-      Movie.disp_talks(params[:page])
+      when "talks"
+        Movie.disp_talks(params[:page])
 
-    when "videoedittings"
-      Movie.disp_modvieedittings(params[:page])
+      when "videoedittings"
+        Movie.disp_modvieedittings(params[:page])
 
-    when "writings"
-      Movie.disp_writings(params[:page])
+      when "writings"
+        Movie.disp_writings(params[:page])
 
-    # params[:content_name]がない場合は動画教材ページを表示する
-    else
-      Movie.disp_programming(params[:page])
+      # params[:content_name]がない場合は動画教材ページを表示する
+      else
+        Movie.disp_programming(params[:page])
+      end
     end
-  end
-
 end
