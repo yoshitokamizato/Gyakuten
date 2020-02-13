@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   def index
     @level = Movie.count_level(@page)
     @movies = categorized_movies
+    @content_name = params[:content_name]
   end
 
   private
