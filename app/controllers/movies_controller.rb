@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
+  before_action :move_to_index
+  before_action :get_page
 
   def index
     @level = Movie.count_level(@page)
@@ -14,16 +16,16 @@ class MoviesController < ApplicationController
       Movie.disp_lives(@page)
 
     when "phps"
-      Movie.disp_phps
+      Movie.disp_phps(@page)
 
     when "talks"
       Movie.disp_talks(@page)
 
     when "videoedittings"
-      Movie.disp_modvieedittings
+      Movie.disp_modvieedittings(@page)
 
     when "writings"
-      Movie.disp_writings
+      Movie.disp_writings(@page)
 
     # params[:content_name]がない場合は動画教材ページを表示する
     else
