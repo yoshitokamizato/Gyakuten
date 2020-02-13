@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
-  get 'movies/:content_name', to: 'movies#index'
-
+  resources :movies, only: [:index]
+  resources :marketings, only: :index
   resources :users_webs
   resources :words
   resources :contents
