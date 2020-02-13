@@ -1,7 +1,7 @@
 module ApplicationHelper
   DEFAULT_SITE_NAME = '逆転教材'
   DEFAULT_DESCRIPTION = '人生逆転サロンの教材です'
-  DEFAULT_TWITTER_IMAGE = image_url('logo.jpg')
+  DEFAULT_TWITTER_IMAGE = 'logo.jpg'
   DEFAULT_TWITTER_SITE = '@yoshito410kam'
 
   # title などを埋め込む際は，各ビューファイルに次を埋め込む
@@ -12,7 +12,7 @@ module ApplicationHelper
       title: title,
       # reverse: false,
       charset: 'utf-8',
-      description: description || DEFAULT_DESCRIPTION,
+      description: description.present? ? description : DEFAULT_DESCRIPTION,
       # keywords: '人生逆転サロン',
       # canonical: 'https://arcane-gorge-21903.herokuapp.com/',
       # separator: '|',
@@ -25,7 +25,7 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         # url: :canonical,
-        image: image.present? ? image_url(twitter_image) : DEFAULT_TWITTER_IMAGE,
+        image: twitter_image.present? ? image_url("texts/#{twitter_image}") : image_url("texts/#{DEFAULT_TWITTER_IMAGE}"),
         locale: 'ja_JP',
       },
       twitter: {

@@ -1,6 +1,6 @@
 <% content_for(:title) { @text.title } %>
-<% content_for(:description) { @text.contents[0..20] } %>
-<% content_for(:twitter_image) { 'logo.jpg' } %>
+<% content_for(:description) { @text.description } %>
+<% content_for(:twitter_image) { @text.twitter_image } %>
 <section id="text-contents">
   <h2><%= @text.title %></h2>
   <%= markdown(@text.contents).html_safe %>
