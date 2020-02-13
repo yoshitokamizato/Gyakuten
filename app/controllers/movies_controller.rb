@@ -2,40 +2,34 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
-    case params[:content_name]
-    when "lives"
-      @level = Movie.count_level(@page)
-      @movies = Movie.disp_lives(@page)
-      render template: "lives/index"
-
-    when "phps"
-      @movies = Movie.disp_phps
-      render template: "phps/index"
-
-    when "talks"
-      @level = Movie.count_level(@page)
-      @movies = Movie.disp_talks(@page)
-      render template: "talks/index"
-
-    when "videoedittings"
-      @movies = Movie.disp_modvieedittings
-      render template: "videoedittings/index"
-
-    when "writings"
-      @movies = Movie.disp_writings
-      render template: "writings/index"
-
-    # params[:content_name]がない場合は動画教材ページを表示する
-    else
-      page = params[:page]
-      @level = Movie.count_level(page)
-      @movies = Movie.disp_programming(page)
-      render template: "movies/index"
-    end
+    @level = Movie.count_level(@page)
+    @movies = categorized_movies
   end
 
   private
+
+  def categorized_movies
+    case params[:content_name]
+    when "lives"
+      Movie.disp_lives(@page)
+
+    when "phps"
+      Movie.disp_phps
+
+    when "talks"
+      Movie.disp_talks(@page)
+
+    when "videoedittings"
+      Movie.disp_modvieedittings
+
+    when "writings"
+      Movie.disp_writings
+
+    # params[:content_name]がない場合は動画教材ページを表示する
+    else
+      Movie.disp_programming(@page)
+    end
+  end
 
   def move_to_index
     flash[:error] = "ログインしてください" unless user_signed_in?
