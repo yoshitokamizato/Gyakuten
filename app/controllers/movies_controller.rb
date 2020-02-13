@@ -35,4 +35,14 @@ class MoviesController < ApplicationController
     end
   end
 
+  private
+
+  def move_to_index
+    flash[:error] = "ログインしてください" unless user_signed_in?
+  end
+
+  def get_page
+    @page = params[:page]
+  end
+
 end
