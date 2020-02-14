@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @level = Movie.count_level(@page)
+    @level = Movie.count_level(params[:page])
     @movies = categorized_movies
     @content_name = params[:content_name]
   end
