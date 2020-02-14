@@ -1,4 +1,8 @@
 <section id="text-contents">
   <h2><%= @text.title %></h2>
   <%= markdown(@text.contents).html_safe %>
+  <%= social_share_button_tag %>
+  <a href="http://www.facebook.com/share.php?">
+    <%= fa_icon("facebook-square lg") %>
+  </a>
 </section>
