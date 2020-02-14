@@ -47,6 +47,9 @@ gem "rb-readline"
 # Slackへ通知を送る
 gem "slack-notifier"
 
+# 検索エンジン最適化（SEO）プラグイン
+gem "meta-tags"
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
