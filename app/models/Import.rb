@@ -13,11 +13,11 @@ class Import
         genre: row["Genre"],
       }
     end
-    puts "start import"
+    Rails.logger.info "start import"
     Movie.create!(data_list)
-    puts "success import"
+    Rails.logger.info "success import"
   rescue ActiveModel::UnknownAttributeError => e
-    puts "failed import #{e}"
+    Rails.logger.info "failed import #{e}"
   end
 
   # rake import_csv:text_data
@@ -31,11 +31,11 @@ class Import
         genre: row["Genre"],
       }
     end
-    puts "start import"
+    Rails.logger.info "start import"
     Text.create!(data_list)
-    puts "success import"
+    Rails.logger.info "success import"
   rescue ActiveModel::UnknownAttributeError => e
-    puts "failed import #{e}"
+    Rails.logger.info "failed import #{e}"
   end
 
   # rake import_csv:money_data
@@ -49,10 +49,10 @@ class Import
         genre: row["Genre"],
       }
     end
-    puts "start import"
+    Rails.logger.info "start import"
     Money.create!(data_list)
-    puts "success import"
+    Rails.logger.info "success import"
   rescue ActiveModel::UnknownAttributeError => e
-    puts "failed import #{e}"
+    Rails.logger.info "failed import #{e}"
   end
 end

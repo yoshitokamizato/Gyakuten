@@ -17,11 +17,10 @@ class UsersWebsController < ApplicationController
     respond_to do |format|
       if @users_web.save
         format.html
-        format.js
       else
         @message = @users_web.errors.full_messages
-        format.js
       end
+      format.js
     end
   end
 
