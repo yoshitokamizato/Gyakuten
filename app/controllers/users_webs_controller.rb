@@ -1,6 +1,6 @@
 class UsersWebsController < ApplicationController
   def index
-    @users_webs = UsersWeb.order('id DESC').page(params[:page]).per(10)
+    @users_webs = UsersWeb.order("id DESC").page(params[:page]).per(10)
   end
 
   def new
@@ -12,7 +12,7 @@ class UsersWebsController < ApplicationController
   end
 
   def create
-    @users_webs = UsersWeb.order('id DESC').page(params[:page]).per(10)
+    @users_webs = UsersWeb.order("id DESC").page(params[:page]).per(10)
     @users_web = UsersWeb.new(users_web_params)
     respond_to do |format|
       if @users_web.save
@@ -26,22 +26,21 @@ class UsersWebsController < ApplicationController
   end
 
   def destroy
-    @users_webs = UsersWeb.order('id DESC').page(params[:page]).per(10)
+    @users_webs = UsersWeb.order("id DESC").page(params[:page]).per(10)
     users_web = UsersWeb.find(params[:id])
     respond_to do |format|
       if users_web.destroy
         format.html
         format.js
       else
-        format.html {render :index}
+        format.html { render :index }
       end
     end
   end
 
   private
 
-  def users_web_params
-    params.require(:users_web).permit(:name, :url, :genre)
-  end
-
+    def users_web_params
+      params.require(:users_web).permit(:name, :url, :genre)
+    end
 end

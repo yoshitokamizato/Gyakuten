@@ -8,8 +8,8 @@ class WordsController < ApplicationController
   end
 
   def create
-    Word.create(words_params)
-    redirect_to :action => "index"
+    Word.create!(words_params)
+    redirect_to action: "index"
   end
 
   def edit
@@ -18,19 +18,19 @@ class WordsController < ApplicationController
 
   def update
     word = Word.find(params[:id])
-    word.update(words_params)
-    redirect_to :action => "index"
+    word.update!(words_params)
+    redirect_to action: "index"
   end
 
   def destroy
     word = Word.find(params[:id])
     word.delete
-    redirect_to :action => "index"
+    redirect_to action: "index"
   end
 
   private
 
-  def words_params
-    params.require(:word).permit(:about, :words)
-  end
+    def words_params
+      params.require(:word).permit(:about, :words)
+    end
 end

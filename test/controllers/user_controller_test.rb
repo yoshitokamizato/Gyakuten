@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class UserControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
@@ -35,5 +35,4 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     get user_destroy_url
     assert_response :success
   end
-
 end
