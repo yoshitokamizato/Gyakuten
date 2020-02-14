@@ -48,7 +48,7 @@ gem "rb-readline"
 gem "slack-notifier"
 
 # 検索エンジン最適化（SEO）プラグイン
-gem 'meta-tags'
+gem "meta-tags"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
