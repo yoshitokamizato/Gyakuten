@@ -69,7 +69,7 @@ group :development do
   gem "rails-erd"
 
   # debug
-  gem 'pry-byebug'
+  gem "pry-byebug"
 end
 
 group :test do
