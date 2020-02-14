@@ -9,12 +9,11 @@ class MoneysController < ApplicationController
 
   private
 
-  def move_to_index
-    redirect_to action: :index, flash: {error: "ログインしてください"} unless user_signed_in?
-  end
+    def move_to_index
+      redirect_to action: :index, flash: { error: "ログインしてください" } unless user_signed_in?
+    end
 
-  def get_page
-    @page = params[:page]
-  end
-
+    def get_page
+      @page = params[:page]
+    end
 end

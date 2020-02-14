@@ -4,5 +4,4 @@ class VideoedittingsController < ApplicationController
   def index
     @viedeoedittings = Movie.disp_modvieedittings
   end
-
 end

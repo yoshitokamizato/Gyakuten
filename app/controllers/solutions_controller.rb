@@ -7,13 +7,13 @@ class SolutionsController < ApplicationController
       redirect_to question_path(@question.id)
     else
       @solutions = Solution.where(question_id: @question.id)
-      render 'questions/show', question_id: @question.id
+      render "questions/show", question_id: @question.id
     end
   end
 
   private
 
-  def solution_params
-    params.require(:solution).permit(:content)
-  end
+    def solution_params
+      params.require(:solution).permit(:content)
+    end
 end

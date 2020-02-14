@@ -6,5 +6,4 @@ class MoviesController < ApplicationController
     @level = Movie.count_level(page)
     @movies = Movie.disp_programming(page)
   end
-
 end

@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  details    :text
+#  solution   :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  count      :integer          default(0)
+#
+
 class Question < ApplicationRecord
   has_many :solutions
   validates :title, presence: { message: "【質問】は空欄にできません" }
@@ -7,7 +20,7 @@ class Question < ApplicationRecord
     question = Question.find(id)
     question.record_timestamps = false
     question.count += 1
-    question.save
+    question.save!
     question.record_timestamps = true
 
     question
