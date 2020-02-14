@@ -64,7 +64,12 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
   # Annotate
   gem "annotate"
+
+  # ER図
   gem "rails-erd"
+
+  # debug
+  gem 'pry-byebug'
 end
 
 group :test do
