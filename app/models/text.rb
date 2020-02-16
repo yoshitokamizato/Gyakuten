@@ -2,12 +2,14 @@
 #
 # Table name: texts
 #
-#  id         :bigint           not null, primary key
-#  genre      :string
-#  title      :text
-#  contents   :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :bigint           not null, primary key
+#  contents      :text
+#  description   :string
+#  genre         :string
+#  title         :text
+#  twitter_image :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 class Text < ApplicationRecord
