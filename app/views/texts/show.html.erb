@@ -4,4 +4,6 @@
 <section id="text-contents">
   <h2><%= @text.title %></h2>
   <%= markdown(@text.contents).html_safe %>
+  <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
+  <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
 </section>
