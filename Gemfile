@@ -30,6 +30,8 @@ gem "social-share-button"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
+  gem "faker"
   gem "pry-byebug"
   gem "rspec-rails"
   gem "rubocop-rails"
