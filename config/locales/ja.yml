@@ -57,6 +57,7 @@ ja:
     password_confirmation: 確認用パスワード
     genre: ジャンル
     title: タイトル
+    image: 画像
     content: 内容
     contents: 内容
     body: 内容
