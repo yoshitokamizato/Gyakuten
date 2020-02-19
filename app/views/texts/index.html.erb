@@ -1,39 +1,24 @@
-<section id="contents">
-  <% if params[:flash].present? %>
-    <div class="alert alert-danger text-center" role="alert">
-      <%= link_to new_user_session_path, class: "text-danger" do %>
-        <strong><%= params[:flash][:error]  %></strong>
-      <% end %>
-    </div>
-  <% end %>
+
   <!-- 追加箇所 -->
   <%= render 'shared/take_of_rails' %>
 
-  <h2 class="text-center">Text</h2>
-  <div class="table-container">
-    <table class="table table-striped">
-      <thead class="bg-danger text-white">
-      <tr>
-        <th class="w-1">No.</th>
-        <th class="w-2">ジャンル</th>
-        <th class="w-5">内容</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @texts.each.with_index(1) do |text, i| %>
-        <tr>
-          <td>
-            <%= i %>
-          </td>
-          <td>
-            <%= text.genre %>
-          </td>
-          <td>
-            <%= link_to text.title, text_path(text.id), {:target => "_blank"} %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+<div class="texts-wrapper">
+  <div class="contents-title">
+    <h2>テキスト教材</hs2>
   </div>
-</section>
+  <div class="texts-contents">
+    <% @texts.each do |text| %>
+      <div class="texts-content">
+        <%= link_to text_path(text.id), {:target => "_blank"} do %>
+          <% if text.image.attached? %>
+            <%= image_tag text.image %>
+          <% else %>
+            <%= %>
+          <% end %>
+          <h3><%= text.title %></h3>
+          <p><%= "【#{text.genre}】" %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
