@@ -27,7 +27,7 @@ ActiveAdmin.register Text do
 
   form do |f|
     inputs  do
-      input :genre, as: :select, collection: ['Basic', 'Ruby', 'Ruby on Rails']
+      input :genre, as: :select, collection: ['Basic', 'Ruby', 'Ruby on Rails', 'temporary image']
       input :title, as: :string
       input :contents
       input :image, as: :file

@@ -3,6 +3,7 @@ class TextsController < ApplicationController
 
   def index
     @texts = Text.show_contents_list
+    @temporary_image = Text.where(genre: 'temporary image')
   end
 
   def show
