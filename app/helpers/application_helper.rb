@@ -35,4 +35,9 @@ module ApplicationHelper
       },
     }
   end
+
+  def start_level(page)
+    return (page - 1) * PER_PAGE + 1
+  end
+
 end
