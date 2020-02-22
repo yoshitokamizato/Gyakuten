@@ -9,7 +9,7 @@ module ErrorCollection
     config.load_defaults 5.2
     config.time_zone = "Tokyo"
     config.i18n.default_locale = :ja
-    config.paths.add 'lib', eager_load: true
+    config.paths.add "lib/autoloads", eager_load: true
     config.generators do |g|
       g.test_framework :rspec,
                        view_specs: false,
