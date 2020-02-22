@@ -8,11 +8,11 @@
         <% if user_signed_in? %>
 
           <div class="col-xs-12">
-            <% @movies.each.with_index(start_level(@movies.current_page)) do |movie, i| %>
+            <% @movies.each.with_index(1) do |movie, i| %>
               <% case movie.genre %>
               <% when "Basic", "git", "Ruby", "Ruby on Rails" %>
                 <div class="movie-title">
-                  Lv.<%= i %>：<%= movie.title %>
+                  Lv.<%= (((@movies.current_page - 1) * Movie::PER_PAGE) + i) %>：<%= movie.title %>
                 </div>
                 <div class="movie-contents">
                   <%= movie.contents.html_safe if movie.contents.present? %>
