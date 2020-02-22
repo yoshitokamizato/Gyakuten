@@ -27,24 +27,24 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to "動画教材", movies_path, class: "nav-item nav-link active text-danger" %>
                 <%= link_to "テキスト教材", texts_path, class: "nav-item nav-link active text-danger" %>
-                <%= link_to "ライブコーディング", movies_path(content_name: "Live"), class: "nav-item nav-link active text-danger" %>
+                <%= link_to "ライブコーディング", movies_path(genre: "Live"), class: "nav-item nav-link active text-danger" %>
                 <%= link_to "質問集", questions_path, class: "nav-item nav-link active text-danger" %>
               </div>
             </li>
             <li class="nav-item">
-              <%= link_to "PHP講座", movies_path(content_name: "Php"), class: "nav-item nav-link active" %>
+              <%= link_to "PHP講座", movies_path(genre: "Php"), class: "nav-item nav-link active" %>
             </li>
             <li class="nav-item">
-              <%= link_to "対談", movies_path(content_name: "Talk"), class: "nav-item nav-link active" %>
+              <%= link_to "対談", movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
             </li>
             <li class="nav-item">
               <%= link_to "情報発信", marketings_path, class: "nav-item nav-link active" %>
             </li>
             <li class="nav-item">
-              <%= link_to "動画編集講座", movies_path(content_name: "Movie"), class: "nav-item nav-link active" %>
+              <%= link_to "動画編集講座", movies_path(genre: "Movie"), class: "nav-item nav-link active" %>
             </li>
             <li class="nav-item">
-              <%= link_to "ライティング講座", movies_path(content_name: "Writing"), class: "nav-item nav-link active" %>
+              <%= link_to "ライティング講座", movies_path(genre: "Writing"), class: "nav-item nav-link active" %>
             </li>
             <li class="nav-item">
               <%= link_to "LINE@", lines_path, class: "nav-item nav-link active" %>
