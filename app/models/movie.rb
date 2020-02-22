@@ -12,13 +12,17 @@
 #
 
 class Movie < ApplicationRecord
+# 1ページの動画表示件数を指定
+PER_PAGE = 10
+# ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
+PROGRAMMING = ["Basic", "git", "Ruby", "Ruby on Rails"].freeze
 
-  def self.categorize(content_name, page)
-    case content_name
-    when "Money", "Movie", "Writing", "Php" then
-      self.where(genre: content_name).order("id ASC").page(page).per(PER_PAGE)
-    when "Salon", "Talk", "Live" then
-      self.where(genre: content_name).order("id DESC").page(page).per(PER_PAGE)
+  def self.categorized_by(genre: genre, page:)
+    case genre
+    when "Money", "Movie", "Writing", "Php"
+      self.where(genre: genre).order("id ASC").page(page).per(PER_PAGE)
+    when "Salon", "Talk", "Live"
+      self.where(genre: genre).order("id DESC").page(page).per(PER_PAGE)
     else
       self.where(genre: PROGRAMMING).order("id ASC").page(page).per(PER_PAGE)
     end
