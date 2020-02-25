@@ -13,7 +13,7 @@
           <% if text.image.attached? %>
             <%= image_tag text.image %>
           <% else %>
-            <%= image_tag @temporary_image[0].image %>
+            <%= image_tag "texts/no_image.jpg" %>
           <% end %>
           <h3><%= text.title %></h3>
           <p><%= "【#{text.genre}】" %></p>
