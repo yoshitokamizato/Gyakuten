@@ -8,7 +8,7 @@ ActiveAdmin.register_page "TextSort" do
 
   controller do
     def index
-      @texts = Text.all
+      @texts = Text.show_contents_list
     end
   end
 end

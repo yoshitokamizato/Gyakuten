@@ -1,7 +1,7 @@
 <table>
   <% @texts.each do |text| %>
     <tr>
-      <td><input type="text" name="name" > ▲ ▼</td>
+      <td><%= text.position %></td>
       <td><%= text.genre %></td>
       <td><%= text.title %></td>
     </tr>
