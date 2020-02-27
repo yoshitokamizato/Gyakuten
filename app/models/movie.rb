@@ -17,7 +17,7 @@ class Movie < ApplicationRecord
   # ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
   PROGRAMMING = ["Basic", "git", "Ruby", "Ruby on Rails"].freeze
 
-  def self.categorized_by(genre: genre, page:)
+  def self.categorized_by(genre: genre = PROGRAMMING, page:)
     case genre
     when "Money", "Movie", "Writing", "Php"
       self.where(genre: genre).order("id ASC").page(page).per(PER_PAGE)
