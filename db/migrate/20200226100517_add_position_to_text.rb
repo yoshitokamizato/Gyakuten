@@ -4,8 +4,17 @@ class AddPositionToText < ActiveRecord::Migration[5.2]
   def up
     add_column :texts, :position, :integer
     ActiveRecord::Base.transaction do
-      Text.show_contents_list.order("id ASC").each do |text|
-        text.send :add_to_list_bottom
+      rails_texts = Text.where(genre: PROGRAMMING).order("id ASC")
+      rails_texts_ids = rails_texts.ids
+      other_texts = Text.where.not(id: rails_texts_ids).order("id ASC")
+
+      rails_texts.each.with_index(1) do |text, index|
+        text.position = index
+        text.save!
+      end
+
+      other_texts.each.with_index(rails_texts_ids.count + 1) do |text, index|
+        text.position = index
         text.save!
       end
     end
