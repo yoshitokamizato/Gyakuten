@@ -11,7 +11,7 @@ RSpec.describe Movie, type: :model do
   context "title が存在しないとき" do
     let(:movie) { build(:movie, title: nil) }
     it "エラーする" do
-      movie.valid?
+      expect(movie).not_to be_valid
       expect(movie.errors.messages[:title]).to include "を入力してください"
     end
   end
@@ -19,7 +19,7 @@ RSpec.describe Movie, type: :model do
   context "contents が存在しないとき" do
     let(:movie) { build(:movie, contents: nil) }
     it "エラーする" do
-      movie.valid?
+      expect(movie).not_to be_valid
       expect(movie.errors.messages[:contents]).to include "を入力してください"
     end
   end
@@ -27,7 +27,7 @@ RSpec.describe Movie, type: :model do
   context "genre が存在しないとき" do
     let(:movie) { build(:movie, genre: nil) }
     it "エラーする" do
-      movie.valid?
+      expect(movie).not_to be_valid
       expect(movie.errors.messages[:genre]).to include "を入力してください"
     end
   end
