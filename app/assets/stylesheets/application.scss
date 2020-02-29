@@ -17,6 +17,10 @@
 @import "bootstrap/functions";
 @import "bootstrap";
 
+.fixed-top {
+  background-color: #5D99FF;
+}
+
 #nav {
   .bg-primary {
     background-color: #ff253e;
@@ -24,8 +28,8 @@
   .nav-link {
     padding: 10px 15px;
   }
-}
 
+}
 
 .table {
   .w-25 {
@@ -60,17 +64,47 @@ pre {
   padding: 10px;
 }
 
-@media screen and (min-width:0px) {
-  @import "smart_phones";
+.footer {
+  background-color: #5D99FF;
+  margin-top: 30px;
 }
 
-@media screen and (min-width:1000px){
+@media screen and (min-width:0px) {
+  @import "smart_phones";
+  #nav {
+    margin-bottom: 100px;
+  }
+
+}
+
+
+@media screen and (min-width:992px){
   @import "movie";
   @import "marketing";
   @import "users_webs";
   @import "contents";
   @import "questions";
   @import "loggins";
+
+  #nav {
+    margin-bottom: 0px;
+  }
+
+  .navbar {
+    margin: 0 auto;
+    width: 990px;
+    a {
+      font-size: 30px;
+    }
+    .navbar-collapse {
+      justify-content: flex-end;
+    }
+
+    .navbar-nav a {
+      font-size: 14px;
+    }
+  }
+
 }
 
 /*質問投稿用*/
@@ -87,4 +121,26 @@ pre {
   .initial-height {
     height: initial;
   }
+}
+
+@media screen and (min-width:1200px){
+
+  .navbar {
+    width: 1200px;
+    .navbar-nav a {
+      font-size: 18px;
+    }
+  }
+
+  #container {
+    width: 1200px;
+  }
+
+  .texts-content {
+    height: 360px;
+    img {
+      height: 187px;
+    }
+  }
+
 }

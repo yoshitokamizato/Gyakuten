@@ -13,6 +13,7 @@
 #
 
 class Text < ApplicationRecord
+  has_one_attached :image
   PER_PAGE = 10
   PROGRAMMING = ["Basic", "git", "Ruby", "Ruby on Rails"].freeze
 
