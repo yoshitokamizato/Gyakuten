@@ -2,11 +2,12 @@ source "https://rubygems.org"
 git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
 ruby "2.6.2"
-
 gem "activeadmin" # management tools
+gem "aws-sdk-s3", require: false
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.1.1"
 gem "coderay" # syntax highlight
+gem "config"
 gem "devise"
 gem "devise-bootstrap-views"
 gem "font-awesome-rails"
@@ -24,7 +25,6 @@ gem "simple_form"
 gem "slack-notifier"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem "aws-sdk-s3", require: false
 
 # 各種SNSシェアボタンを作成
 gem "social-share-button"
