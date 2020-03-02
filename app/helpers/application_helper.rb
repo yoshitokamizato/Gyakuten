@@ -1,9 +1,8 @@
 module ApplicationHelper
   DEFAULT_SITE_NAME = "逆転教材".freeze
   DEFAULT_DESCRIPTION = "人生逆転サロンの教材です".freeze
-  DEFAULT_TWITTER_IMAGE = "logo.jpg".freeze
+  DEFAULT_TWITTER_IMAGE = "no_image.jpg".freeze
   DEFAULT_TWITTER_SITE = "@yoshito410kam".freeze
-
   # title などを埋め込む際は，各ビューファイルに次を埋め込む
   # <% content_for(:title) { タイトル名 } %>
   def default_meta_tags(title:, description:, twitter_image:)
@@ -26,7 +25,7 @@ module ApplicationHelper
         description: :description,
         type: "website",
         url: request.url,
-        image: twitter_image.present? ? image_url("texts/#{twitter_image}") : image_url("texts/#{DEFAULT_TWITTER_IMAGE}"),
+        image: twitter_image.present? ? image_tag(@text.image): image_url("texts/#{DEFAULT_TWITTER_IMAGE}"),
         locale: "ja_JP",
       },
       twitter: {
