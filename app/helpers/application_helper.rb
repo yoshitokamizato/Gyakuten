@@ -1,17 +1,13 @@
 module ApplicationHelper
-  DEFAULT_SITE_NAME = "逆転教材".freeze
-  DEFAULT_DESCRIPTION = "人生逆転サロンの教材です".freeze
-  DEFAULT_TWITTER_IMAGE = "no_image.jpg".freeze
-  DEFAULT_TWITTER_SITE = "@yoshito410kam".freeze
   # title などを埋め込む際は，各ビューファイルに次を埋め込む
   # <% content_for(:title) { タイトル名 } %>
   def default_meta_tags(title:, description:, twitter_image:)
     {
-      site: DEFAULT_SITE_NAME,
+      site: Settings.ogp.site_name,
       title: title,
       # reverse: false,
       charset: "utf-8",
-      description: description.presence || DEFAULT_DESCRIPTION,
+      description: description.presence || Settings.ogp.default_description,
       # keywords: '人生逆転サロン',
       # canonical: 'https://arcane-gorge-21903.herokuapp.com/',
       # separator: '|',
@@ -25,12 +21,12 @@ module ApplicationHelper
         description: :description,
         type: "website",
         url: request.url,
-        image: twitter_image.present? ? image_tag(@text.image): image_url("texts/#{DEFAULT_TWITTER_IMAGE}"),
+        image: twitter_image.present? ? image_tag(@text.image): image_url("texts/#{Settings.ogp.default_twitter_image}"),
         locale: "ja_JP",
       },
       twitter: {
         card: "summary_large_image",
-        site: DEFAULT_TWITTER_SITE,
+        site: Settings.ogp.twitter_site,
       },
     }
   end
