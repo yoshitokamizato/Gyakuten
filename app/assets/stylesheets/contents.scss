@@ -96,6 +96,11 @@
   .search-form {
     padding-bottom: 30px;
   }
+  p {
+    width: 710px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+  }
 }
 
 #line-contents {
@@ -288,6 +293,8 @@
 }
 
 #aws-contents {
+  width: 710px;
+  margin: 70px auto 0;
 
   table {
     margin: 30px auto;
