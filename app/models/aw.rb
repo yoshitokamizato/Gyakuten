@@ -1,0 +1,2 @@
+class Aw < ApplicationRecord
+end
