@@ -12,6 +12,10 @@
 #
 
 class Movie < ApplicationRecord
+  validates :title, presence: true
+  validates :contents, presence: true
+  validates :genre, presence: true
+
   # 1ページの動画表示件数を指定
   PER_PAGE = 10
   # ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
