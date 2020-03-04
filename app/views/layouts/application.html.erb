@@ -12,8 +12,9 @@
 
   <body>
     <section id="nav">
-      <% color = controller.controller_name == "lines" ? "bg-success" : "bg-danger" %>
-      <nav class="navbar navbar-expand-lg navbar-dark <%= color %>">
+      <% color = "bg-success" if controller.controller_name == "lines" %>
+      <div class="fixed-top <%= color %>">
+        <nav class="navbar navbar-expand-lg navbar-dark ">
         <%= link_to "Gyakuten", movies_path, class: "navbar-brand" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -25,10 +26,10 @@
                 Rails
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "動画教材", movies_path, class: "nav-item nav-link active text-danger" %>
-                <%= link_to "テキスト教材", texts_path, class: "nav-item nav-link active text-danger" %>
-                <%= link_to "ライブコーディング", movies_path(genre: "Live"), class: "nav-item nav-link active text-danger" %>
-                <%= link_to "質問集", questions_path, class: "nav-item nav-link active text-danger" %>
+                <%= link_to "動画教材", movies_path, class: "nav-item nav-link active text-primary" %>
+                <%= link_to "テキスト教材", texts_path, class: "nav-item nav-link active text-primary" %>
+                <%= link_to "ライブコーディング", movies_path(genre: "Live"), class: "nav-item nav-link active text-primary" %>
+                <%= link_to "質問集", questions_path, class: "nav-item nav-link active text-primary" %>
               </div>
             </li>
             <li class="nav-item">
@@ -54,10 +55,9 @@
             </li>
             <li class="nav-item">
               <% if user_signed_in? %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link active" %>
               <% else %>
-                <a href="#" class="nav-item nav-link active" data-toggle="modal" data-target="#signUpModal">ログイン</a>
-                <%= render partial: 'devise/sessions/new' %>
+                <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
               <% end %>
             </li>
           </ul>
