@@ -22,7 +22,7 @@
     }
   }
   a:hover {
-    border: solid 2px #DC3545;
+    border: solid 2px  #7d9ccb;
     -webkit-transform: translateY(-5px);
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
@@ -35,6 +35,9 @@
 
 // 詳細ページ
 #question {
+  width: 710px;
+  margin: 0 auto;
+
   h3 {
     font-size: 20px;
   }

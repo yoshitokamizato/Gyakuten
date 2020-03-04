@@ -4,7 +4,7 @@
 
 #container {
   width: 990px;
-  padding: 50px 0 80px 0;
+  padding: 120px 0 80px 0;
   margin: 0 auto;
 
   .form-control {
@@ -65,7 +65,7 @@
   }
 }
 
-.table-container {
+.contents-wrap {
   width: 710px;
   margin: 0 auto;
 }
@@ -272,7 +272,7 @@
 
 #text-contents {
   width: 710px;
-  margin: 70px auto 0;
+  margin: 0 auto;
 
   table {
     margin: 30px auto;
@@ -294,7 +294,7 @@
 
 #aws-contents {
   width: 710px;
-  margin: 70px auto 0;
+  margin: 0 auto;
 
   table {
     margin: 30px auto;
@@ -314,12 +314,17 @@
   }
 }
 
+#line-contents {
+  width: 450px;
+  margin: 0 auto;
+}
+
 #take_of_rails {
   width: 40vw;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  padding: 40px 0px;
+  padding: 0 0 40px;
   .cover img {
     border: solid #505050 1px;
     border-radius: 10px;
@@ -332,4 +337,19 @@
   :hover {
     opacity: 0.9;
   }
+}
+
+.alert-notice {
+  margin: 0 auto;
+  width: 710px;
+}
+
+.alert-success {
+  width: 680px;
+  margin: 0 auto 15px;
+}
+
+.btn-warning {
+  width: 710px;
+  margin: 0 auto 15px;
 }
