@@ -22,12 +22,11 @@ ActiveAdmin.register Text do
         end
       end
     end
-
   end
 
   form do |f|
     inputs  do
-      input :genre, as: :select, collection: ['Basic', 'Ruby', 'Ruby on Rails']
+      input :genre, as: :select, collection: ["Basic", "Ruby", "Ruby on Rails"]
       input :title, as: :string
       input :contents
       input :image, as: :file
@@ -35,5 +34,4 @@ ActiveAdmin.register Text do
 
     actions
   end
-
 end
