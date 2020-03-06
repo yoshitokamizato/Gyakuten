@@ -10,7 +10,7 @@
           <div class="col-xs-12">
             <% @movies.each.with_index(1) do |movie, i| %>
               <% case movie.genre %>
-              <% when "Basic", "git", "Ruby", "Ruby on Rails" %>
+              <% when "Basic", "git", "Ruby", "Ruby on Rails", "Marketing" %>
                 <div class="movie-title">
                   Lv.<%= (((@movies.current_page - 1) * Movie::PER_PAGE) + i) %>：<%= movie.title %>
                 </div>
