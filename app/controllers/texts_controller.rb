@@ -1,4 +1,5 @@
 class TextsController < ApplicationController
+  before_action :authenticate_user!
   before_action :move_to_index, except: :index
 
   def index
@@ -9,9 +10,4 @@ class TextsController < ApplicationController
     @text = Text.find(params[:id])
   end
 
-  private
-
-    def move_to_index
-      redirect_to action: :index, flash: { error: "ログインしてください" } unless user_signed_in?
-    end
 end
