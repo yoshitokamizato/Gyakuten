@@ -1,4 +1,5 @@
 class MarketingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :move_to_index
 
   def index
@@ -7,9 +8,4 @@ class MarketingsController < ApplicationController
     @marketings = Marketing.search_all_movie(page)
   end
 
-  private
-
-    def move_to_index
-      flash[:error] = "ログインしてください" unless user_signed_in?
-    end
 end
