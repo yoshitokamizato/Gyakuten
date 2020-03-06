@@ -328,10 +328,14 @@
     background: #d9d9d9;
   }
 }
+.aws-table-head {
+  background-color: #5D99FF;
+}
 
 #line-contents {
   margin: 0 auto;
   width: 70%;
+
   h2 {
     padding: 30px 0px 10px 0px;
   }
@@ -348,6 +352,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
   a {
     padding: 0 20px;
     font-size: 2em;
@@ -421,4 +426,8 @@
   :hover {
     opacity: 0.9;
   }
+}
+
+.alert-notice {
+  margin: 0 auto
 }

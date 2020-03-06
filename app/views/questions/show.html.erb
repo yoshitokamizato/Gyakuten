@@ -1,9 +1,9 @@
 <%= render 'shared/flash_message' %>
-<%= render 'shared/error_messages', object: @solution %>
 <% if @solutions.blank? && cookies.signed[:my_question].to_i == @question.id %>
   <%= link_to "質問内容を修正", edit_question_path(@question), class: "btn btn-warning btn-block btn-lg" %>
 <% end %>
 <section id="question">
+<%= render 'shared/error_messages', object: @solution %>
   <div class="title">
     <h3>【質問】</h3>
     <p><%= @question.title %></p>

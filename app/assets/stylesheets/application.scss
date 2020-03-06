@@ -16,7 +16,6 @@
  */
 @import "bootstrap/functions";
 @import "bootstrap";
-
 .fixed-top {
   background-color: #5D99FF;
 }
@@ -29,6 +28,10 @@
     padding: 10px 15px;
   }
 
+}
+
+.container {
+  width: 710px;
 }
 
 .table {
@@ -50,6 +53,10 @@ td {
   }
 }
 
+.table-container {
+  width: 710px;
+  margin: 0 auto;
+}
 
 .btn {
   padding-bottom: 3px;
@@ -92,7 +99,7 @@ pre {
 
   .navbar {
     margin: 0 auto;
-    width: 990px;
+    width: 992px;
     a {
       font-size: 30px;
     }
