@@ -28,7 +28,7 @@ ActiveAdmin.register Text do
     end
   end
 
-  form do |f|
+  form do |_f|
     inputs  do
       input :genre, as: :select, collection: ["Basic", "Ruby", "Ruby on Rails"]
       input :title, as: :string
