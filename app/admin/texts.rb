@@ -1,4 +1,6 @@
 ActiveAdmin.register Text do
+  # ドロップダウンメニューの親成分を決定
+  menu parent: "テキスト教材"
   permit_params :genre, :title, :contents, :image, :description
   config.sort_order = "id_asc"
 
@@ -26,7 +28,7 @@ ActiveAdmin.register Text do
     end
   end
 
-  form do |f|
+  form do |_f|
     inputs  do
       input :genre, as: :select, collection: ["Basic", "Ruby", "Ruby on Rails"]
       input :title, as: :string

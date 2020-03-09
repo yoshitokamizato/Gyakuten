@@ -3,7 +3,22 @@
 <% @text.image.attached? ? content_for(:twitter_image) { image_tag @text.image } : content_for(:twitter_image) { @text.image } %>
 <section id="text-contents">
   <h2><%= @text.title %></h2>
-  <%= markdown(@text.contents).html_safe %>
+  <% if user_signed_in? %>
+    <%= markdown(@text.contents).html_safe %>
+  <% else %>
+    <p>
+      記事を閲覧するには，<%= link_to "ログイン", new_user_session_path %>が必要です。
+    </p>
+    <p class="mb-4">
+      <small>
+        こちらの記事は，
+        <%= link_to "人生逆転サロン", "https://utina.yoshitokamizato.com/entry/2018/09/06/202647" %>
+        もしくは
+        <%= link_to "共同開発", "https://note.com/yoshitokamizato/n/ne9fb7cd06b46" %>
+        参加者限定の記事となっております。
+      </small>
+    </p>
+  <% end %>
   <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
   <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
 </section>

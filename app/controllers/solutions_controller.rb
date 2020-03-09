@@ -1,4 +1,6 @@
 class SolutionsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @question = Question.find(params[:question_id])
     @solution = @question.solutions.build(solution_params)
