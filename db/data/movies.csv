@@ -1,4 +1,4 @@
-ID,タイトル,内容,降順,作成日時,更新日時,ジャンル
+ID,Title,Contents,Desc,作成日時,更新日時,Genre
 960,人生逆転サロンの活用法,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/iFMNUM2Q9mg"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2019-07-26 16:00:39 +0900,2019-07-26 16:00:39 +0900,Basic
 961,Slackの使い方,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/x_KeaEUr3jo"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2019-07-26 16:00:39 +0900,2019-07-26 16:00:39 +0900,Basic
 962,プログラミングを学習するための基礎知識,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/Outcx4StSyU"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2019-07-26 16:00:39 +0900,2019-07-26 16:00:39 +0900,Basic
@@ -109,6 +109,5 @@ ID,タイトル,内容,降順,作成日時,更新日時,ジャンル
 1097,Lesson 6,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/NI5b5z2WjEw"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2019-12-02 12:19:55 +0900,2019-12-02 12:19:55 +0900,Writing
 1098,機械学習エンジニアのとみーさん対談,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/1H_Bwe1XHcE"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2020-01-30 15:14:04 +0900,2020-01-30 15:14:04 +0900,Talk
 1099,【初心者必見】Rails環境構築中のエラーを一緒に解決してみた,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/qZEHjMtsEq0"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2020-02-27 21:58:41 +0900,2020-02-27 21:58:41 +0900,Live
-1100,"情報発信とは
-","<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/Wkorz--0xMo"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2020-03-08 21:32:17 +0900,2020-03-08 21:32:17 +0900,Marketing
+1100,情報発信とは,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/Wkorz--0xMo"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2020-03-08 21:32:17 +0900,2020-03-08 21:32:17 +0900,Marketing
 1101,集客を自動化しよう,"<iframe width=""560"" height=""315"" src=""https://www.youtube.com/embed/ClTzB1fmYyw"" frameborder=""0"" allow=""accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"" allowfullscreen></iframe>",,2020-03-08 21:32:17 +0900,2020-03-08 21:32:17 +0900,Marketing
