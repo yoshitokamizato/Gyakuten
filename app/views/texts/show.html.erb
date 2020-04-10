@@ -1,6 +1,6 @@
 <% content_for(:title) { @text.title } %>
 <% content_for(:description) { @text.description } %>
-<% @text.image.attached? ? content_for(:twitter_image) { image_tag @text.image } : content_for(:twitter_image) { @text.image } %>
+<% content_for(:twitter_image) { (image_tag @text.image).slice /http.+(\.png|\.jpg|\.gif)/ } if @text.image.attached? %>
 <section id="text-contents">
   <h2><%= @text.title %></h2>
   <% if user_signed_in? %>
