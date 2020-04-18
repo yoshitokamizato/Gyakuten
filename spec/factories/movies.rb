@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: movies
+#
+#  id         :bigint           not null, primary key
+#  contents   :text
+#  desc       :text
+#  genre      :string
+#  title      :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 FactoryBot.define do
   factory :movie do
     sequence(:title) { |n| "#{n}_#{Faker::University.name}" }

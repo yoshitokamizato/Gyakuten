@@ -1,0 +1,33 @@
+<div class="text-category">
+  <p>カテゴリー：
+  <select id="text-category">
+      <option value="0">All</option>
+      <option value="1">Basic</option>
+      <option value="2">Git</option>
+      <option value="3">Ruby</option>
+      <option value="4">Ruby on Rails</option>
+    </select>
+  </p>
+</div>
+
+<script>
+  $('#text-category').change(function() {
+    var searchText = "【" + $('option:selected').text() + "】";
+
+    $('.texts-content p').each(function() {
+      targetText = $(this).text();
+
+      // 検索対象となるリストに入力された文字列が存在するかどうかを判断
+      // リストが選択された状態
+      if (targetText != "All") {
+        if (targetText.indexOf(searchText) != -1) {
+          $(this).parent('a').parent('div').removeClass('hidden');
+        } else {
+          $(this).parent('a').parent('div').addClass('hidden');
+        }
+      } else { // リスト未選択状態
+        $(this).parent('a').parent('div').removeClass('hidden');
+      }
+    });
+  })
+</script>

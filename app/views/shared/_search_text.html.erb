@@ -1,0 +1,26 @@
+<form class=”form-inline”>
+  <input type="text" id="search-text" class='search-text' placeholder="教材を探す">
+</form>
+
+<script>
+  $(function () {
+    searchWord = function(){
+      var searchText = $(this).val(), // 検索ボックスに入力された値
+          targetText;
+
+      $('.texts-content h3').each(function() {
+        targetText = $(this).text();
+
+        // 検索対象となるリストに入力された文字列が存在するかどうかを判断
+        if (targetText.indexOf(searchText) != -1) {
+          $(this).parent('a').parent('div').removeClass('hidden');
+        } else {
+          $(this).parent('a').parent('div').addClass('hidden');
+        }
+      });
+    };
+
+    // searchWordの実行
+    $('#search-text').on('input', searchWord);
+  });
+</script>
