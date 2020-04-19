@@ -16,6 +16,7 @@
  */
 @import "bootstrap/functions";
 @import "bootstrap";
+
 .fixed-top {
   background-color: #5D99FF;
 }
@@ -24,6 +25,7 @@
   .bg-primary {
     background-color: #ff253e;
   }
+
   .nav-link {
     padding: 10px 15px;
   }
@@ -38,9 +40,11 @@
   .w-25 {
     width: 25%;
   }
+
   input {
     width: 100%;
   }
+
   .submit {
     width: 20%;
   }
@@ -76,16 +80,15 @@ pre {
   margin-top: 30px;
 }
 
-@media screen and (min-width:0px) {
+@media screen and (min-width: 0px) {
   @import "smart_phones";
   #nav {
     margin-bottom: 100px;
   }
-
 }
 
 
-@media screen and (min-width:992px){
+@media screen and (min-width: 992px) {
   @import "movie";
   @import "marketing";
   @import "users_webs";
@@ -100,9 +103,11 @@ pre {
   .navbar {
     margin: 0 auto;
     width: 992px;
+
     a {
       font-size: 30px;
     }
+
     .navbar-collapse {
       justify-content: flex-end;
     }
@@ -111,13 +116,13 @@ pre {
       font-size: 14px;
     }
   }
-
 }
 
 /*質問投稿用*/
 
 #error_explanation {
   color: red;
+
   ul {
     color: red;
     margin: 0 0 30px 0;
@@ -130,10 +135,11 @@ pre {
   }
 }
 
-@media screen and (min-width:1200px){
+@media screen and (min-width: 1200px) {
 
   .navbar {
     width: 1200px;
+
     .navbar-nav a {
       font-size: 18px;
     }
@@ -145,16 +151,40 @@ pre {
 
   .texts-content {
     height: 360px;
+
     img {
       height: 187px;
     }
   }
+}
 
-  .hidden {
-    display: none;
+// Railsテキスト教材
+
+.hidden {
+  display: none;
+}
+
+form.search-form {
+  position: relative;
+  max-width: 350px;
+
+  i.search-icon {
+    position: absolute;
+    top: 30%;
+    left: 20px;
+    z-index: 11;
   }
 
-  .search-text {
-    max-width: 300px;
+  input.search-text {
+    padding-left: 50px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  form.search-form {
+    input.search-text {
+      font-size: 1.5rem !important;
+      height:auto !important;
+    }
   }
 }
