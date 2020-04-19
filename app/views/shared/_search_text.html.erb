@@ -1,26 +1,8 @@
-<form class=”form-inline”>
-  <input type="text" id="search-text" class='search-text' placeholder="教材を探す">
+<form class=”mb-3”>
+  <div class="input-group justify-content-center">
+    <input type="text" id="search-text" class='form-control search-text' placeholder="教材を探す" aria-label="Username" aria-describedby="search-form">
+    <div class="input-group-append">
+      <span class="input-group-text" id="search-form"><i class="fa fa-search" title="Search"></i></span>
+    </div>
+  </div>
 </form>
-
-<script>
-  $(function () {
-    searchWord = function(){
-      var searchText = $(this).val(), // 検索ボックスに入力された値
-          targetText;
-
-      $('.texts-content h3').each(function() {
-        targetText = $(this).text();
-
-        // 検索対象となるリストに入力された文字列が存在するかどうかを判断
-        if (targetText.indexOf(searchText) != -1) {
-          $(this).parent('a').parent('div').removeClass('hidden');
-        } else {
-          $(this).parent('a').parent('div').addClass('hidden');
-        }
-      });
-    };
-
-    // searchWordの実行
-    $('#search-text').on('input', searchWord);
-  });
-</script>

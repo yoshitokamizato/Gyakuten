@@ -155,8 +155,6 @@ pre {
   }
 
   .search-text {
-    position: relative;
-    float: right;
-    bottom: 30px;
+    max-width: 300px;
   }
 }
