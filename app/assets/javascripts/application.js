@@ -17,3 +17,25 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require social-share-button
+
+// テキスト教材ページ - 検索フォーム内の処理
+$(document).on('turbolinks:load', function () {
+    searchWord = function () {
+        var searchText = $(this).val().toLowerCase(), // 検索ボックスに入力された値
+            targetText;
+
+        $('.texts-content h3').each(function () {
+            targetText = $(this).text().toLowerCase();
+
+            // 検索対象となるリストに入力された文字列が存在するかどうかを判断
+            if (targetText.indexOf(searchText) != -1) {
+                $(this).parent('a').parent('div').removeClass('hidden');
+            } else {
+                $(this).parent('a').parent('div').addClass('hidden');
+            }
+        });
+    };
+
+    // searchWordの実行
+    $('#search-text').on('input', searchWord);
+});
