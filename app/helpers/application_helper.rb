@@ -21,7 +21,7 @@ module ApplicationHelper
         description: :description,
         type: "website",
         url: request.url,
-        image: twitter_image.present? ? twitter_image: image_url("texts/#{Settings.ogp.default_twitter_image}"),
+        image: twitter_image.presence || image_url("texts/#{Settings.ogp.default_twitter_image}"),
         locale: "ja_JP",
       },
       twitter: {

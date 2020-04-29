@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Movie, type: :model do
   context "title と contents と genre が存在するとき" do
