@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.2"
+ruby "2.6.6"
 gem "activeadmin" # management tools
 gem "acts_as_list" # 並び替え
 gem "aws-sdk-s3", require: false
 gem "bootsnap", ">= 1.1.0", require: false
-gem "bootstrap", "~> 4.1.1"
+gem "bootstrap", "~> 4.4.1"
 gem "coderay" # syntax highlight
 gem "config"
 gem "devise"
@@ -17,10 +17,10 @@ gem "jquery-rails"
 gem "kaminari" # pagination
 gem "meta-tags" # 検索エンジン最適化（SEO）プラグイン
 gem "pg", ">= 0.18", "< 2.0"
-gem "puma", "~> 3.11"
-gem "rails", "~> 5.2.0"
+gem "puma", "~> 3.12"
+gem "rails", "~> 5.2.4"
 gem "rails-ujs"
-gem "redcarpet", "~> 2.3.0" # markdown
+gem "redcarpet" # markdown
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
 gem "slack-notifier"
