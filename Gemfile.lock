@@ -430,10 +430,10 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry-byebug
   puma (~> 3.12)
-  rails (~> 5.2.0)
+  rails (~> 5.2.4)
   rails-erd
   rails-ujs
-  redcarpet (~> 2.3.0)
+  redcarpet
   rspec-rails
   rubocop-rails
   rubocop-rspec
