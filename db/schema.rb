@@ -90,14 +90,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_011334) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "marketings", force: :cascade do |t|
-    t.string "genre"
-    t.text "title"
-    t.text "contents"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "money", force: :cascade do |t|
     t.string "genre"
     t.string "title"
