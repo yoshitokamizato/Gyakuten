@@ -1,13 +1,12 @@
 <div class="admin-textsort-container">
   <p>ドラッグ＆ドロップで「Railsのテキスト教材」の並び順を変更できます</p>
-  <%= link_to 'ジャンルごとに並び替え', admin_moviesort_path(sort: [:genre]) %>
-  <div id="text_sort_list" class="sort-table">
+  <div id="movie_sort_list" class="sort-table">
     <div class="row title">
       <div class="left-column">ジャンル</div>
       <div class="right-column">タイトル</div>
     </div>
     <% @movies.each do |movie| %>
-      <div class="row item <%= 'text-brown' if @rails_movie_ids.exclude?(movie.id) %>">
+      <div class="row item <%= 'movie-brown' if @rails_movie_ids.exclude?(movie.id) %>">
         <div class="left-column"><%= movie.genre %></div>
         <div class="right-column"><%= movie.title %></div>
       </div>
@@ -15,3 +14,36 @@
   </div>
   <small>（現在表示されていない教材は文字色を薄くしております）</small>
 </div>
+
+<%# Javascriptのコードを application.js や active_admin.js に入れても動作しないため，ここに記載 %>
+<script>
+    <%# ActiveAdmin側でタイトルを変更する方法が分からないため，Javascriptで変更 %>
+    document.getElementById('page_title').innerText = '動画教材の並び替え'
+    $(function () {
+        var movieSortList = document.getElementById("movie_sort_list");
+        if (movieSortList) {
+            Sortable.create(movieSortList, {
+                draggable: ".item",
+                onUpdate: function (evt) {
+                    document.querySelectorAll('.sortable-dropped').forEach(function (row) {
+                        row.classList.remove('sortable-dropped')
+                    })
+                    $.ajax({
+                        url: 'moviesort/update',
+                        type: 'patch',
+                        data: {
+                            from: evt.oldIndex,
+                            to: evt.newIndex
+                        }
+                    })
+                        .done(function () {
+                            evt.item.classList.add('sortable-dropped')
+                        })
+                        .fail(function () {
+                            alert('エラーが発生しました。更新して下さい。')
+                        });
+                }
+            });
+        }
+    });
+</script>
