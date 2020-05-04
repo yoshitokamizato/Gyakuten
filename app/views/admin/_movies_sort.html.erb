@@ -1,35 +1,34 @@
 <div class="admin-textsort-container">
   <p>ドラッグ＆ドロップで「Railsのテキスト教材」の並び順を変更できます</p>
-  <div id="text_sort_list" class="sort-table">
+  <div id="movie_sort_list" class="sort-table">
     <div class="row title">
       <div class="left-column">ジャンル</div>
       <div class="right-column">タイトル</div>
     </div>
-    <% @texts.each do |text| %>
-      <div class="row item <%= 'text-brown' if @rails_text_ids.exclude?(text.id) %>">
-        <div class="left-column"><%= text.genre %></div>
-        <div class="right-column"><%= text.title %></div>
+    <% @movies.each do |movie| %>
+      <div class="row item">
+        <div class="left-column"><%= movie.genre %></div>
+        <div class="right-column"><%= movie.title %></div>
       </div>
     <% end %>
   </div>
-  <small>（現在表示されていない教材は文字色を薄くしております）</small>
 </div>
 
 <%# Javascriptのコードを application.js や active_admin.js に入れても動作しないため，ここに記載 %>
 <script>
     <%# ActiveAdmin側でタイトルを変更する方法が分からないため，Javascriptで変更 %>
-    document.getElementById('page_title').innerText = 'テキスト教材の並び替え'
+    document.getElementById('page_title').innerText = '動画教材の並び替え'
     $(function () {
-        var textSortList = document.getElementById("text_sort_list");
-        if (textSortList) {
-            Sortable.create(textSortList, {
+        var movieSortList = document.getElementById("movie_sort_list");
+        if (movieSortList) {
+            Sortable.create(movieSortList, {
                 draggable: ".item",
                 onUpdate: function (evt) {
                     document.querySelectorAll('.sortable-dropped').forEach(function (row) {
                         row.classList.remove('sortable-dropped')
                     })
                     $.ajax({
-                        url: 'textsort/update',
+                        url: 'moviesort/update',
                         type: 'patch',
                         data: {
                             from: evt.oldIndex,

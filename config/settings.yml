@@ -3,3 +3,5 @@ ogp:
   twitter_site: "@yoshito410kam"
   default_description: "人生逆転サロンの教材です"
   default_twitter_image: "no_image.jpg"
+programming:
+  rails: "Basic, Git, HTML&CSS, Ruby, Ruby on Rails"
