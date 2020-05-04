@@ -2,11 +2,15 @@
   <p>ドラッグ＆ドロップで「Railsのテキスト教材」の並び順を変更できます</p>
   <div id="movie_sort_list" class="sort-table">
     <div class="row title">
+      <div class="left-column">id</div>
+      <div class="left-column">position</div>
       <div class="left-column">ジャンル</div>
       <div class="right-column">タイトル</div>
     </div>
     <% @movies.each do |movie| %>
-      <div class="row item <%= 'movie-brown' if @rails_movie_ids.exclude?(movie.id) %>">
+      <div class="row item">
+        <div class="left-column"><%= movie.id %></div>
+        <div class="left-column"><%= movie.position %></div>
         <div class="left-column"><%= movie.genre %></div>
         <div class="right-column"><%= movie.title %></div>
       </div>

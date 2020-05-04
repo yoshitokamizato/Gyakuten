@@ -30,7 +30,7 @@ class Movie < ApplicationRecord
     when "Salon", "Talk", "Live"
       self.where(genre: genre).order("id DESC").page(page).per(PER_PAGE)
     else
-      self.where(genre: GENRE).order("id ASC").page(page).per(PER_PAGE)
+      self.where(genre: GENRE).order(:position).page(page).per(PER_PAGE)
     end
   end
 

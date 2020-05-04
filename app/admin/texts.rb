@@ -1,5 +1,5 @@
 ActiveAdmin.register Text do
-  PROGRAMMING = ["Basic", "Git", "Ruby", "Ruby on Rails"].freeze
+  PROGRAMMING = Settings.programming.rails.split(", ")
   # ドロップダウンメニューの親成分を決定
   menu parent: "テキスト教材"
   permit_params :genre, :title, :contents, :image, :description
