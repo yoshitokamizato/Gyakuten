@@ -26,9 +26,9 @@ class Movie < ApplicationRecord
   def self.categorized_by(genre, page:)
     case genre
     when "Money", "Movie", "Writing", "Php", "Marketing"
-      self.where(genre: genre).order("id ASC").page(page).per(PER_PAGE)
+      self.where(genre: genre).order(:position).page(page).per(PER_PAGE)
     when "Salon", "Talk", "Live"
-      self.where(genre: genre).order("id DESC").page(page).per(PER_PAGE)
+      self.where(genre: genre).order(:position).page(page).per(PER_PAGE)
     else
       self.where(genre: PROGRAMMING).order(:position).page(page).per(PER_PAGE)
     end
