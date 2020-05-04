@@ -1,5 +1,5 @@
 class AddPositionToText < ActiveRecord::Migration[5.2]
-  PROGRAMMING = Settings.programming.rails.split(", ")
+  PROGRAMMING = Settings.programming.rails.split(", ").freeze
 
   def up
     add_column :texts, :position, :integer

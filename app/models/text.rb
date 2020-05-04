@@ -17,7 +17,7 @@ class Text < ApplicationRecord
   has_one_attached :image
 
   PER_PAGE = 10
-  PROGRAMMING = Settings.programming.rails.split(", ")
+  PROGRAMMING = Settings.programming.rails.split(", ").freeze
 
   def self.show_contents_list
     Text.where(genre: PROGRAMMING).order(:position)

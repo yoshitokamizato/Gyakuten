@@ -1,7 +1,7 @@
 ActiveAdmin.register_page "MovieSort" do
   # トップメニュー「動画教材」の下に「並び替え」という名前のドロップダウンを追加
   menu parent: "動画教材", label: "並び替え"
-  PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"].freeze
+  PROGRAMMING = Settings.programming.rails.split(", ").freeze
   page_action :update, method: :patch
 
   content do
