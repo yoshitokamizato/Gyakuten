@@ -3,20 +3,20 @@ ActiveAdmin.register Text do
   # ドロップダウンメニューの親成分を決定
   menu parent: "テキスト教材"
   permit_params :genre, :title, :contents, :image, :description
-  config.sort_order = "id_asc"
+  config.sort_order = "position_asc"
 
   index do
     selectable_column
-    id_column
+    column :position
     column :genre
     column :title
-    column :contents
     column :description
     actions
   end
 
   show do
     attributes_table do
+      row :position
       row :genre
       row :title
       row :contents
@@ -31,6 +31,7 @@ ActiveAdmin.register Text do
 
   form do |_f|
     inputs  do
+      input :position
       input :genre, as: :select, collection: PROGRAMMING
       input :title, as: :string
       input :contents
