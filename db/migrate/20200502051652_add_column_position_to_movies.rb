@@ -5,6 +5,7 @@ class AddColumnPositionToMovies < ActiveRecord::Migration[5.2]
       movie.update(position: index)
     end
   end
+
   def down
     remove_column :movies, :position, :integer
   end

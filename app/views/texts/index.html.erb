@@ -10,9 +10,9 @@
       <div class="texts-content">
         <%= link_to text_path(text.id), {:target => "_blank"} do %>
           <% if text.image.attached? %>
-            <%= image_tag text.image %>
+            <%= image_tag text.image, loading: "lazy" %>
           <% else %>
-            <%= image_tag "texts/no_image.jpg" %>
+            <%= image_tag "texts/no_image.jpg", loading: "lazy" %>
           <% end %>
           <h3><%= text.title %></h3>
           <p><%= "【#{text.genre}】" %></p>
