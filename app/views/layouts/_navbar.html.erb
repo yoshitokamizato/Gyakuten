@@ -1,6 +1,5 @@
 <section id="nav">
-  <% color = "bg-success" if controller.controller_name == "lines" %>
-  <div class="fixed-top <%= color %>">
+  <div class="fixed-top <%= lines_color %>">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <%= link_to "Gyakuten", movies_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,12 +14,10 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "動画教材", movies_path, class: "nav-item nav-link active text-primary" %>
               <%= link_to "テキスト教材", texts_path, class: "nav-item nav-link active text-primary" %>
+              <%= link_to "AWS講座", aws_path, class: "nav-item nav-link active text-primary" %>
               <%= link_to "ライブコーディング", movies_path(genre: "Live"), class: "nav-item nav-link active text-primary" %>
               <%= link_to "質問集", questions_path, class: "nav-item nav-link active text-primary" %>
             </div>
-          </li>
-          <li class="nav-item">
-            <%= link_to "AWS講座", aws_path, class: "nav-item nav-link active" %>
           </li>
           <li class="nav-item">
             <%= link_to "PHP講座", movies_path(genre: "Php"), class: "nav-item nav-link active" %>
@@ -36,6 +33,9 @@
           </li>
           <li class="nav-item">
             <%= link_to "ライティング講座", movies_path(genre: "Writing"), class: "nav-item nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "集客講座", movies_path(genre: "Money"), class: "nav-item nav-link active" %>
           </li>
           <li class="nav-item">
             <%= link_to "LINE@", lines_path, class: "nav-item nav-link active" %>
