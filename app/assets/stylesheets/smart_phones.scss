@@ -390,19 +390,19 @@
   }
 }
 
-#take_of_rails {
-  width: 80%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 20px 0px;
+.advertising_banner {
+  max-width: 600px;
+  margin: 2rem auto;
+
   .cover img {
+    border: solid #505050 1px;
+    border-radius: 10px;
+    padding: 5px;
     width: 80%;
   }
-  .cover p {
-    font-size: 1.3em;
-  }
+
   :hover {
+    transition: opacity 0.5s;
     opacity: 0.9;
   }
 }
