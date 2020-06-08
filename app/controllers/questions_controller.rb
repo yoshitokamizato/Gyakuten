@@ -19,8 +19,11 @@ class QuestionsController < ApplicationController
       flash[:success] = "質問を投稿しました。"
       cookies.signed[:my_question] = { value: @question.id,
                                        expires: 1.weeks.from_now.utc }
-      notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
-      notifier.ping "質問が投稿されました"
+      # Slack通知で次のエラーが発生しているためコメントアウト
+      # Slack::Notifier::APIError (The slack API returned an error: invalid_token (HTTP Code 403)
+
+      # notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
+      # notifier.ping "質問が投稿されました"
 
       redirect_to questions_path
     else
