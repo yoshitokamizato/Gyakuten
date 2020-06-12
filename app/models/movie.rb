@@ -28,7 +28,7 @@ class Movie < ApplicationRecord
     when "Money", "Movie", "Writing", "Php", "Marketing"
       self.where(genre: genre).order(:position).page(page).per(PER_PAGE)
     when "Salon", "Talk", "Live"
-      self.where(genre: genre).order(:position).page(page).per(PER_PAGE)
+      self.where(genre: genre).order(position: :desc).page(page).per(PER_PAGE)
     else
       self.where(genre: PROGRAMMING).order(:position).page(page).per(PER_PAGE)
     end
