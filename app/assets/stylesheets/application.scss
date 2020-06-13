@@ -17,6 +17,24 @@
 @import "bootstrap/functions";
 @import "bootstrap";
 
+// 最大横幅
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  .mw-#{$breakpoint} {
+    max-width: var(--breakpoint-#{$breakpoint});
+  }
+}
+
+// 「ログインしました」などのフラッシュ用スタイル
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
 .fixed-top {
   background-color: #5D99FF;
 }
