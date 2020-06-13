@@ -1,4 +1,6 @@
 class LinesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @lines = Line.all
   end

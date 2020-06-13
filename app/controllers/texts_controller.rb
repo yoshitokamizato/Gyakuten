@@ -1,5 +1,5 @@
 class TextsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @texts = Text.show_contents_list
