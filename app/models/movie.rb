@@ -22,13 +22,16 @@ class Movie < ApplicationRecord
   PER_PAGE = 10
   # ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
   PROGRAMMING = Settings.programming.rails.split(", ").freeze
+  LIVE = Settings.programming.live.split(", ").freeze
+  GENERAL = Settings.programming.general.split(", ").freeze
 
   def self.categorized_by(genre, page:)
     case genre
-    when "Money", "Movie", "Writing", "Php", "Marketing"
+    when *GENERAL
       self.where(genre: genre).order(:position).page(page).per(PER_PAGE)
-    when "Salon", "Talk", "Live"
-      self.where(genre: genre).order(position: :desc).page(page).per(PER_PAGE)
+    when *LIVE
+      # 「ライブコーディング」「対談」「マネタイズ講座」は新規投稿順
+      self.where(genre: genre).order(id: :desc).page(page).per(PER_PAGE)
     else
       self.where(genre: PROGRAMMING).order(:position).page(page).per(PER_PAGE)
     end
