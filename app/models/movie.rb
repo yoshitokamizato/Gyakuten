@@ -30,7 +30,7 @@ class Movie < ApplicationRecord
     when *GENERAL
       self.where(genre: genre).order(:position).page(page).per(PER_PAGE)
     when *LIVE
-      # 「ライブコーディング」「対談」「マネタイズ講座」は新規投稿順
+      # 「ライブコーディング」「対談」は新規投稿順
       self.where(genre: genre).order(id: :desc).page(page).per(PER_PAGE)
     else
       self.where(genre: PROGRAMMING).order(:position).page(page).per(PER_PAGE)
