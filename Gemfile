@@ -11,6 +11,7 @@ gem "coderay" # syntax highlight
 gem "config"
 gem "devise"
 gem "devise-bootstrap-views"
+gem "devise-i18n"
 gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
