@@ -12,7 +12,7 @@ ActiveAdmin.register_page "MovieSort" do
   controller do
     def index
       # 並び替え機能が正常に機能するように先に整頓を行う
-      # 「ライブコーディング」「対談」「マネタイズ講座」は新規投稿順で固定する
+      # 「ライブコーディング」「対談」は新規投稿順で固定する
       programming_movies = Movie.where(genre: PROGRAMMING).order(:position)
       general_movies = Movie.where(genre: GENERAL).order(:genre, :position)
       live_movies = Movie.where(genre: LIVE).order(:genre, id: :desc)
