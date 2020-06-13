@@ -5,3 +5,5 @@ ogp:
   default_twitter_image: "no_image.jpg"
 programming:
   rails: "Basic, Git, HTML&CSS, Ruby, Ruby on Rails"
+  general: "Movie, Writing, Php, Marketing, Design, Other"
+  live: "Salon, Talk, Live, Money"
