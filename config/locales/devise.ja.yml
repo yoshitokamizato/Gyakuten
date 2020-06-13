@@ -8,13 +8,13 @@ ja:
       send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。"
     failure:
       already_authenticated: 'すでにログインしています。'
-      inactive: 'アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。'
+      inactive: 'アカウントが有効化されていません。しばらくお待ち下さい。'
       invalid: "%{authentication_keys} もしくはパスワードが不正です。"
       locked: 'あなたのアカウントは凍結されています。'
       last_attempt: 'あなたのアカウントが凍結される前に、複数回の操作がおこなわれています。'
       not_found_in_database: "%{authentication_keys} もしくはパスワードが不正です。"
       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
-      unauthenticated: 'アカウント登録もしくはログインしてください。'
+      unauthenticated: '新規登録もしくはログインしてください。'
       unconfirmed: 'メールアドレスの本人確認が必要です。'
     mailer:
       confirmation_instructions:
@@ -36,7 +36,7 @@ ja:
       updated_not_active: 'パスワードが正しく変更されました。'
     registrations:
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
-      signed_up: 'アカウント登録が完了しました。'
+      signed_up: '新規登録が完了しました。'
       signed_up_but_inactive: 'ログインするためには、アカウントを有効化してください。'
       signed_up_but_locked: 'アカウントが凍結されているためログインできません。'
       signed_up_but_unconfirmed: '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
