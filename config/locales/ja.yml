@@ -29,6 +29,8 @@ ja:
       user:
         name: 名前
         remember_me: 次回から自動的にログイン
+        slack_id: Slack メンバー ID
+        flag: 利用フラグ
       question:
         solutions: 回答
         details: 詳細
