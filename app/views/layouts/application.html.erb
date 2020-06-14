@@ -12,6 +12,7 @@
 
   <body>
     <%= render "layouts/navbar" %>
+    <%= render "shared/flash_message" %>
     <div id="container" class="<%= 'mw-sm' if devise_controller? %>">
       <%= yield %>
     </div>

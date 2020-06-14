@@ -17,19 +17,30 @@
 @import "bootstrap/functions";
 @import "bootstrap";
 
-.fixed-top {
-  background-color: #5D99FF;
+// 最大横幅
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  .mw-#{$breakpoint} {
+    max-width: var(--breakpoint-#{$breakpoint});
+  }
 }
 
-#nav {
-  .bg-primary {
-    background-color: #ff253e;
-  }
+body {
+  padding-top: 56px;
+}
 
-  .nav-link {
-    padding: 10px 15px;
-  }
+// 「ログインしました」などのフラッシュ用スタイル
 
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.fixed-top {
+  background-color: #5D99FF;
 }
 
 .container {
@@ -82,9 +93,6 @@ pre {
 
 @media screen and (min-width: 0px) {
   @import "smart_phones";
-  #nav {
-    margin-bottom: 100px;
-  }
 }
 
 
@@ -95,24 +103,14 @@ pre {
   @import "questions";
   @import "loggins";
 
-  #nav {
-    margin-bottom: 0px;
-  }
 
   .navbar {
+    font-size: 0.8rem;
     margin: 0 auto;
-    width: 992px;
-
-    a {
-      font-size: 30px;
-    }
+    width: var(--breakpoint-lg);
 
     .navbar-collapse {
       justify-content: flex-end;
-    }
-
-    .navbar-nav a {
-      font-size: 14px;
     }
   }
 }
@@ -135,14 +133,6 @@ pre {
 }
 
 @media screen and (min-width: 1200px) {
-
-  .navbar {
-    width: 1200px;
-
-    .navbar-nav a {
-      font-size: 18px;
-    }
-  }
 
   #container {
     width: 1200px;
