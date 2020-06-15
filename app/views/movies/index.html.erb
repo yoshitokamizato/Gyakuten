@@ -1,46 +1,53 @@
-<section id="movie">
-  <div class="container">
-    <div class="rows">
-      <div class="text-center">
-        <% if user_signed_in? %>
+<% if current_user.flag %>
+  <section id="movie">
+    <div class="container">
+      <div class="rows">
+        <div class="text-center">
+          <% if user_signed_in? %>
 
-          <div class="col-xs-12">
-            <% @movies.each.with_index(1) do |movie, i| %>
-              <% case movie.genre %>
+            <div class="col-xs-12">
+              <% @movies.each.with_index(1) do |movie, i| %>
+                <% case movie.genre %>
               <% when "Basic", "Git", "Ruby", "Ruby on Rails", "Marketing" %>
-                <div class="movie-title">
-                  Lv.<%= (((@movies.current_page - 1) * Movie::PER_PAGE) + i) %>：<%= movie.title %>
-                </div>
-                <div class="movie-contents">
-                  <%= movie.contents.html_safe if movie.contents.present? %>
-                  <div class="movie-description">
-                    <%  if movie.desc.present? %>
-                      <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
-                    <% end %>
+                  <div class="movie-title">
+                    Lv.<%= (((@movies.current_page - 1) * Movie::PER_PAGE) + i) %>：<%= movie.title %>
                   </div>
-                </div>
-              <% else %>
-                <div class="movie-title">
-                  <%= movie.title %>
-                </div>
-                <div class="movie-contents">
-                  <%= movie.contents.html_safe if movie.contents.present? %>
-                  <div class="disp-source">
-                    <%  if movie.desc.present? %>
-                      <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
-                    <% end %>
+                  <div class="movie-contents">
+                    <%= movie.contents.html_safe if movie.contents.present? %>
+                    <div class="movie-description">
+                      <% if movie.desc.present? %>
+                        <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
+                <% else %>
+                  <div class="movie-title">
+                    <%= movie.title %>
+                  </div>
+                  <div class="movie-contents">
+                    <%= movie.contents.html_safe if movie.contents.present? %>
+                    <div class="disp-source">
+                      <% if movie.desc.present? %>
+                        <%= link_to "ソースコード", "#{movie.desc}", { target: "_blank" } %>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
+            </div>
 
-          <div class="paginate-container">
-            <%= paginate @movies %>
-          </div>
-        <% end %>
+            <div class="paginate-container">
+              <%= paginate @movies %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<%= render 'shared/banner' %>
+  </section>
+  <%= render 'shared/banner' %>
+<% else %>
+  <section class="text-center">
+    <h1>ご案内</h1>
+    <p>現在，承認作業中です。しばらくお待ちください。</p>
+  </section>
+<% end %>

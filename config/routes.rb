@@ -3,21 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
-    sessions: "users/sessions",
   }
-
-  devise_scope :user do
-    get "sign_in", to: "users/sessions#new"
-    get "sign_out", to: "users/sessions#destroy"
-  end
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-  as :user do
-    get "users/edit" => "devise/registrations#edit", :as => "edit_user_registration"
-    put "users" => "devise/registrations#update", :as => "user_registration"
-  end
 
   resources :aws, only: [:index, :show]
   resources :users_webs

@@ -7,6 +7,7 @@
 #  current_sign_in_ip     :inet
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  flag                   :boolean          default(FALSE)
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
 #  name                   :string
@@ -18,6 +19,7 @@
 #  updated_at             :datetime         not null
 #  error_id               :integer
 #  program_id             :integer
+#  slack_id               :string           not null
 #
 # Indexes
 #
@@ -25,13 +27,10 @@
 #  index_users_on_error_id              (error_id)
 #  index_users_on_program_id            (program_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_slack_id              (slack_id) UNIQUE
 #
 
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  it "ユーザの名前が取得できること" do
-    disp_name = User.disp_name("satou")
-    expect(disp_name).to eq "satouさん"
-  end
 end

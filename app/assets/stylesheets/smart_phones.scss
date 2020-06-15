@@ -64,15 +64,6 @@
   }
 }
 
-.navbar {
-  a {
-    font-size: 3em;
-  }
-  .navbar-nav a {
-    font-size: 2em;
-  }
-}
-
 .footer {
   position: fixed;
   bottom: 0;
@@ -405,8 +396,4 @@
     transition: opacity 0.5s;
     opacity: 0.9;
   }
-}
-
-.alert-notice {
-  margin: 0 auto
 }
