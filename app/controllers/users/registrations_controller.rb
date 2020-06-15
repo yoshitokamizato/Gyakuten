@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if resource.flag
         set_flash_message! :notice, :signed_up
       else
-        flash[:alert] = "新規登録が完了しました。承認処理が完了するまで，しばらくお待ち下さい。"
+        flash[:alert] = "新規登録が完了しました。承認作業が完了するまで，しばらくお待ち下さい。"
         webhook_url = Rails.application.credentials.dig(:slack, :webhook_url, :gyakuten_approval_pending)
         notifier_msg = "承認待ちの方が追加されました。slack_id は #{resource.slack_id}"
         notifier = Slack::Notifier.new webhook_url
