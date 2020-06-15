@@ -17,4 +17,7 @@
 #  index_slack_members_on_userid  (userid) UNIQUE
 #
 class SlackMember < ApplicationRecord
+  validates :userid, presence: true, uniqueness: true
+  validates :genre, presence: true, inclusion: { in: %w[gyakuten yanbaru_code yanbaru_expert] }
+  validates :status, presence: true
 end
