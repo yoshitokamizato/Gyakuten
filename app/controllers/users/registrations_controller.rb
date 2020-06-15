@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # 以下を追加
     resource.flag = true if SlackMember.find_by(userid: resource.slack_id)
     # 以上を追加
-    resource.save
+    resource.save!
     yield resource if block_given?
     if resource.persisted?
       # 以下を追加
