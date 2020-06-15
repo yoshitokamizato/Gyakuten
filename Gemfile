@@ -3,6 +3,7 @@ git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
 ruby "2.6.6"
 gem "activeadmin" # management tools
+gem "active_admin_import"
 gem "acts_as_list" # 並び替え
 gem "aws-sdk-s3", require: false
 gem "bootsnap", ">= 1.1.0", require: false
