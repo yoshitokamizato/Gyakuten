@@ -22,6 +22,7 @@ ja:
       money: 課金
       movie: 動画
       program: プログラム
+      slack_member: Slackメンバー
     attributes:
       admin_user:
       error:
@@ -51,6 +52,12 @@ ja:
         desc: 降順
       program:
         name: プログラム名
+      slack_member:
+        userid: メンバーID
+        username: ユーザー名
+        fullname: フルネーム
+        displayname: ニックネーム
+        status: 権限
   attributes:
     id: ID
     program_id: プログラムID
