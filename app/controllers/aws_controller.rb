@@ -1,5 +1,4 @@
 class AwsController < ApplicationController
-
   def index
     @aws = Aw.order("id ASC")
   end
