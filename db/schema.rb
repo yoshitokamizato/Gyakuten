@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_013922) do
+ActiveRecord::Schema.define(version: 2020_06_16_065653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,18 +123,6 @@ ActiveRecord::Schema.define(version: 2020_06_15_013922) do
     t.integer "count", default: 0
   end
 
-  create_table "slack_members", force: :cascade do |t|
-    t.string "genre", null: false
-    t.string "userid", null: false
-    t.string "username"
-    t.string "fullname"
-    t.string "displayname"
-    t.string "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["userid"], name: "index_slack_members_on_userid", unique: true
-  end
-
   create_table "solutions", force: :cascade do |t|
     t.integer "question_id", null: false
     t.text "content", null: false
@@ -170,6 +158,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_013922) do
     t.inet "last_sign_in_ip"
     t.boolean "flag", default: false
     t.string "slack_id", null: false
+    t.datetime "approval_at", default: "2020-06-15 23:54:59"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["error_id"], name: "index_users_on_error_id"
     t.index ["program_id"], name: "index_users_on_program_id"
