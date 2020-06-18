@@ -25,4 +25,15 @@
   </div>
 <% end %>
 
-<%= render 'devise/shared/links' %>
+<div class="card mt-5">
+  <h5 class="card-header">案内</h5>
+  <div class="card-body">
+    <p class="card-text">
+      先日まで，共通のアカウントでログインを行う方式を採用しておりましたが，各自でログインを行う方式に切り替えさせていただきました。
+    </p>
+    <p class="card-text">
+      アカウントの新規登録をまだ済まされていない方は以下のリンクからお願いいたします。メールアドレス・パスワードはご自由に設定下さい。
+    </p>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-block" %>
+  </div>
+</div>
