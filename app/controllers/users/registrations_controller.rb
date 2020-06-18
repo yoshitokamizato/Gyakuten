@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.flag = gyakuten.approval? || yanbaru_expert.approval? || yanbaru_code.approval?
     if resource.flag
       # 以下は元ソース通り
-      resource.save
+      resource.save!
       yield resource if block_given?
       if resource.persisted?
         if resource.active_for_authentication?
