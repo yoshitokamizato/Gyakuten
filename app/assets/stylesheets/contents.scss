@@ -12,6 +12,7 @@
   pre {
     font-size: 17px;
   }
+
   li {
     font-size: 17px;
   }
@@ -37,25 +38,30 @@
   table {
     table-layout: fixed;
     font-size: 17px;
+
     thead {
       color: white;
     }
+
     a { //リンクをテーブルの中で折り返して表示　※現在は使用してないが記録として
-      white-space: pre;           /* CSS 2.0 */
-      white-space: pre-wrap;      /* CSS 2.1 */
-      white-space: pre-line;      /* CSS 3.0 */
-      white-space: -pre-wrap;     /* Opera 4-6 */
-      white-space: -o-pre-wrap;   /* Opera 7 */
+      white-space: pre; /* CSS 2.0 */
+      white-space: pre-wrap; /* CSS 2.1 */
+      white-space: pre-line; /* CSS 3.0 */
+      white-space: -pre-wrap; /* Opera 4-6 */
+      white-space: -o-pre-wrap; /* Opera 7 */
       white-space: -moz-pre-wrap; /* Mozilla */
-      white-space: -hp-pre-wrap;  /* HP Printers */
-      word-wrap: break-word;      /* IE 5+ */
+      white-space: -hp-pre-wrap; /* HP Printers */
+      word-wrap: break-word; /* IE 5+ */
     }
+
     .w-1 {
       width: 10%;
     }
+
     .w-2 {
       width: 20%;
     }
+
     .w-5 {
       width: 50%;
     }
@@ -67,17 +73,18 @@
   margin: 0 auto;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
+footer {
   width: 100%;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+
   a {
     padding: 0 20px;
     font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
   }
 }
 
@@ -86,13 +93,16 @@
     visibility: visible;
     padding-bottom: 50px;
   }
+
   .btn {
     width: 150px;
     font-size: 18px;
   }
+
   .search-form {
     padding-bottom: 30px;
   }
+
   p {
     width: 710px;
     margin: 0 auto;
@@ -102,22 +112,27 @@
 
 #line-contents {
   width: 450px;
+
   h2 {
     padding: 30px 0px 10px 0px;
   }
+
   font-size: 20px;
 }
 
 #design {
   width: 90%;
   margin: 0 auto;
+
   .movie-contents {
     padding-bottom: 30px;
   }
+
   .paginate-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .paginate-container {
       .page-link {
         background-color: #B00100;
@@ -129,13 +144,16 @@
 #money {
   width: 90%;
   margin: 0 auto;
+
   .movie-contents {
     padding-bottom: 30px;
   }
+
   .paginate-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .paginate-container {
       .page-link {
         background-color: #B00100;
@@ -147,13 +165,16 @@
 #salon {
   width: 90%;
   margin: 0 auto;
+
   .movie-contents {
     padding-bottom: 30px;
   }
+
   .paginate-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .paginate-container {
       .page-link {
         background-color: #B00100;
@@ -165,13 +186,16 @@
 #talk {
   width: 90%;
   margin: 0 auto;
+
   .movie-contents {
     padding-bottom: 30px;
   }
+
   .paginate-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .paginate-container {
       .page-link {
         background-color: #B00100;
@@ -183,13 +207,16 @@
 #writings {
   width: 90%;
   margin: 0 auto;
+
   .movie-contents {
     padding-bottom: 30px;
   }
+
   .paginate-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .paginate-container {
       .page-link {
         background-color: #B00100;
@@ -201,13 +228,16 @@
 #phps {
   width: 90%;
   margin: 0 auto;
+
   .movie-contents {
     padding-bottom: 30px;
   }
+
   .paginate-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .paginate-container {
       .page-link {
         background-color: #B00100;
@@ -219,13 +249,16 @@
 #live {
   width: 90%;
   margin: 0 auto;
+
   .movie-contents {
     padding-bottom: 30px;
   }
+
   .paginate-container {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .paginate-container {
       .page-link {
         background-color: #B00100;

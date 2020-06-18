@@ -29,6 +29,13 @@ body {
   padding-top: 56px;
 }
 
+.base-color {
+  background-color: #5D99FF;
+  &:hover {
+    background-color: #5D99FF;
+  }
+}
+
 // 「ログインしました」などのフラッシュ用スタイル
 
 .alert-notice {
@@ -37,10 +44,6 @@ body {
 
 .alert-alert {
   @extend .alert-danger;
-}
-
-.fixed-top {
-  background-color: #5D99FF;
 }
 
 .container {
@@ -84,11 +87,6 @@ td {
 pre {
   border: 0.1px solid;
   padding: 10px;
-}
-
-.footer {
-  background-color: #5D99FF;
-  margin-top: 30px;
 }
 
 @media screen and (min-width: 0px) {

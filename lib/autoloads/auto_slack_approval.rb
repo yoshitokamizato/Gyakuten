@@ -12,5 +12,3 @@ class AutoSlackApproval
     false
   end
 end
-
-
