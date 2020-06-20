@@ -389,3 +389,9 @@ footer {
     opacity: 0.9;
   }
 }
+
+.movie-body {
+  height: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
