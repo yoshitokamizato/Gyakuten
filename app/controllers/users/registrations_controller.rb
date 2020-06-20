@@ -14,13 +14,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     # SlackAPIで入力された Slack メンバー ID が存在し，削除済みでないかを確認
     # 問題がない場合は自動で承認済み扱いとする
-    gyakuten = AutoSlackApproval.new(salon_name: :gyakuten, slack_id: resource.slack_id)
-    yanbaru_expert = AutoSlackApproval.new(salon_name: :yanbaru_expert, slack_id: resource.slack_id)
-    yanbaru_code = AutoSlackApproval.new(salon_name: :yanbaru_code, slack_id: resource.slack_id)
-    resource.flag = gyakuten.approval? || yanbaru_expert.approval? || yanbaru_code.approval?
+    Rails.application.credentials.dig(:slack, :oauth_token).keys.each do |slack_name|
+      client = AutoSlackApproval.new(slack_name: slack_name, slack_id: resource.slack_id)
+      resource.flag = client.approval?
+      if resource.flag
+        resource.slack_name = slack_name.to_s
+        break
+      end
+    end
     if resource.flag
       # 以下は元ソース通り
-      resource.save!
+      resource.save
       yield resource if block_given?
       if resource.persisted?
         if resource.active_for_authentication?

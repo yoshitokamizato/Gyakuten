@@ -38,4 +38,5 @@ class User < ApplicationRecord
   # :recoverable
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
+  validates :slack_id, presence: true, uniqueness: true
 end
