@@ -19,7 +19,7 @@ class Movie < ApplicationRecord
   validates :genre, presence: true
 
   # 1ページの動画表示件数を指定
-  PER_PAGE = 10
+  PER_PAGE = 18
   # ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
   PROGRAMMING = Settings.programming.rails.split(", ").freeze
   LIVE = Settings.programming.live.split(", ").freeze

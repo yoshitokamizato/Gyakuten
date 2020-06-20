@@ -63,6 +63,12 @@
       width: 50%;
     }
   }
+
+  p.movie-title {
+    height: 200px;
+    font-size: 1.7rem;
+    line-height: 1.5em;
+  }
 }
 
 #contents {
@@ -382,8 +388,4 @@ footer {
     transition: opacity 0.5s;
     opacity: 0.9;
   }
-}
-
-.movie-body {
-  height: 300px;
 }
