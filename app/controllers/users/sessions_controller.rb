@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+SALON_NAMES = [:gyakuten, :yanbaru_expert, :yanbaru_code, :php].freeze
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
@@ -15,10 +16,19 @@ class Users::SessionsController < Devise::SessionsController
     # 前回のチェックから1週間以上経過している場合は，再度Slackに問い合わせ，
     # 削除済みアカウントになっている場合は承認を取り消す
     if resource.flag && Time.current > resource.approval_at + 7.days
-      gyakuten = AutoSlackApproval.new(salon_name: :gyakuten, slack_id: resource.slack_id)
-      yanbaru_expert = AutoSlackApproval.new(salon_name: :yanbaru_expert, slack_id: resource.slack_id)
-      yanbaru_code = AutoSlackApproval.new(salon_name: :yanbaru_code, slack_id: resource.slack_id)
-      resource.flag = gyakuten.approval? || yanbaru_expert.approval? || yanbaru_code.approval?
+      if resource.slack_name.present?
+        client = AutoSlackApproval.new(slack_name: resource.slack_name.to_sym, slack_id: resource.slack_id)
+        resource.flag = client.approval?
+      else
+        Rails.application.credentials.dig(:slack, :oauth_token).keys.each do |slack_name|
+          client = AutoSlackApproval.new(slack_name: slack_name, slack_id: resource.slack_id)
+          resource.flag = client.approval?
+          if resource.flag
+            resource.slack_name = slack_name.to_s
+            break
+          end
+        end
+      end
       resource.approval_at = Time.current
       resource.save!
     end

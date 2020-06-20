@@ -16,6 +16,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  slack_name             :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  error_id               :integer
@@ -37,4 +38,5 @@ class User < ApplicationRecord
   # :recoverable
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
+  validates :slack_id, presence: true, uniqueness: true
 end
