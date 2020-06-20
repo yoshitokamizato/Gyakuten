@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :slack_id, :flag, :password
+  permit_params :email, :slack_id, :flag
 
   index do
     selectable_column
@@ -23,7 +23,6 @@ ActiveAdmin.register User do
       f.input :flag
       f.input :email
       f.input :slack_id
-      f.input :password
     end
     f.actions
   end
