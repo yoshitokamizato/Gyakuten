@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :movies, only: [:index] do
     resource :watched_movies, only: [:create, :destroy]
   end
-  resources :texts, only: [:index, :show]
+  resources :texts, only: [:index, :show] do
+    resource :read_texts, only: [:create, :destroy]
+  end
   resources :lines
   resources :moneys
   resources :salons, only: :index
