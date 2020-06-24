@@ -39,4 +39,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
   validates :slack_id, presence: true, uniqueness: true
+  has_many :watched_movies, dependent: :destroy
 end
