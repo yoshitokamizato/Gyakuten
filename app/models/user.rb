@@ -40,4 +40,5 @@ class User < ApplicationRecord
          :rememberable, :trackable, :validatable
   validates :slack_id, presence: true, uniqueness: true
   has_many :watched_movies, dependent: :destroy
+  has_many :read_texts, dependent: :destroy
 end
