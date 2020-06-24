@@ -4,6 +4,7 @@ class TextsController < ApplicationController
 
   def index
     @texts = Text.show_contents_list
+    @read_text_ids = current_user.read_texts.pluck(:text_id)
   end
 
   def show
