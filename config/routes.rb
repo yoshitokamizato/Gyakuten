@@ -11,17 +11,14 @@ Rails.application.routes.draw do
   resources :aws, only: [:index, :show]
   resources :users_webs
   resources :words
-  resources :contents
   resources :movies, only: [:index] do
     resource :watched_movies, only: [:create, :destroy]
   end
   resources :texts, only: [:index, :show] do
     resource :read_texts, only: [:create, :destroy]
   end
-  resources :lines
-  resources :moneys
+  resources :lines, only: [:index, :show]
   resources :salons, only: :index
-  resources :designs
   resources :questions, only: [:index, :show, :create, :edit, :update]
   resources :questions do
     resource :solutions, only: [:create]
