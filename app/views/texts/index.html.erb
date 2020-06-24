@@ -14,7 +14,7 @@
           <% else %>
             <%= image_tag "texts/no_image.jpg", loading: "lazy" %>
           <% end %>
-          <div id="read-text-<%= text.id %>" class="text-right">
+          <div id="read-text-<%= text.id %>">
             <% if @read_text_ids.include?(text.id) %>
               <%= render "read_text", text_id: text.id %>
             <% else %>
