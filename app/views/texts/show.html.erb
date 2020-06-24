@@ -5,6 +5,13 @@
   <h2><%= @text.title %></h2>
   <% if user_signed_in? %>
     <%= markdown(@text.contents).html_safe %>
+    <div id="read-text-<%= @text.id %>" class="mb-4">
+      <% if @read_text_ids.include?(@text.id) %>
+        <%= render "read_text", text_id: @text.id %>
+      <% else %>
+        <%= render "unread_text", text_id: @text.id %>
+      <% end %>
+    </div>
   <% else %>
     <p>
       記事を閲覧するには，<%= link_to "ログイン", new_user_session_path %>が必要です。
@@ -21,4 +28,5 @@
   <% end %>
   <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
   <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
+
 </section>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_035016) do
+ActiveRecord::Schema.define(version: 2020_06_24_135427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,14 @@ ActiveRecord::Schema.define(version: 2020_06_20_035016) do
     t.integer "count", default: 0
   end
 
+  create_table "read_texts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "text_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "text_id"], name: "index_read_texts_on_user_id_and_text_id", unique: true
+  end
+
   create_table "solutions", force: :cascade do |t|
     t.integer "question_id", null: false
     t.text "content", null: false
@@ -173,6 +181,14 @@ ActiveRecord::Schema.define(version: 2020_06_20_035016) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "genre"
+  end
+
+  create_table "watched_movies", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "movie_id"], name: "index_watched_movies_on_user_id_and_movie_id", unique: true
   end
 
   create_table "words", force: :cascade do |t|
