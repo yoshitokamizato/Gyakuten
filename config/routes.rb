@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'watched_movies/create'
+  get 'watched_movies/destroy'
   root to: "movies#index"
 
   devise_for :users, controllers: {
@@ -12,7 +14,9 @@ Rails.application.routes.draw do
   resources :users_webs
   resources :words
   resources :contents
-  resources :movies, only: [:index]
+  resources :movies, only: [:index] do
+    resources :watched_movies, only: [:create, :destroy]
+  end
   resources :texts, only: [:index, :show]
   resources :lines
   resources :moneys
