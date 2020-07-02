@@ -12,15 +12,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    # SlackAPIで入力された Slack メンバー ID が存在し，削除済みでないかを確認
-    # 問題がない場合は自動で承認済み扱いとする
-    Rails.application.credentials.dig(:slack, :oauth_token).keys.each do |slack_name|
-      client = AutoSlackApproval.new(slack_name: slack_name, slack_id: resource.slack_id)
-      resource.flag = client.approval?
-      if resource.flag
-        resource.slack_name = slack_name.to_s
-        break
+    if Rails.env.production?
+      # SlackAPIで入力された Slack メンバー ID が存在し，削除済みでないかを確認
+      # 問題がない場合は自動で承認済み扱いとする
+      Rails.application.credentials.dig(:slack, :oauth_token).keys.each do |slack_name|
+        client = AutoSlackApproval.new(slack_name: slack_name, slack_id: resource.slack_id)
+        resource.flag = client.approval?
+        if resource.flag
+          resource.slack_name = slack_name.to_s
+          break
+        end
       end
+    else
+      # 本番環境以外では任意の Slack_id を受け付ける
+      resource.flag = true
     end
     if resource.flag
       # 以下は元ソース通り
