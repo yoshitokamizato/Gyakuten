@@ -16,6 +16,7 @@ class Text < ApplicationRecord
   acts_as_list
   has_one_attached :image
   has_many :read_texts, dependent: :destroy
+  has_many :movies
 
   PER_PAGE = 10
   PROGRAMMING = Settings.programming.rails.split(", ").freeze
