@@ -4,6 +4,7 @@
 <section id="text-contents">
   <h2><%= @text.title %></h2>
   <% if user_signed_in? %>
+    <%= render "movie" if @movies.present? %>
     <%= markdown(@text.contents).html_safe %>
     <div id="read-text-<%= @text.id %>" class="mb-4">
       <% if @read_text_ids.include?(@text.id) %>
@@ -19,14 +20,13 @@
     <p class="mb-4">
       <small>
         こちらの記事は，
-        <%= link_to "人生逆転サロン", "https://utina.yoshitokamizato.com/entry/2018/09/06/202647" %>
+        <%= link_to "やんばるCODEオンライン", "https://utina.yoshitokamizato.com/entry/2018/09/06/202647" %>
         もしくは
-        <%= link_to "共同開発", "https://note.com/yoshitokamizato/n/ne9fb7cd06b46" %>
+        <%= link_to "やんばるエキスパート", "https://yanbaru-expert.com/" %>
         参加者限定の記事となっております。
       </small>
     </p>
   <% end %>
   <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
   <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
-
 </section>

@@ -10,5 +10,7 @@ class TextsController < ApplicationController
   def show
     @text = Text.find(params[:id])
     @read_text_ids = current_user.read_texts.pluck(:text_id)
+    @movies = @text.movies.order(:position)
+    @watched_movie_ids = current_user.watched_movies.pluck(:movie_id)
   end
 end
