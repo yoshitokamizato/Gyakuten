@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "movies#index"
+  root to: "texts#index"
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
