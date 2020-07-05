@@ -11,8 +11,8 @@
             Rails
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Ruby/Rails教材", texts_path, class: "dropdown-item" %>
             <%= link_to "動画教材", movies_path, class: "dropdown-item" %>
-            <%= link_to "テキスト教材", texts_path, class: "dropdown-item" %>
             <%= link_to "AWS講座", aws_path, class: "dropdown-item" %>
             <%= link_to "ライブコーディング", movies_path(genre: "Live"), class: "dropdown-item" %>
             <%= link_to "質問集", questions_path, class: "dropdown-item" %>
