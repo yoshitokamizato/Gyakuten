@@ -1,6 +1,4 @@
-<!-- リアルタイム検索フォーム -->
 <%= render 'shared/search_text' %>
-
 <div class="texts-wrapper">
   <div class="contents-title">
     <h2>テキスト教材</h2>
@@ -8,7 +6,7 @@
   <div class="texts-contents">
     <% @texts.each do |text| %>
       <div class="texts-content">
-        <%= link_to text_path(text.id), {:target => "_blank"} do %>
+        <%= link_to text_path(text.id), { :target => "_blank" } do %>
           <% if text.image.attached? %>
             <%= image_tag text.image, loading: "lazy" %>
           <% else %>
@@ -23,7 +21,7 @@
           </div>
           <h3><%= text.title %></h3>
           <p><%= "【#{text.genre}】" %></p>
-      <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>
