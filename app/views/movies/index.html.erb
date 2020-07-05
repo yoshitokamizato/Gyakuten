@@ -1,41 +1,34 @@
-<% if current_user.flag %>
-  <div class="container-fluid">
-    <div class="row">
-      <% @movies.each.with_index(@movies.offset_value + 1) do |movie, i| %>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card border-dark mb-3">
-            <div class="card-header p-0">
-              <div class="embed-responsive embed-responsive-16by9">
-                <%= movie.contents.html_safe %>
-              </div>
-            </div>
-            <div class="card-body text-dark movie-body">
-              <p id="watched-movie-<%= movie.id %>">
-                <% if @watched_movie_ids.include?(movie.id) %>
-                  <%= render "watched_movie", movie_id: movie.id %>
-                <% else %>
-                  <%= render "unwatched_movie", movie_id: movie.id %>
-                <% end %>
-              </p>
-              <p class="card-text movie-title">
-                <% if ["Basic", "Git", "Ruby", "Ruby on Rails", "Marketing"].include?(movie.genre) %>
-                  Lv.<%= i %>：<%= movie.title %>
-                <% else %>
-                  <%= movie.title %>
-                <% end %>
-              </p>
+<div class="container-fluid">
+  <div class="row">
+    <% @movies.each.with_index(@movies.offset_value + 1) do |movie, i| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card border-dark mb-3">
+          <div class="card-header p-0">
+            <div class="embed-responsive embed-responsive-16by9">
+              <%= movie.contents.html_safe %>
             </div>
           </div>
+          <div class="card-body text-dark movie-body">
+            <p id="watched-movie-<%= movie.id %>">
+              <% if @watched_movie_ids.include?(movie.id) %>
+                <%= render "watched_movie", movie_id: movie.id %>
+              <% else %>
+                <%= render "unwatched_movie", movie_id: movie.id %>
+              <% end %>
+            </p>
+            <p class="card-text movie-title">
+              <% if ["Basic", "Git", "Ruby", "Ruby on Rails", "Marketing"].include?(movie.genre) %>
+                Lv.<%= i %>：<%= movie.title %>
+              <% else %>
+                <%= movie.title %>
+              <% end %>
+            </p>
+          </div>
         </div>
-      <% end %>
-    </div>
-    <%= paginate @movies %>
+      </div>
+    <% end %>
   </div>
-  <%= render 'shared/banner' %>
-<% else %>
-  <section class="text-center">
-    <h1>ご案内</h1>
-    <p>登録されたSlack IDは削除されております。</p>
-    <p>現在参加中のサロンのSlack IDで新規登録をお願いいたします。</p>
-  </section>
-<% end %>
+  <%= paginate @movies %>
+</div>
+<%= render 'shared/banner' %>
+
