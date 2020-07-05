@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
     def approval_user!
       unless current_user.flag
-        redirect_to root_path, alert: "承認作業中です。しばらくお待ち下さい。"
+        redirect_to root_path, alert: "現在参加中のサロンのSlack IDで新規登録をお願いいたします。"
       end
     end
 end

@@ -10,6 +10,7 @@
 #  title      :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  text_id    :integer
 #
 
 class Movie < ApplicationRecord
@@ -18,6 +19,7 @@ class Movie < ApplicationRecord
   validates :contents, presence: true
   validates :genre, presence: true
   has_many :watched_movies, dependent: :destroy
+  belongs_to :text
 
   # 1ページの動画表示件数を指定
   PER_PAGE = 18

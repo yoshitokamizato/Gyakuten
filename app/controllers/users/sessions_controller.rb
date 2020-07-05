@@ -15,7 +15,8 @@ class Users::SessionsController < Devise::SessionsController
     # Deviseのログイン維持期間はデフォルトの2週間で設定中
     # 前回のチェックから1週間以上経過している場合は，再度Slackに問い合わせ，
     # 削除済みアカウントになっている場合は承認を取り消す
-    if resource.flag && Time.current > resource.approval_at + 7.days
+    # ただし，本番環境以外では問い合わせを行わないとする
+    if Rails.env.production? && resource.flag && Time.current > resource.approval_at + 7.days
       if resource.slack_name.present?
         client = AutoSlackApproval.new(slack_name: resource.slack_name.to_sym, slack_id: resource.slack_id)
         resource.flag = client.approval?

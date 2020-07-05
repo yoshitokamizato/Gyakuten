@@ -3,7 +3,8 @@
 <% content_for(:twitter_image) { (image_tag @text.image).slice /http.+(\.png|\.jpg|\.gif)/ } if @text.image.attached? %>
 <section id="text-contents">
   <h2><%= @text.title %></h2>
-  <% if user_signed_in? %>
+  <% if user_signed_in? && current_user.flag %>
+    <%= render "movie" if @movies.present? %>
     <%= markdown(@text.contents).html_safe %>
     <div id="read-text-<%= @text.id %>" class="mb-4">
       <% if @read_text_ids.include?(@text.id) %>
@@ -12,6 +13,11 @@
         <%= render "unread_text", text_id: @text.id %>
       <% end %>
     </div>
+  <% elsif user_signed_in? && !(current_user.flag) %>
+    <section class="text-center mt-5">
+      <p>登録されたSlack IDは削除されております。</p>
+      <p>現在参加中のサロンのSlack IDで新規登録をお願いいたします。</p>
+    </section>
   <% else %>
     <p>
       記事を閲覧するには，<%= link_to "ログイン", new_user_session_path %>が必要です。
@@ -19,14 +25,13 @@
     <p class="mb-4">
       <small>
         こちらの記事は，
-        <%= link_to "人生逆転サロン", "https://utina.yoshitokamizato.com/entry/2018/09/06/202647" %>
+        <%= link_to "やんばるCODEオンライン", "https://utina.yoshitokamizato.com/entry/2018/09/06/202647" %>
         もしくは
-        <%= link_to "共同開発", "https://note.com/yoshitokamizato/n/ne9fb7cd06b46" %>
+        <%= link_to "やんばるエキスパート", "https://yanbaru-expert.com/" %>
         参加者限定の記事となっております。
       </small>
     </p>
   <% end %>
   <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
   <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
-
 </section>
