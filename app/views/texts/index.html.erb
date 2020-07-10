@@ -1,8 +1,14 @@
-<%= render 'shared/search_text' %>
 <div class="texts-wrapper">
+  <div class="contents-title">
+    <h2>やんばるCODE イベント日程</h2>
+  </div>
+  <div class="g-calendar mb-5">
+    <iframe src="https://calendar.google.com/calendar/embed?src=yanbarucode%40gmail.com&ctz=Asia%2FTokyo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  </div>
   <div class="contents-title">
     <h2>テキスト教材</h2>
   </div>
+  <%= render 'shared/search_text' %>
   <div class="texts-contents">
     <% @texts.each do |text| %>
       <div class="texts-content">
