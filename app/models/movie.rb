@@ -19,7 +19,7 @@ class Movie < ApplicationRecord
   validates :contents, presence: true
   validates :genre, presence: true
   has_many :watched_movies, dependent: :destroy
-  belongs_to :text
+  belongs_to :text, optional: true
 
   # 1ページの動画表示件数を指定
   PER_PAGE = 18
