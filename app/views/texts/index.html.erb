@@ -1,8 +1,16 @@
-<%= render 'shared/search_text' %>
 <div class="texts-wrapper">
+  <% if ENV["YANBARU_GOOGLE_CALENDAR"].present? %>
+    <div class="contents-title">
+      <h2>やんばるCODE イベント日程</h2>
+    </div>
+    <div class="g-calendar mb-5">
+      <iframe src="https://calendar.google.com/calendar/<%= ENV["YANBARU_GOOGLE_CALENDAR"] %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+  <% end %>
   <div class="contents-title">
     <h2>テキスト教材</h2>
   </div>
+  <%= render 'shared/search_text' %>
   <div class="texts-contents">
     <% @texts.each do |text| %>
       <div class="texts-content">
