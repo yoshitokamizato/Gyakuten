@@ -1,5 +1,5 @@
 <div class="texts-wrapper">
-  <% if ENV["YANBARU_GOOGLE_CALENDAR"].present? %>
+  <% if ENV["YANBARU_GOOGLE_CALENDAR"].present? && request.path == "/" %>
     <div class="contents-title">
       <h2>やんばるCODE イベント日程</h2>
     </div>

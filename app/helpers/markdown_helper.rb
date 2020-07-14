@@ -33,10 +33,10 @@ module MarkdownHelper
           if array[0].include?(".")
             # 3. app/views/layouts/application.html.erb のケース
             path = array[0]
-            lang = array[0].split(".")[1]
+            lang = array[0].split(".").last
           elsif array.length > 1
             # 4. html:app/views/layouts/application.html.erb のケース
-            path = array[1]
+            path = array.last
             lang = array[0]
           else
             # 2. html のケース
