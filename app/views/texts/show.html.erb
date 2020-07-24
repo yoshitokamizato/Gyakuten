@@ -13,7 +13,9 @@
         <%= render "unread_text", text_id: @text.id %>
       <% end %>
     </div>
-  <% elsif user_signed_in? && !(current_user.flag) %>
+    <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
+    <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
+<% elsif user_signed_in? && !(current_user.flag) %>
     <section class="text-center mt-5">
       <p>登録されたSlack IDは削除されております。</p>
       <p>現在参加中のサロンのSlack IDで新規登録をお願いいたします。</p>
@@ -31,7 +33,12 @@
         参加者限定の記事となっております。
       </small>
     </p>
+    <section class="advertising_banner">
+      <div class="cover text-center">
+        <%= link_to "http://yanbaru-expert.com/", target: :_blank, rel: "noopener" do %>
+          <%= image_tag "yanbaru_expert_banner.jpg", loading: "lazy" %>
+        <% end %>
+      </div>
+    </section>
   <% end %>
-  <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
-  <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
 </section>
