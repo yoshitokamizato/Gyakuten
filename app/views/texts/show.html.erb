@@ -13,6 +13,29 @@
         <%= render "unread_text", text_id: @text.id %>
       <% end %>
     </div>
+    <div class="modal fade" id="read-modal" tabindex="-1" role="dialog" aria-labelledby="read-modal-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="read-modal-title">読破おつかれさまです！</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>『<%= @text.title %>』を読破しました。</p>
+            <a href="https://twitter.com/intent/tweet?url=<%= request.url %>&text=『<%= @text.title %>』を読破しました！&hashtags=やんばるCODE&hashtags=やんばるエキスパート&" class="btn btn-sns btn-twitter" target="_blank" rel="noopener">
+              <%= fa_icon "twitter" %> <span>ツイートする </span>
+            </a>
+          </div>
+          <% if @next_text_id.present? %>
+            <div class="modal-footer">
+              <%= link_to "次の教材にすすむ", text_path(@next_text_id), class: "btn btn-primary btn-block" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% elsif user_signed_in? && !(current_user.flag) %>
     <section class="text-center mt-5">
       <p>登録されたSlack IDは削除されております。</p>
@@ -31,7 +54,12 @@
         参加者限定の記事となっております。
       </small>
     </p>
+    <section class="advertising_banner">
+      <div class="cover text-center">
+        <%= link_to "http://yanbaru-expert.com/", target: :_blank, rel: "noopener" do %>
+          <%= image_tag "yanbaru_expert_banner.jpg", loading: "lazy" %>
+        <% end %>
+      </div>
+    </section>
   <% end %>
-  <%= social_share_button_tag(@text.title, :allow_sites => %w(twitter)) %>
-  <%= social_share_button_tag(@text.title, :url => text_path(@text), :allow_sites => %w(facebook)) %>
 </section>

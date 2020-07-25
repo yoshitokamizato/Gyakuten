@@ -16,7 +16,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require social-share-button
 
 // テキスト教材ページ - 検索フォーム内の処理
 $(document).on('turbolinks:load', function () {
