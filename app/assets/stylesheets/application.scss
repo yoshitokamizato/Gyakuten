@@ -198,3 +198,27 @@ ul.pagination {
   }
 
 }
+
+// Twitter シェアボタン
+
+.btn-sns {
+  color: white !important;
+  width: 100%;
+
+  span {
+    transition: .6s;
+    display: inline-block;
+  }
+
+  &:hover span {
+    -webkit-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+    text-decoration: none;
+  }
+
+}
+
+.btn-twitter {
+  background: #55acee;
+}
