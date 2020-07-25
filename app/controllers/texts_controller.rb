@@ -9,6 +9,7 @@ class TextsController < ApplicationController
 
   def show
     @text = Text.find(params[:id])
+    @next_text_id = Text.where.not(genre: "Other").find_by(position: @text.position + 1)
     if user_signed_in?
       @read_text_ids = current_user.read_texts.pluck(:text_id)
       @movies = @text.movies.order(:position)
