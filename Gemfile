@@ -30,9 +30,6 @@ gem "slack-ruby-client"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
-# 各種SNSシェアボタンを作成
-gem "social-share-button"
-
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails"
