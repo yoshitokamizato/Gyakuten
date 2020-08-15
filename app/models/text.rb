@@ -19,9 +19,13 @@ class Text < ApplicationRecord
   has_many :movies
 
   PER_PAGE = 10
-  PROGRAMMING = Settings.programming.rails.split(", ").freeze
+
+  #PROGRAMMING = [ Settings.programming.rails,
+  #                Settings.programming.php].join(", ").split(", ").freeze
+
+  PRIMARY_CONTENTS = Settings.programming.rails.split(", ").freeze
 
   def self.show_contents_list
-    Text.where(genre: PROGRAMMING).order(:position)
+    Text.where(genre: PRIMARY_CONTENTS).order(:position)
   end
 end

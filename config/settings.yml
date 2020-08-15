@@ -4,6 +4,7 @@ ogp:
   default_description: "人生逆転サロンの教材です"
   default_twitter_image: "no_image.jpg"
 programming:
-  rails: "Basic, Git, HTML&CSS, Ruby, Ruby on Rails"
+  rails: "Basic, Git, HTML&CSS, Ruby, Ruby on Rails, Php"
+  # php: "Php"
   general: "Movie, Writing, Php, Marketing, Design, Other, Money"
   live: "Salon, Talk, Live"
