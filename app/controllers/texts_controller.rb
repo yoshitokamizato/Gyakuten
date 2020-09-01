@@ -3,7 +3,6 @@ class TextsController < ApplicationController
   skip_before_action :approval_user!
 
   def index
-    @contents = PROGRAMMING
     if params[:genre].nil?
       @texts = Text.show_contents_list
       @read_text_ids = current_user.read_texts.pluck(:text_id)
