@@ -20,8 +20,8 @@ class Text < ApplicationRecord
 
   PER_PAGE = 10
 
-  #PROGRAMMING = [ Settings.programming.rails,
-  #                Settings.programming.php].join(", ").split(", ").freeze
+  PROGRAMMING = [ Settings.programming.rails,
+                  Settings.programming.php].join(", ").split(", ").freeze
 
   PRIMARY_CONTENTS = Settings.programming.rails.split(", ").freeze
 
