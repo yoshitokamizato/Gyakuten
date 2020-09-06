@@ -1,5 +1,5 @@
 ActiveAdmin.register Text do
-  PROGRAMMING = Settings.programming.rails.split(", ").freeze
+
   # ドロップダウンメニューの親成分を決定
   menu parent: "テキスト教材"
   permit_params :genre, :title, :contents, :image, :description
@@ -32,7 +32,7 @@ ActiveAdmin.register Text do
   form do |_f|
     inputs  do
       input :position
-      input :genre, as: :select, collection: PROGRAMMING
+      input :genre, as: :select, collection: Text::ALL_PROGRAMMING
       input :title, as: :string
       input :contents
       input :image, as: :file
