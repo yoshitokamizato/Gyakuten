@@ -19,9 +19,6 @@
           </div>
         </li>
         <li class="nav-item">
-          <%= link_to "PHP講座", movies_path(genre: "Php"), class: "nav-item nav-link active" %>
-        </li>
-        <li class="nav-item">
           <%= link_to "対談", movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
@@ -35,6 +32,15 @@
         </li>
         <li class="nav-item">
           <%= link_to "マネタイズ講座", movies_path(genre: "Money"), class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            PHP
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "PHPテキスト教材", texts_path(genre: "Php"), class: "dropdown-item" %>
+            <%= link_to "PHP動画教材", movies_path(genre: "Php"), class: "dropdown-item" %>
+          </div>
         </li>
         <li class="nav-item">
           <%= link_to "LINE@", lines_path, class: "nav-item nav-link active" %>
