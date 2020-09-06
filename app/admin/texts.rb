@@ -1,6 +1,7 @@
 ActiveAdmin.register Text do
-  # PROGRAMMING = [ Settings.programming.rails,
-  #                 Settings.programming.php].join(", ").split(", ").freeze
+
+  PROGRAMMING = Settings.programming.rails.split(", ").freeze
+  SELECT_PROGRAMMINGS = PROGRAMMING.dup << Settings.programming.php
 
   # ドロップダウンメニューの親成分を決定
   menu parent: "テキスト教材"
@@ -34,7 +35,7 @@ ActiveAdmin.register Text do
   form do |_f|
     inputs  do
       input :position
-      input :genre, as: :select, collection: PROGRAMMING
+      input :genre, as: :select, collection: SELECT_PROGRAMMINGS
       input :title, as: :string
       input :contents
       input :image, as: :file
