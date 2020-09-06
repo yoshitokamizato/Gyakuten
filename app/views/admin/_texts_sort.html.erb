@@ -6,7 +6,7 @@
       <div class="right-column">タイトル</div>
     </div>
     <% @texts.each do |text| %>
-      <div class="row item <%= 'text-brown' if @rails_text_ids.exclude?(text.id) %>">
+      <div class="row item <%= 'text-brown' if @text_ids.exclude?(text.id) %>">
         <div class="left-column"><%= text.genre %></div>
         <div class="right-column"><%= text.title %></div>
       </div>
