@@ -12,7 +12,7 @@ ActiveAdmin.register_page "TextSort" do
   controller do
     def index
       @texts = Text.order(:position)
-      @rails_text_ids = Text.show_contents_list.ids
+      @text_ids = Text.all_show_contents_list.ids
     end
 
     def update

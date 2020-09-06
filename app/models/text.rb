@@ -26,4 +26,8 @@ class Text < ApplicationRecord
   def self.show_contents_list
     Text.where(genre: PROGRAMMING).order(:position)
   end
+
+  def self.all_show_contents_list
+    Text.where(genre: ALL_PROGRAMMING).order(:position)
+  end
 end
