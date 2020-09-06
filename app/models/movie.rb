@@ -24,9 +24,9 @@ class Movie < ApplicationRecord
   # 1ページの動画表示件数を指定
   PER_PAGE = 18
   # ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
-  PROGRAMMING = Settings.programming.rails.split(", ").freeze
-  LIVE = Settings.programming.live.split(", ").freeze
-  GENERAL = Settings.programming.general.split(", ").freeze
+  PROGRAMMING = Text::PROGRAMMING
+  LIVE = ["Salon", "Talk", "Live"]
+  GENERAL = ["Movie", "Writing", "Php", "Marketing", "Design", "Other", "Money"]
 
   def self.categorized_by(genre, page:)
     case genre

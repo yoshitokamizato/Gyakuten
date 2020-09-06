@@ -1,8 +1,5 @@
 ActiveAdmin.register_page "MovieSort" do
   menu parent: "動画教材", label: "並び替え"
-  PROGRAMMING = Settings.programming.rails.split(", ").freeze
-  LIVE = Settings.programming.live.split(", ").freeze
-  GENERAL = Settings.programming.general.split(", ").freeze
   page_action :update, method: :patch
 
   content do
