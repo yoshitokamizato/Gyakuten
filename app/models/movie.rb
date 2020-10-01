@@ -39,4 +39,20 @@ class Movie < ApplicationRecord
       self.where(genre: PROGRAMMING).order(:position).page(page).per(PER_PAGE)
     end
   end
+
+  def self.watched_movie_data(user)
+    # 読破済みのデータを取得
+    watched_movies_count_data = user.watched_through_movies.pluck(:genre).group_by(&:itself).transform_values(&:size)
+
+    Text.pluck(:genre).group_by(&:itself).transform_values do |array|
+      key = array.first
+      total_count = array.size
+      current_count = watched_movies_count_data[key] || 0
+      {
+        total: total_count,
+        current: current_count,
+        percent: current_count * 100 / total_count
+      }
+    end
+  end
 end
