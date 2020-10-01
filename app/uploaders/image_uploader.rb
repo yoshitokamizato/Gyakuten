@@ -19,7 +19,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url(*args)
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("texts/" + [version_name, "no_image.jpeg"].compact.join('_'))
-    "/images/" + [version_name, "no_image.jpg"].compact.join('_')
+    "https://d5izmuz0mcjzz.cloudfront.net/texts/no_image.jpg"
   end
 
   # Process files as they are uploaded:
