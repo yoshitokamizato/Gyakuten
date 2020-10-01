@@ -1,5 +1,4 @@
 ActiveAdmin.register Text do
-
   # ドロップダウンメニューの親成分を決定
   menu parent: "テキスト教材"
   permit_params :genre, :title, :contents, :image, :description
@@ -20,10 +19,8 @@ ActiveAdmin.register Text do
       row :genre
       row :title
       row :contents
-      row :image do |r|
-        if r.image.attached?
-          image_tag url_for(r.image)
-        end
+      row :image do
+        image_tag(text.image.url) if text.image?
       end
       row :description
     end

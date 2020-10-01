@@ -1,6 +1,6 @@
 <% content_for(:title) { @text.title } %>
 <% content_for(:description) { @text.description } %>
-<% content_for(:twitter_image) { @text.image.attachment.service.send(:object_for, @text.image.key).public_url } if @text.image.attached? %>
+<% content_for(:twitter_image) { @text.image.url } %>
 <section id="text-contents">
   <h2><%= @text.title %></h2>
   <% if user_signed_in? && current_user.flag %>

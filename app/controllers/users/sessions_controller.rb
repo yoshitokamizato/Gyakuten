@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 SALON_NAMES = [:gyakuten, :yanbaru_expert, :yanbaru_code, :php].freeze
 
 class Users::SessionsController < Devise::SessionsController

@@ -6,6 +6,7 @@
 #  contents    :text
 #  description :string
 #  genre       :string
+#  image       :string
 #  position    :integer
 #  title       :text
 #  created_at  :datetime         not null
@@ -14,13 +15,13 @@
 
 class Text < ApplicationRecord
   acts_as_list
-  has_one_attached :image
+  mount_uploader :image, ImageUploader
   has_many :read_texts, dependent: :destroy
   has_many :movies
 
   PER_PAGE = 10
 
-  PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"]
+  PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"].freeze
   ALL_PROGRAMMING = PROGRAMMING + ["Php"]
 
   def self.show_contents_list
