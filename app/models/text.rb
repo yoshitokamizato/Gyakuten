@@ -6,6 +6,7 @@
 #  contents    :text
 #  description :string
 #  genre       :string
+#  image       :string
 #  position    :integer
 #  title       :text
 #  created_at  :datetime         not null
