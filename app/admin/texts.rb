@@ -20,11 +20,7 @@ ActiveAdmin.register Text do
       row :genre
       row :title
       row :contents
-      row :image do |r|
-        if r.image.attached?
-          image_tag url_for(r.image)
-        end
-      end
+      row :image
       row :description
     end
   end
