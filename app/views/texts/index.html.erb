@@ -15,11 +15,7 @@
     <% @texts.each do |text| %>
       <div class="texts-content">
         <%= link_to text_path(text.id), { :target => "_blank" } do %>
-          <% if text.image.attached? %>
-            <img src="<%= text.image.attachment.service.send(:object_for, text.image.key).public_url %>" alt="<%= text.title %>" loading="lazy">
-          <% else %>
-            <%= image_tag "texts/no_image.jpg", loading: "lazy" %>
-          <% end %>
+          <%= image_tag text.image.url, loading: "lazy", alt: text.title %>
           <div id="read-text-<%= text.id %>">
             <% if @read_text_ids.include?(text.id) %>
               <%= render "read_text", text_id: text.id %>

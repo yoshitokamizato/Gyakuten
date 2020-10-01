@@ -20,7 +20,9 @@ ActiveAdmin.register Text do
       row :genre
       row :title
       row :contents
-      row :image
+      row :image do
+        image_tag(text.image.url) if text.image?
+      end
       row :description
     end
   end

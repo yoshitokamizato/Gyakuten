@@ -15,6 +15,7 @@
 
 class Text < ApplicationRecord
   acts_as_list
+  mount_uploader :image, ImageUploader
   has_many :read_texts, dependent: :destroy
   has_many :movies
 
