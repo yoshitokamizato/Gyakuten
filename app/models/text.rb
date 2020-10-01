@@ -21,7 +21,7 @@ class Text < ApplicationRecord
 
   PER_PAGE = 10
 
-  PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"]
+  PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"].freeze
   ALL_PROGRAMMING = PROGRAMMING + ["Php"]
 
   def self.show_contents_list

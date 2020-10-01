@@ -12,7 +12,7 @@
 #
 #  index_read_texts_on_user_id_and_text_id  (user_id,text_id) UNIQUE
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ReadText, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"

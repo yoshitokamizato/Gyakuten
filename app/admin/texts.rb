@@ -1,5 +1,4 @@
 ActiveAdmin.register Text do
-
   # ドロップダウンメニューの親成分を決定
   menu parent: "テキスト教材"
   permit_params :genre, :title, :contents, :image, :description
