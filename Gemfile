@@ -5,7 +5,6 @@ ruby "2.6.6"
 gem "active_admin_import"
 gem "activeadmin" # management tools
 gem "acts_as_list" # 並び替え
-gem "aws-sdk-s3", require: false
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.4.1"
 gem "coderay" # syntax highlight
@@ -14,6 +13,7 @@ gem "devise"
 gem "devise-bootstrap-views"
 gem "devise-i18n"
 gem "font-awesome-rails"
+gem "fog-aws"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "kaminari" # pagination
