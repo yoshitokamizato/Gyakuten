@@ -1,5 +1,4 @@
 ActiveAdmin.register_page "TextSort" do
-
   # トップメニュー「テキスト教材」の下に「並び替え」という名前のドロップダウンを追加
   menu parent: "テキスト教材", label: "並び替え"
 

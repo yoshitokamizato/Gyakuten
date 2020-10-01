@@ -25,8 +25,8 @@ class Movie < ApplicationRecord
   PER_PAGE = 18
   # ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
   PROGRAMMING = Text::PROGRAMMING
-  LIVE = ["Salon", "Talk", "Live"]
-  GENERAL = ["Movie", "Writing", "Php", "Marketing", "Design", "Other", "Money"]
+  LIVE = ["Salon", "Talk", "Live"].freeze
+  GENERAL = ["Movie", "Writing", "Php", "Marketing", "Design", "Other", "Money"].freeze
 
   def self.categorized_by(genre, page:)
     case genre
