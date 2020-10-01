@@ -1,2 +1,10 @@
-<h1>MyPages#show</h1>
-<p>Find me in app/views/my_pages/show.html.erb</p>
+<h1 class="text-center">マイページ</h1>
+
+<h2>テキスト教材 読破済み</h2>
+<%= render partial: "display_data", collection: @read_text_data %>
+
+<h2>動画教材 読破済み</h2>
+<%= render partial: "display_data", collection: @watched_movie_data %>
+
+<%= link_to "アカウント編集", edit_user_registration_path, class: "btn btn-secondary btn-block mt-5" %>
+

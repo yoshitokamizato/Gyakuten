@@ -1,0 +1,6 @@
+<%= display_data.first %>
+<div class="progress mb-3">
+  <div class="progress-bar" role="progressbar" style="width: <%= display_data.last[:percent] %>%;" aria-valuenow="<%= display_data.last[:percent] %>" aria-valuemin="0" aria-valuemax="100">
+    <%= "#{display_data.last[:current]}/#{display_data.last[:total]} (#{display_data.last[:percent]}%)" %>
+  </div>
+</div>
