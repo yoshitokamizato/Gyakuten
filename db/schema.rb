@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_051436) do
     t.inet "last_sign_in_ip"
     t.boolean "flag", default: false
     t.string "slack_id", null: false
-    t.datetime "approval_at", default: "2020-06-15 23:54:59"
+    t.datetime "approval_at", default: "2020-10-02 05:28:56"
     t.string "slack_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["error_id"], name: "index_users_on_error_id"
