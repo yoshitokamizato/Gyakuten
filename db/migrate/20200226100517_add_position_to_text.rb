@@ -1,10 +1,8 @@
 class AddPositionToText < ActiveRecord::Migration[5.2]
-  PROGRAMMING = Settings.programming.rails.split(", ").freeze
-
   def up
     add_column :texts, :position, :integer
     ActiveRecord::Base.transaction do
-      rails_texts = Text.where(genre: PROGRAMMING).order("id ASC")
+      rails_texts = Text.where(genre: Text::PROGRAMMING).order("id ASC")
       rails_texts_ids = rails_texts.ids
       other_texts = Text.where.not(id: rails_texts_ids).order("id ASC")
 
