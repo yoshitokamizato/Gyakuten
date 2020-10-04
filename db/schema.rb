@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2020_10_01_051436) do
     t.integer "program_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["program_id"], name: "index_errors_on_program_id"
   end
 
   create_table "lines", force: :cascade do |t|
@@ -147,11 +146,9 @@ ActiveRecord::Schema.define(version: 2020_10_01_051436) do
     t.inet "last_sign_in_ip"
     t.boolean "flag", default: false
     t.string "slack_id", null: false
-    t.datetime "approval_at", default: "2020-10-02 05:28:56"
+    t.datetime "approval_at", default: "2020-06-16 07:36:58"
     t.string "slack_name"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["error_id"], name: "index_users_on_error_id"
-    t.index ["program_id"], name: "index_users_on_program_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slack_id"], name: "index_users_on_slack_id", unique: true
   end

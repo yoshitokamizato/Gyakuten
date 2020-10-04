@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  approval_at            :datetime         default(Fri, 02 Oct 2020 14:28:56 JST +09:00)
+#  approval_at            :datetime         default(Tue, 16 Jun 2020 16:36:58 JST +09:00)
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :inet
 #  email                  :string           default(""), not null
@@ -26,8 +26,6 @@
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
-#  index_users_on_error_id              (error_id)
-#  index_users_on_program_id            (program_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_slack_id              (slack_id) UNIQUE
 #
