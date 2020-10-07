@@ -27,6 +27,7 @@ class Movie < ApplicationRecord
   PROGRAMMING = Text::PROGRAMMING
   LIVE = ["Salon", "Talk", "Live"].freeze
   GENERAL = ["Movie", "Writing", "Php", "Marketing", "Design", "Other", "Money"].freeze
+  MYPAGE_LIST = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails", "Live", "Talk", "Marketing", "Movie", "Writing", "Money", "Php"]
 
   def self.categorized_by(genre, page:)
     case genre
@@ -43,15 +44,17 @@ class Movie < ApplicationRecord
   def self.watched_movie_data(user)
     # 読破済みのデータを取得
     watched_movies_count_data = user.watched_through_movies.pluck(:genre).group_by(&:itself).transform_values(&:size)
+    movies_count_data = Movie.where(genre: MYPAGE_LIST).pluck(:genre).group_by(&:itself).transform_values(&:size)
 
-    Text.pluck(:genre).group_by(&:itself).transform_values do |array|
-      key = array.first
-      total_count = array.size
-      current_count = watched_movies_count_data[key] || 0
+    MYPAGE_LIST.map do |genre|
+      total_count = movies_count_data[genre] || 0
+      current_count = watched_movies_count_data[genre] || 0
+      percent = total_count.zero? ? 0 : current_count * 100 / total_count
       {
+        genre: Settings.genre[genre],
         total: total_count,
         current: current_count,
-        percent: current_count * 100 / total_count
+        percent: percent,
       }
     end
   end

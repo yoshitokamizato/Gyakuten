@@ -40,14 +40,12 @@ class Text < ApplicationRecord
       total_count = texts_count_data[genre] || 0
       current_count = read_texts_count_data[genre] || 0
       percent = total_count.zero? ? 0 : current_count * 100 / total_count
-      [
-        genre,
-        {
-          total: total_count,
-          current: current_count,
-          percent: percent
-        }
-      ]
+      {
+        genre: Settings.genre[genre],
+        total: total_count,
+        current: current_count,
+        percent: percent,
+      }
     end
   end
 end
