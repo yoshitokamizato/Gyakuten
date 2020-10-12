@@ -27,7 +27,7 @@ class Movie < ApplicationRecord
   PROGRAMMING = Text::PROGRAMMING
   LIVE = ["Salon", "Talk", "Live"].freeze
   GENERAL = ["Movie", "Writing", "Php", "Marketing", "Design", "Other", "Money"].freeze
-  MYPAGE_LIST = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails", "Live", "Talk", "Marketing", "Movie", "Writing", "Money", "Php"]
+  MYPAGE_LIST = ["Basic", "Git", "Ruby", "Ruby on Rails", "Live", "Talk", "Marketing", "Movie", "Writing", "Money", "Php"]
 
   def self.categorized_by(genre, page:)
     case genre

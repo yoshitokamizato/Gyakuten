@@ -14,24 +14,24 @@
             <%= link_to "Ruby/Rails教材", texts_path, class: "dropdown-item" %>
             <%= link_to "動画教材", movies_path, class: "dropdown-item" %>
             <%= link_to "AWS講座", aws_path, class: "dropdown-item" %>
-            <%= link_to Settings.genre.Live, movies_path(genre: "Live"), class: "dropdown-item" %>
+            <%= link_to Settings.genre.Live.display_name, movies_path(genre: "Live"), class: "dropdown-item" %>
             <%= link_to "質問集", questions_path, class: "dropdown-item" %>
           </div>
         </li>
         <li class="nav-item">
-          <%= link_to Settings.genre.Talk, movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
+          <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to Settings.genre.Marketing, movies_path(genre: "Marketing"), class: "nav-item nav-link active" %>
+          <%= link_to Settings.genre.Marketing.display_name, movies_path(genre: "Marketing"), class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to Settings.genre.Movie, movies_path(genre: "Movie"), class: "nav-item nav-link active" %>
+          <%= link_to Settings.genre.Movie.display_name, movies_path(genre: "Movie"), class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to Settings.genre.Writing, movies_path(genre: "Writing"), class: "nav-item nav-link active" %>
+          <%= link_to Settings.genre.Writing.display_name, movies_path(genre: "Writing"), class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to Settings.genre.Money, movies_path(genre: "Money"), class: "nav-item nav-link active" %>
+          <%= link_to Settings.genre.Money.display_name, movies_path(genre: "Money"), class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
