@@ -31,4 +31,21 @@ class Text < ApplicationRecord
   def self.all_show_contents_list
     Text.where(genre: ALL_PROGRAMMING).order(:position)
   end
+
+  def self.read_text_data(user)
+    # 読破済みのデータを取得
+    read_texts_count_data = user.read_through_texts.where(genre: ALL_PROGRAMMING).pluck(:genre).group_by(&:itself).transform_values(&:size)
+    texts_count_data = Text.where(genre: ALL_PROGRAMMING).pluck(:genre).group_by(&:itself).transform_values(&:size)
+    ALL_PROGRAMMING.map do |genre|
+      total_count = texts_count_data[genre] || 0
+      current_count = read_texts_count_data[genre] || 0
+      percent = total_count.zero? ? 0 : current_count * 100 / total_count
+      {
+        genre: Settings.genre[genre],
+        total: total_count,
+        current: current_count,
+        percent: percent,
+      }
+    end
+  end
 end

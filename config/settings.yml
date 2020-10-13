@@ -2,3 +2,40 @@ ogp:
   site_name: "逆転教材"
   twitter_site: "@yoshito410kam"
   default_description: "人生逆転サロンの教材です"
+genre:
+  Basic:
+    display_name: "Basic"
+    color_code: "#007bff"
+  Git:
+    display_name: "Git"
+    color_code: "#343a40"
+  HTML&CSS:
+    display_name: "HTML&CSS"
+    color_code: "#ffc107"
+  Ruby:
+    display_name: "Ruby"
+    color_code: "#dc3545"
+  Ruby on Rails:
+    display_name: "Ruby on Rails"
+    color_code: "#dc3545"
+  Php:
+    display_name: "PHP"
+    color_code: "#6f42c1"
+  Money:
+    display_name: "マネタイズ講座"
+    color_code: "#4169e1"
+  Talk:
+    display_name: "対談"
+    color_code: "#fd7e14"
+  Live:
+    display_name: "プログラミング勉強会"
+    color_code: "#f08080"
+  Marketing:
+    display_name: "情報発信"
+    color_code: "#ffc107"
+  Movie:
+    display_name: "動画編集講座"
+    color_code: "#20c997"
+  Writing:
+    display_name: "ライティング講座"
+    color_code: "#00bfff"
