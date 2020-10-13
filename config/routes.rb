@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :questions do
     resource :solutions, only: [:create]
   end
+  resource :my_pages, only: :show
 end
