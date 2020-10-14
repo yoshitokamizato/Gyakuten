@@ -3,16 +3,17 @@
   <head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= display_meta_tags(default_meta_tags(title: yield(:title), description: yield(:description), twitter_image: yield(:twitter_image))) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    controller_name, media: 'all', 'data-turbolinks-track': 'reload' if File.exists?("app/assets/stylesheets/#{controller_name}.css") %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'contents' if controller.controller_name == 'contents' %>
   </head>
-
   <body>
     <%= render "layouts/navbar" %>
     <%= render "shared/flash_message" %>
-    <div id="container" class="<%= 'mw-sm' if devise_controller? %>">
+    <div class="base-container <%= max_width %>">
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>

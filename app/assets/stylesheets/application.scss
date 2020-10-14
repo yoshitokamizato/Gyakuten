@@ -1,6 +1,7 @@
 /*
  *= require font-awesome
  */
+
 @import "bootstrap/functions";
 @import "bootstrap";
 @import 'rouge';
@@ -13,13 +14,70 @@
   }
 }
 
+// カラー
+
+$base-color: #5D99FF;
+$line-color: #28a745;
+
+// 全体
 body {
   padding-top: 56px;
+  padding-bottom: 50px;
 }
 
+.base-container {
+  @extend .container-fluid;
+  padding: 1rem;
+}
+
+// 背景色
+
 .base-color {
-  background-color: #5D99FF;
+  background-color: $base-color;
+
   &:hover {
-    background-color: #5D99FF;
+    background-color: $base-color;
   }
+}
+
+.line-color {
+  background-color: $line-color;
+
+  &:hover {
+    background-color: $line-color;
+  }
+}
+
+// フラッシュ
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+// Google カレンダー
+
+.g-calendar {
+  text-align: center;
+}
+
+.g-calendar iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+}
+
+@media (min-width: 768px) {
+  .g-calendar iframe {
+    height: 600px;
+  }
+}
+
+// ページネーション
+
+ul.pagination {
+  justify-content: center;
 }
