@@ -8,7 +8,6 @@ gem "acts_as_list" # 並び替え
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.4.1"
 gem "carrierwave", "~> 2.0"
-gem "coderay" # syntax highlight
 gem "config"
 gem "devise"
 gem "devise-bootstrap-views"
@@ -25,6 +24,7 @@ gem "puma", "~> 3.12"
 gem "rails", "~> 5.2.4"
 gem "rails-ujs"
 gem "redcarpet" # markdown
+gem "rouge" # syntax highlight
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
 gem "slack-notifier"
