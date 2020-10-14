@@ -30,6 +30,10 @@ body {
   padding: 1rem;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 // 背景色
 
 .base-color {
@@ -45,6 +49,33 @@ body {
 
   &:hover {
     background-color: $line-color;
+  }
+}
+
+// ヘッダー
+@media screen and (min-width: 992px) {
+  .header-nav {
+    font-size: 0.8rem;
+    margin: 0 auto;
+    width: var(--breakpoint-lg);
+  }
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+// フッター
+
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    padding: 0 20px;
+    font-size: 20px;
   }
 }
 
