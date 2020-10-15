@@ -5,8 +5,8 @@ class CustomMarkdownRenderer < Redcarpet::Render::HTML
 
   def table(header, body)
     "<table class='table table-striped table-bordered'>" \
-      "<thead>#{header}</thead>" \
-      "<tbody>#{body}</tbody>" \
+    "<thead>#{header}</thead>" \
+    "<tbody>#{body}</tbody>" \
     "</table>"
   end
 
@@ -43,33 +43,33 @@ class CustomMarkdownRenderer < Redcarpet::Render::HTML
 
   private
 
-    def split_file_and_lang(options)
-      # options は４通りの形式に対応できるようにする
-      # 1. 無し
-      # 2. html
-      # 3. app/views/layouts/application.html.erb
-      # 4. html:app/views/layouts/application.html.erb
-      if options.blank?
-        # 1. options が無いケース
-        filename = nil
-        language = "md"
+  def split_file_and_lang(options)
+    # options は４通りの形式に対応できるようにする
+    # 1. 無し
+    # 2. html
+    # 3. app/views/layouts/application.html.erb
+    # 4. html:app/views/layouts/application.html.erb
+    if options.blank?
+      # 1. options が無いケース
+      filename = nil
+      language = "md"
+    else
+      # 2 〜 4 のケース
+      array = options.split(":")
+      if array[0].include?(".")
+        # 3. app/views/layouts/application.html.erb のケース
+        filename = array[0]
+        language = array[0].split(".")[-1]
+      elsif array.length > 1
+        # 4. html:app/views/layouts/application.html.erb のケース
+        filename = array[1]
+        language = array[0]
       else
-        # 2 〜 4 のケース
-        array = options.split(":")
-        if array[0].include?(".")
-          # 3. app/views/layouts/application.html.erb のケース
-          filename = array[0]
-          language = array[0].split(".")[-1]
-        elsif array.length > 1
-          # 4. html:app/views/layouts/application.html.erb のケース
-          filename = array[1]
-          language = array[0]
-        else
-          # 2. html のケース
-          filename = nil
-          language = array[0]
-        end
+        # 2. html のケース
+        filename = nil
+        language = array[0]
       end
-      [filename, language]
     end
+    [filename, language]
+  end
 end

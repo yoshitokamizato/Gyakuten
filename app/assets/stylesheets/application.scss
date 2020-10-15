@@ -6,7 +6,6 @@
 
 @import "bootstrap/functions";
 @import "bootstrap";
-@import 'rouge';
 
 // 最大横幅
 
@@ -30,6 +29,7 @@ body {
 .base-container {
   @extend .container-fluid;
   padding: 1rem;
+  padding-top: 7%;
 }
 
 a:hover {

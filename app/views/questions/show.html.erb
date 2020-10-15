@@ -2,7 +2,7 @@
   <%= link_to "質問内容を修正", edit_question_path(@question), class: "btn btn-warning btn-block btn-lg" %>
 <% end %>
 <section id="question">
-<%= render 'shared/error_messages', object: @solution %>
+  <%= render 'shared/error_messages', object: @solution %>
   <div class="title">
     <h3>【質問】</h3>
     <p><%= @question.title %></p>
@@ -10,7 +10,7 @@
   <hr>
   <div class="detail">
     <h3>【詳細】</h3>
-    <p><%= markdown(@question.details).html_safe %></p>
+    <p class="markdown"><%= markdown(@question.details) %></p>
   </div>
   <% if @solutions.present? %>
     <% @solutions.each.with_index(1) do |solution, index| %>
@@ -19,7 +19,7 @@
       <hr>
       <div class="solution">
         <h3>【回答<%= index %>】</h3>
-        <p><%= markdown(solution.content).html_safe %></p>
+        <p class="markdown"><%= markdown(solution.content) %></p>
       </div>
     <% end %>
   <% end %>

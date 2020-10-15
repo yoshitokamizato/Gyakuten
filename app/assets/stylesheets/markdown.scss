@@ -1,0 +1,75 @@
+// Custome style for rouge formatter
+// formatter is defined in application_helper.rb
+
+.markdown {
+  .highlight {
+    margin-top: 10px;
+    margin-bottom: 40px;
+
+    pre {
+      overflow: auto;
+      word-wrap: normal;
+      white-space: pre;
+      background-color: #f6ffff;
+      padding: 0.5rem;
+      margin: 0;
+      border: 2px dashed #d6dddd;
+
+      code {
+        table.rouge-table {
+          margin: 0;
+
+          td.rouge-code {
+            padding: 0;
+            vertical-align: top;
+
+            pre {
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .highlight-info {
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    .highlight-info__inner {
+      display: inline-block;
+      color: #ff55aa;
+      border-left: 2px dashed #d6dddd;
+      border-right: 2px dashed #d6dddd;
+      border-top: 2px dashed #d6dddd;
+      padding: 1px 7px 2px;
+      font-size: 0.8rem;
+    }
+  }
+
+  .highlight-info+.highlight {
+    margin-top: 0;
+  }
+
+  // テーブル
+
+  table {
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    border: initial;
+
+    thead {
+      background-color: #EEFFFF;
+    }
+  }
+
+  // 引用
+
+  blockquote {
+    padding: 10px 5px 1px 10px;
+    box-sizing: border-box;
+    border-left: 4px solid #9dd4ff;
+  }
+}
