@@ -1,6 +1,11 @@
-<h1 class="text-center">マイページ</h1>
-<h2>テキスト教材 読破済み</h2>
-<%= render partial: "display_data", collection: @read_text_data %>
-<h2>動画教材 読破済み</h2>
-<%= render partial: "display_data", collection: @watched_movie_data %>
-<%= link_to "アカウント編集", edit_user_registration_path, class: "btn btn-info btn-block mt-5" %>
+<div class="check-progress">
+  <h1 class="text-center mb-4">進捗管理</h1>
+  <div class="read-texts mb-5">
+    <h2 class="mb-3">テキスト教材 読破済み</h2>
+    <%= render partial: "display_data", collection: @read_text_data %>
+  </div>
+  <div class="watched-movies mb-5">
+    <h2 class="mb-3">動画教材 視聴済み</h2>
+    <%= render partial: "display_data", collection: @watched_movie_data %>
+  </div>
+</div>
