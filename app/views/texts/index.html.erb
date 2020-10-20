@@ -1,15 +1,15 @@
 <div class="texts-wrapper">
   <% if Rails.application.credentials.dig(:google_calendar, :yanbaru).present? && request.path == "/" %>
     <div class="contents-title text-center">
-      <h2>やんばるCODE <br class="d-sm-none">
-        イベント日程</h2>
+      <h1>やんばるCODE <br class="d-sm-none">
+        イベント日程</h1>
     </div>
     <div class="g-calendar mb-5">
       <iframe src="https://calendar.google.com/calendar/<%= Rails.application.credentials.dig(:google_calendar, :yanbaru) %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
   <% end %>
   <div class="contents-title text-center">
-    <h2>テキスト教材</h2>
+    <h1>テキスト教材</h1>
   </div>
   <%= render 'shared/search_text' %>
   <div class="row">

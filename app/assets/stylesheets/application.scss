@@ -38,7 +38,18 @@ a:hover {
 
 h1 {
   padding: 20px 0px 10px 0px;
-  font-size: 30px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  padding: 20px 0px 10px 0px;
+  font-size: 1.75rem;
+}
+
+h3,
+h4 {
+  font-size: 1.5rem;
 }
 
 // 背景色
