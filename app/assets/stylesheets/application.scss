@@ -29,10 +29,16 @@ body {
 .base-container {
   @extend .container-fluid;
   padding-top: 7%;
+  padding-bottom: 30px;
 }
 
 a:hover {
   text-decoration: none;
+}
+
+h1 {
+  padding: 20px 0px 10px 0px;
+  font-size: 30px;
 }
 
 // 背景色
