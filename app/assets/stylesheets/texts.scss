@@ -9,11 +9,12 @@ div.text-card-container {
 }
 
 div.content-card {
+  height: 370px;
   max-width: 376px;
   margin: 0 auto;
 }
 
-.movie-card-body {
+.movie-body {
   height: 190px;
   overflow: hidden;
   text-overflow: ellipsis;
