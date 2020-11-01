@@ -22,7 +22,8 @@ class Text < ApplicationRecord
   PER_PAGE = 10
 
   PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"].freeze
-  ALL_PROGRAMMING = PROGRAMMING + ["Php"]
+  OTHER_PROGRAMMING = ["Php", "AWS"].freeze
+  ALL_PROGRAMMING = PROGRAMMING + OTHER_PROGRAMMING
 
   def self.show_contents_list
     Text.where(genre: PROGRAMMING).order(:position)
