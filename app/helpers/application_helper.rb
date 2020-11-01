@@ -30,8 +30,4 @@ module ApplicationHelper
       },
     }
   end
-
-  def lines_color
-    "bg-success" if controller.controller_name == "lines"
-  end
 end

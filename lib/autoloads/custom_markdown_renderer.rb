@@ -5,8 +5,8 @@ class CustomMarkdownRenderer < Redcarpet::Render::HTML
 
   def table(header, body)
     "<table class='table table-striped table-bordered'>" \
-      "<thead>#{header}</thead>" \
-      "<tbody>#{body}</tbody>" \
+    "<thead>#{header}</thead>" \
+    "<tbody>#{body}</tbody>" \
     "</table>"
   end
 

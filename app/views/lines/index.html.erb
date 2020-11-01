@@ -1,28 +1,28 @@
 <section id="contents">
-  <h2 class="text-center text-success">LINE@</h2>
+  <h1 class="text-center text-success mb-4">LINE@</h1>
   <div class="table-container">
     <table class="table table-striped">
       <thead class="bg-success text-white">
-      <tr>
-        <th class="w-1">No.</th>
-        <th class="w-2">ジャンル</th>
-        <th class="w-5">内容</th>
-      </tr>
+        <tr>
+          <th class="w-1 align-middle">No.</th>
+          <th class="w-2 align-middle">ジャンル</th>
+          <th class="w-5 align-middle">内容</th>
+        </tr>
       </thead>
       <tbody>
-      <% @lines.each.with_index(1) do |line, i| %>
-        <tr>
-          <td>
-            <%= i %>
-          </td>
-          <td>
-            <%= line.genre %>
-          </td>
-          <td>
-            <%= link_to line.title, line_path(line.id), target: "_blank" %>
-          </td>
-        </tr>
-      <% end %>
+        <% @lines.each.with_index(1) do |line, i| %>
+          <tr>
+            <td class="align-middle pl-3">
+              <%= i %>
+            </td>
+            <td class="align-middle">
+              <%= line.genre %>
+            </td>
+            <td>
+              <%= link_to line.title, line_path(line.id), target: "_blank" %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

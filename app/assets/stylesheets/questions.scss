@@ -2,6 +2,7 @@
   .question-container {
     padding: 30px 0;
   }
+
   a {
     text-decoration: none;
     display: block;
@@ -9,45 +10,31 @@
     border: solid 2px #505050;
     border-radius: 10px;
     transition: .4s;
+
     .title-container {
       word-wrap: normal;
     }
+
     .title {
       font-size: 22px;
       line-height: 2;
     }
+
     .info {
       padding: 10px 10px 10px 20px;
       color: #BBBBBB;
     }
   }
+
   a:hover {
-    border: solid 2px  #7d9ccb;
+    border: solid 2px #7d9ccb;
     -webkit-transform: translateY(-5px);
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
     transition: .4s;
   }
+
   .question {
     padding: 10px;
-  }
-}
-
-// 詳細ページ
-#question {
-  width: 710px;
-  margin: 0 auto;
-
-  h3 {
-    font-size: 20px;
-  }
-  .title {
-    padding-top: 30px;
-  }
-  .detail {
-    padding-top: 30px;
-  }
-  .solution {
-    padding-top: 30px;
   }
 }

@@ -1,0 +1,49 @@
+.texts-wrapper {
+  margin: 0 auto;
+}
+
+div.text-card-container {
+  padding-left: 9px;
+  padding-right: 9px;
+  margin-bottom: 50px;
+}
+
+div.content-card {
+  height: 370px;
+  max-width: 376px;
+  margin: 0 auto;
+}
+
+.movie-body {
+  height: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-title {
+  margin-top: 30px;
+}
+
+form.search-form {
+  position: relative;
+  width: 350px;
+}
+
+#search-text {
+  height: 50px;
+}
+
+input.search-text {
+  padding-left: 50px;
+}
+
+form.search-form i.search-icon {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  z-index: 11;
+}
+
+.aws-table-head {
+  background-color: #5d99ff;
+}

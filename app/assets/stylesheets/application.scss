@@ -1,9 +1,11 @@
 /*
+ *= require_tree .
+ *= require_self
  *= require font-awesome
  */
+
 @import "bootstrap/functions";
 @import "bootstrap";
-@import 'rouge';
 
 // 最大横幅
 
@@ -13,13 +15,118 @@
   }
 }
 
+// カラー
+
+$base-color: #5D99FF;
+$line-color: #28a745;
+
+// 全体
 body {
   padding-top: 56px;
+  padding-bottom: 50px;
 }
 
+.base-container {
+  @extend .container-fluid;
+  padding-top: 7%;
+  padding-bottom: 30px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1 {
+  padding: 20px 0px 10px 0px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  padding: 20px 0px 10px 0px;
+  font-size: 1.75rem;
+}
+
+h3,
+h4 {
+  font-size: 1.5rem;
+}
+
+// 背景色
+
 .base-color {
-  background-color: #5D99FF;
+  background-color: $base-color;
+
   &:hover {
-    background-color: #5D99FF;
+    background-color: $base-color;
   }
+}
+
+.line-color {
+  background-color: $line-color;
+
+  &:hover {
+    background-color: $line-color;
+  }
+}
+
+// ヘッダー
+@media screen and (min-width: 992px) {
+  .header-nav {
+    font-size: 0.8rem;
+    margin: 0 auto;
+    width: var(--breakpoint-lg);
+  }
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+// フッター
+
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    padding: 0 20px;
+    font-size: 20px;
+  }
+}
+
+// フラッシュ
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+// Google カレンダー
+
+.g-calendar {
+  text-align: center;
+}
+
+.g-calendar iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+}
+
+@media (min-width: 768px) {
+  .g-calendar iframe {
+    height: 600px;
+  }
+}
+
+// ページネーション
+
+ul.pagination {
+  justify-content: center;
 }

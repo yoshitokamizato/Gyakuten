@@ -6,31 +6,29 @@
       <% end %>
     </div>
   <% end %>
-
   <div class="text-center">
-    <h2 >AWS講座</h2>
+    <h1 class="mb-3">AWS講座</h1>
   </div>
   <p>注意！！！：AWSのEC2やRDSは有料サービスとなります。無駄な料金を請求されないためにも、不要なインスタンスは停止・削除をしてください。</p>
-
   <div class="table-container">
     <table class="table table-striped">
       <thead class="aws-table-head text-white">
-      <tr>
-        <th class="w-1">No.</th>
-        <th class="w-5">内容</th>
-      </tr>
+        <tr>
+          <th class="w-1">No.</th>
+          <th class="w-5">内容</th>
+        </tr>
       </thead>
       <tbody>
-      <% @aws.each.with_index(1) do |aws, i| %>
-        <tr>
-          <td>
-            <%= i %>
-          </td>
-          <td>
-            <%= link_to aws.title, aw_path(aws), {:target => "_blank"} %>
-          </td>
-        </tr>
-      <% end %>
+        <% @aws.each.with_index(1) do |aws, i| %>
+          <tr>
+            <td class="align-middle pl-3">
+              <%= i %>
+            </td>
+            <td>
+              <%= link_to aws.title, aw_path(aws), {:target => "_blank"} %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

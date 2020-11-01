@@ -1,31 +1,40 @@
 <div class="texts-wrapper">
-  <% if ENV["YANBARU_GOOGLE_CALENDAR"].present? && request.path == "/" %>
-    <div class="contents-title">
-      <h2>やんばるCODE イベント日程</h2>
+  <% if Rails.application.credentials.dig(:google_calendar, :yanbaru).present? && request.path == "/" %>
+    <div class="contents-title text-center">
+      <h1>やんばるCODE <br class="d-sm-none">
+        イベント日程</h1>
     </div>
     <div class="g-calendar mb-5">
-      <iframe src="https://calendar.google.com/calendar/<%= ENV["YANBARU_GOOGLE_CALENDAR"] %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://calendar.google.com/calendar/<%= Rails.application.credentials.dig(:google_calendar, :yanbaru) %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
   <% end %>
-  <div class="contents-title">
-    <h2>テキスト教材</h2>
+  <div class="contents-title text-center">
+    <h1>テキスト教材</h1>
   </div>
   <%= render 'shared/search_text' %>
-  <div class="texts-contents">
+  <div class="row">
     <% @texts.each do |text| %>
-      <div class="texts-content">
-        <%= link_to text_path(text.id), { :target => "_blank" } do %>
-          <%= image_tag text.image.url, loading: "lazy", alt: text.title %>
-          <div id="read-text-<%= text.id %>">
-            <% if @read_text_ids.include?(text.id) %>
-              <%= render "read_text", text_id: text.id %>
-            <% else %>
-              <%= render "unread_text", text_id: text.id %>
-            <% end %>
-          </div>
-          <h3><%= text.title %></h3>
-          <p><%= "【#{text.genre}】" %></p>
-        <% end %>
+      <div class="col-12 col-md-6 col-lg-4 text-card-container">
+        <div class="card content-card border-dark mb-3">
+          <%= link_to text_path(text.id), { :target => "_blank" } do %>
+            <div class="card-header p-0">
+              <%= image_tag text.image.url, loading: "lazy", alt: text.title, class: "img-fluid" %>
+            </div>
+            <div class="card-body text-dark text-card-body">
+              <div id="read-text-<%= text.id %>">
+                <% if @read_text_ids.include?(text.id) %>
+                  <%= render "read_text", text_id: text.id %>
+                <% else %>
+                  <%= render "unread_text", text_id: text.id %>
+                <% end %>
+              </div>
+              <p class="card-text text-title">
+                <%= text.title %>
+              </p>
+              <p><%= "【#{text.genre}】" %></p>
+            </div>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
