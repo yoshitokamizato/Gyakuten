@@ -1,0 +1,16 @@
+.advertising_banner img {
+  max-width: 480px;
+  border: solid #505050 1px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 80%;
+
+  @media (max-width: 410px) {
+    width: 100%;
+  }
+
+  &:hover {
+    transition: opacity 0.5s;
+    opacity: 0.7;
+  }
+}

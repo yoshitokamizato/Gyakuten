@@ -19,18 +19,18 @@
 
 // テキスト教材ページ - 検索フォーム内の処理
 $(document).on('turbolinks:load', function () {
-    searchWord = function () {
+    var searchWord = function () {
         var searchText = $(this).val().toLowerCase(), // 検索ボックスに入力された値
             targetText;
 
-        $('.texts-content h3').each(function () {
+        $('p.text-title').each(function () {
             targetText = $(this).text().toLowerCase();
 
             // 検索対象となるリストに入力された文字列が存在するかどうかを判断
             if (targetText.indexOf(searchText) != -1) {
-                $(this).parent('a').parent('div').removeClass('hidden');
+                $(this).parents('div.text-card-container').removeClass('d-none');
             } else {
-                $(this).parent('a').parent('div').addClass('hidden');
+                $(this).parents('div.text-card-container').addClass('d-none');
             }
         });
     };

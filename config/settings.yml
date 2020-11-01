@@ -1,7 +1,7 @@
 ogp:
-  site_name: "逆転教材"
+  site_name: "やんばるCODE教材"
   twitter_site: "@yoshito410kam"
-  default_description: "人生逆転サロンの教材です"
+  default_description: "やんばるCODEの教材です"
 genre:
   Basic:
     display_name: "Basic"
@@ -39,3 +39,6 @@ genre:
   Writing:
     display_name: "ライティング講座"
     color_code: "#00bfff"
+  AWS:
+    display_name: "AWS"
+    color_code: "#ec7211"

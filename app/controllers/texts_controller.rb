@@ -6,8 +6,8 @@ class TextsController < ApplicationController
     if params[:genre].nil?
       @texts = Text.show_contents_list
       @read_text_ids = current_user.read_texts.pluck(:text_id)
-    elsif params[:genre] == "Php"
-      @texts = Text.where(genre: "Php").order(:position)
+    elsif Text::OTHER_PROGRAMMING.include?(params[:genre])
+      @texts = Text.where(genre: params[:genre]).order(:position)
       @read_text_ids = current_user.read_texts.pluck(:text_id)
     end
   end

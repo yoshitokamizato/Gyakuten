@@ -1,10 +1,14 @@
-.movie-body {
-  height: 240px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .movie_info_box {
-  border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  color: #565656;
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 10px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 8px;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }

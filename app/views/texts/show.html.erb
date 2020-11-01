@@ -5,7 +5,9 @@
   <h2><%= @text.title %></h2>
   <% if user_signed_in? && current_user.flag %>
     <%= render "movie" if @movies.present? %>
-    <%= markdown(@text.contents).html_safe %>
+    <div class="markdown">
+      <%= markdown(@text.contents) %>
+    </div>
     <div id="read-text-<%= @text.id %>" class="mb-4">
       <% if @read_text_ids.include?(@text.id) %>
         <%= render "read_text", text_id: @text.id %>

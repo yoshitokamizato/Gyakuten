@@ -1,18 +1,9 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
+ *= require_tree .
  *= require_self
  *= require font-awesome
  */
+
 @import "bootstrap/functions";
 @import "bootstrap";
 
@@ -24,18 +15,89 @@
   }
 }
 
+// カラー
+
+$base-color: #5D99FF;
+$line-color: #28a745;
+
+// 全体
 body {
   padding-top: 56px;
+  padding-bottom: 50px;
 }
 
+.base-container {
+  @extend .container-fluid;
+  padding-top: 7%;
+  padding-bottom: 30px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1 {
+  padding: 20px 0px 10px 0px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  padding: 20px 0px 10px 0px;
+  font-size: 1.75rem;
+}
+
+h3,
+h4 {
+  font-size: 1.5rem;
+}
+
+// 背景色
+
 .base-color {
-  background-color: #5D99FF;
+  background-color: $base-color;
+
   &:hover {
-    background-color: #5D99FF;
+    background-color: $base-color;
   }
 }
 
-// 「ログインしました」などのフラッシュ用スタイル
+.line-color {
+  background-color: $line-color;
+
+  &:hover {
+    background-color: $line-color;
+  }
+}
+
+// ヘッダー
+@media screen and (min-width: 992px) {
+  .header-nav {
+    font-size: 0.8rem;
+    margin: 0 auto;
+    width: var(--breakpoint-lg);
+  }
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+// フッター
+
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    padding: 0 20px;
+    font-size: 20px;
+  }
+}
+
+// フラッシュ
 
 .alert-notice {
   @extend .alert-info;
@@ -43,140 +105,6 @@ body {
 
 .alert-alert {
   @extend .alert-danger;
-}
-
-.container {
-  width: 710px;
-}
-
-.table {
-  .w-25 {
-    width: 25%;
-  }
-
-  input {
-    width: 100%;
-  }
-
-  .submit {
-    width: 20%;
-  }
-}
-
-td {
-  textarea {
-    height: 200px;
-    width: 100%;
-  }
-}
-
-.table-container {
-  width: 710px;
-  margin: 0 auto;
-}
-
-.btn {
-  padding-bottom: 3px;
-}
-
-.add-button {
-  padding: 10px;
-}
-
-pre {
-  border: 0.1px solid;
-  padding: 10px;
-}
-
-@media screen and (min-width: 0px) {
-  @import "smart_phones";
-}
-
-
-@media screen and (min-width: 992px) {
-  @import "movie";
-  @import "users_webs";
-  @import "contents";
-  @import "questions";
-  @import "loggins";
-
-
-  .navbar {
-    font-size: 0.8rem;
-    margin: 0 auto;
-    width: var(--breakpoint-lg);
-
-    .navbar-collapse {
-      justify-content: flex-end;
-    }
-  }
-}
-
-/*質問投稿用*/
-
-#error_explanation {
-  color: red;
-
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-#container {
-  .initial-height {
-    height: initial;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-
-  #container {
-    width: 1200px;
-  }
-
-  .texts-content {
-    height: 360px;
-
-    img {
-      height: 187px;
-    }
-  }
-}
-
-// Railsテキスト教材
-
-.hidden {
-  display: none;
-}
-
-form.search-form {
-  position: relative;
-  max-width: 350px;
-
-  i.search-icon {
-    position: absolute;
-    top: 30%;
-    left: 20px;
-    z-index: 11;
-  }
-
-  input.search-text {
-    padding-left: 50px;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  form.search-form {
-    input.search-text {
-      font-size: 1.5rem !important;
-      height:auto !important;
-    }
-  }
-}
-
-ul.pagination {
-  justify-content: center;
 }
 
 // Google カレンダー
@@ -192,33 +120,13 @@ ul.pagination {
 }
 
 @media (min-width: 768px) {
-
   .g-calendar iframe {
     height: 600px;
   }
-
 }
 
-// Twitter シェアボタン
+// ページネーション
 
-.btn-sns {
-  color: white !important;
-  width: 100%;
-
-  span {
-    transition: .6s;
-    display: inline-block;
-  }
-
-  &:hover span {
-    -webkit-transform: rotateX(360deg);
-    -ms-transform: rotateX(360deg);
-    transform: rotateX(360deg);
-    text-decoration: none;
-  }
-
-}
-
-.btn-twitter {
-  background: #55acee;
+ul.pagination {
+  justify-content: center;
 }
