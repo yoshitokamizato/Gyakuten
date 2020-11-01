@@ -39,3 +39,6 @@ genre:
   Writing:
     display_name: "ライティング講座"
     color_code: "#00bfff"
+  AWS:
+    display_name: "AWS"
+    color_code: "#ec7211"
