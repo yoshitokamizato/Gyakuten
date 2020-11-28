@@ -26,8 +26,8 @@ class Movie < ApplicationRecord
   # ナビゲーションバーで特に指定しない動画のジャンルをまとめて格納
   PROGRAMMING = Text::PROGRAMMING
   LIVE = ["Salon", "Talk", "Live"].freeze
-  GENERAL = ["Movie", "Writing", "Php", "Marketing", "Design", "Other", "Money"].freeze
-  MYPAGE_LIST = ["Basic", "Git", "Ruby", "Ruby on Rails", "Live", "Talk", "Marketing", "Movie", "Writing", "Money", "Php"].freeze
+  GENERAL = ["Php", "Design", "Other", "Money"].freeze
+  MYPAGE_LIST = ["Basic", "Git", "Ruby", "Ruby on Rails", "Live", "Talk", "Money", "Php"].freeze
 
   def self.categorized_by(genre, page:)
     case genre

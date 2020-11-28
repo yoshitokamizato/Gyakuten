@@ -71,12 +71,9 @@ h4 {
 }
 
 // ヘッダー
-@media screen and (min-width: 992px) {
-  .header-nav {
-    font-size: 0.8rem;
-    margin: 0 auto;
-    width: var(--breakpoint-lg);
-  }
+.header-nav {
+  font-size: 0.8rem;
+  margin: 0 auto;
 }
 
 .navbar-collapse {
