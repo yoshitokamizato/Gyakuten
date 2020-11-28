@@ -18,21 +18,6 @@
             <%= link_to "質問集", questions_path, class: "dropdown-item" %>
           </div>
         </li>
-        <li class="nav-item">
-          <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to Settings.genre.Marketing.display_name, movies_path(genre: "Marketing"), class: "nav-item nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to Settings.genre.Movie.display_name, movies_path(genre: "Movie"), class: "nav-item nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to Settings.genre.Writing.display_name, movies_path(genre: "Writing"), class: "nav-item nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to Settings.genre.Money.display_name, movies_path(genre: "Money"), class: "nav-item nav-link active" %>
-        </li>
         <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             PHP
@@ -41,6 +26,12 @@
             <%= link_to "PHPテキスト教材", texts_path(genre: "Php"), class: "dropdown-item" %>
             <%= link_to "PHP動画教材", movies_path(genre: "Php"), class: "dropdown-item" %>
           </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to Settings.genre.Money.display_name, movies_path(genre: "Money"), class: "nav-item nav-link active" %>
         </li>
         <li class="nav-item">
           <%= link_to "LINE@", lines_path, class: "nav-item nav-link active" %>
