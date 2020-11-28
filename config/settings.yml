@@ -30,15 +30,6 @@ genre:
   Live:
     display_name: "プログラミング勉強会"
     color_code: "#f08080"
-  Marketing:
-    display_name: "情報発信"
-    color_code: "#ffc107"
-  Movie:
-    display_name: "動画編集講座"
-    color_code: "#20c997"
-  Writing:
-    display_name: "ライティング講座"
-    color_code: "#00bfff"
   AWS:
     display_name: "AWS"
     color_code: "#ec7211"
