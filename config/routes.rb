@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :aws, only: [:index, :show]
   resources :users_webs
   resources :words
   resources :movies, only: [:index] do
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
   resources :texts, only: [:index, :show] do
     resource :read_texts, only: [:create, :destroy]
   end
+  resources :challenges, only: [:index, :show]
   resources :lines, only: [:index, :show]
   resources :salons, only: :index
   resources :questions, only: [:index, :show, :create, :edit, :update]
