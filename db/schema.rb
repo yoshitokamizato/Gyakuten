@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 2020_11_28_082200) do
   end
 
   create_table "challenges", force: :cascade do |t|
+    t.integer "position"
     t.string "title", null: false
+    t.string "theme", null: false
     t.text "question", null: false
     t.text "hint"
     t.string "image"

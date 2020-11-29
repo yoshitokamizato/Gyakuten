@@ -1,0 +1,23 @@
+<section id="text-contents">
+  <h2>【<%= @challenge.theme %>】<%= @challenge.title %></h2>
+  <div class="markdown">
+    <%= markdown(@challenge.content) %>
+  </div>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapse-hint" role="button" aria-expanded="false" aria-controls="collapse-hint">
+    ヒントはこちら
+  </a>
+  <div class="collapse" id="collapse-hint">
+    <div class="card card-body">
+      <div class="markdown">
+        <%= markdown(@challenge.hint) %>
+      </div>
+    </div>
+  </div>
+  <div id="read-challenge-<%= @challenge.id %>" class="mb-4">
+    <% if current_user.challenges.find_by(challenge_id: @challenge.id).exists? %>
+      <%= render "complete_challenge", challenge_id: @challenge.id %>
+    <% else %>
+      <%= render "incomplete_challenge", challenge_id: @challenge.id %>
+    <% end %>
+  </div>
+</section>
