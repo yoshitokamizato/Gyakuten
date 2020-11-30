@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_013118) do
+ActiveRecord::Schema.define(version: 2020_11_28_082200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,26 @@ ActiveRecord::Schema.define(version: 2020_11_01_013118) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.integer "position"
+    t.string "title", null: false
+    t.string "theme", null: false
+    t.text "question", null: false
+    t.text "hint"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "complete_challenges", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_complete_challenges_on_challenge_id"
+    t.index ["user_id"], name: "index_complete_challenges_on_user_id"
   end
 
   create_table "errors", force: :cascade do |t|
@@ -169,4 +189,6 @@ ActiveRecord::Schema.define(version: 2020_11_01_013118) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "complete_challenges", "challenges"
+  add_foreign_key "complete_challenges", "users"
 end
