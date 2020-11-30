@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "complete_challenges/create"
+  get "complete_challenges/destroy"
   root to: "texts#index"
 
   devise_for :users, controllers: {
@@ -8,7 +10,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :aws, only: [:index, :show]
   resources :users_webs
   resources :words
   resources :movies, only: [:index] do
@@ -16,6 +17,9 @@ Rails.application.routes.draw do
   end
   resources :texts, only: [:index, :show] do
     resource :read_texts, only: [:create, :destroy]
+  end
+  resources :challenges, only: [:index, :show] do
+    resource :complete_challenges, only: [:create, :destroy]
   end
   resources :lines, only: [:index, :show]
   resources :salons, only: :index
