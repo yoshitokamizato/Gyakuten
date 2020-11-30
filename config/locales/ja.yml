@@ -23,6 +23,7 @@ ja:
       movie: 動画
       program: プログラム
       slack_member: Slackメンバー
+      challenge: チャレンジ問題
     attributes:
       admin_user:
       error:
@@ -58,6 +59,10 @@ ja:
         fullname: フルネーム
         displayname: ニックネーム
         status: 権限
+      challenge:
+        thema: テーマ
+        question: 問題
+        hint: ヒント
   attributes:
     id: ID
     program_id: プログラムID
@@ -65,6 +70,7 @@ ja:
     email: メールアドレス
     password: パスワード
     password_confirmation: 確認用パスワード
+    position: 順番
     genre: ジャンル
     title: タイトル
     image: 画像
