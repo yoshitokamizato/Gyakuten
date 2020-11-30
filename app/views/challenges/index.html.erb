@@ -2,6 +2,10 @@
   <div class="contents-title text-center">
     <h1>チャレンジ問題集</h1>
   </div>
+  <div class="movie_info_box">
+    <p class="p-2 text-center">Rubyのチャレンジ問題集です。<br>
+      「<a href="http://yanbaru-expert.com" target="_blank" rel="noopener noreferrer">やんばるエキスパート</a>」参加者の皆様には「チャレンジ課題提出」チャンネルでレビューを行います。</p>
+  </div>
   <div class="row">
     <% @challenges.each do |challenge| %>
       <div class="col-12 col-md-6 col-lg-4 text-card-container">
@@ -11,7 +15,7 @@
               <%= image_tag challenge.image.url, loading: "lazy", alt: challenge.title, class: "img-fluid" %>
             </div>
             <div class="card-body text-dark text-card-body">
-              <div id="read-challenge-<%= challenge.id %>">
+              <div id="complete-challenge-<%= challenge.id %>">
                 <% if @complete_challenge_ids.include?(challenge.id) %>
                   <%= render "complete_challenge", challenge_id: challenge.id %>
                 <% else %>

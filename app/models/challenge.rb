@@ -14,6 +14,7 @@
 #
 class Challenge < ApplicationRecord
   acts_as_list
+  mount_uploader :image, ImageUploader
 
   validates :title, presence: true
   validates :theme, presence: true
