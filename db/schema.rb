@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_082200) do
+ActiveRecord::Schema.define(version: 2020_12_01_044821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,13 +64,6 @@ ActiveRecord::Schema.define(version: 2020_11_28_082200) do
     t.datetime "updated_at", null: false
     t.index ["challenge_id"], name: "index_complete_challenges_on_challenge_id"
     t.index ["user_id"], name: "index_complete_challenges_on_user_id"
-  end
-
-  create_table "errors", force: :cascade do |t|
-    t.string "name"
-    t.integer "program_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "lines", force: :cascade do |t|
