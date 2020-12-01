@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.6"
+ruby "2.7.2"
 gem "activeadmin" # management tools
 gem "active_admin_import"
 gem "acts_as_list" # 並び替え

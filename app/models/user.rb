@@ -11,7 +11,6 @@
 #  flag                   :boolean          default(FALSE)
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
-#  name                   :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -19,8 +18,6 @@
 #  slack_name             :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  error_id               :integer
-#  program_id             :integer
 #  slack_id               :string           not null
 #
 # Indexes
