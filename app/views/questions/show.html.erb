@@ -1,14 +1,12 @@
 <section id="question">
-  <%= render 'shared/error_messages', object: @solution %>
-  <div class="title">
-    <h3>【質問】</h3>
-    <p><%= @question.title %></p>
+  <div class="catch">タイトル</div>
+  <%= @question.title %>
+  <div class="catch">質問内容</div>
+  <div class="markdown">
+    <%= markdown(@question.body) %>
   </div>
-  <hr>
-  <div class="detail">
-    <h3>【詳細】</h3>
-    <div class="markdown">
-      <%= markdown(@question.details) %>
-    </div>
+  <div class="catch">回答</div>
+  <div class="markdown">
+    <%= markdown(@question.solution) %>
   </div>
 </section>

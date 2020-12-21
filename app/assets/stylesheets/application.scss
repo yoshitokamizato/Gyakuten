@@ -54,7 +54,7 @@ h4 {
 
 // 背景色
 
-.base-color {
+.base-bg-color {
   background-color: $base-color;
 
   &:hover {
@@ -62,12 +62,22 @@ h4 {
   }
 }
 
-.line-color {
+.line-bg-color {
   background-color: $line-color;
 
   &:hover {
     background-color: $line-color;
   }
+}
+
+// フォント色
+
+.base-color {
+  color: $base-color;
+}
+
+.line-color {
+  color: $line-color;
 }
 
 // ヘッダー
