@@ -2,4 +2,28 @@
   .genre {
     width: 150px;
   }
+
+  .catch {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      margin-right: 1em;
+    }
+
+    &:after {
+      margin-left: 1em;
+    }
+
+    &:after, &:before {
+      content: '';
+      height: 1px;
+      background-color: #333;
+      flex-grow: 1;
+
+    }
+  }
 }
