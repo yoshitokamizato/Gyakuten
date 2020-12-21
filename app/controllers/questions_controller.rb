@@ -8,8 +8,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.build_and_count_up(params[:id])
-    @solutions = Solution.where(question_id: @question.id)
-    @solution = @question.solutions.new
+    # @solutions = Solution.where(question_id: @question.id)
+    # @solution = @question.solutions.new
   end
 
   def create

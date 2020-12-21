@@ -1,6 +1,3 @@
-<% if @solutions.blank? && cookies.signed[:my_question].to_i == @question.id %>
-  <%= link_to "質問内容を修正", edit_question_path(@question), class: "btn btn-warning btn-block btn-lg" %>
-<% end %>
 <section id="question">
   <%= render 'shared/error_messages', object: @solution %>
   <div class="title">
@@ -14,18 +11,4 @@
       <%= markdown(@question.details) %>
     </div>
   </div>
-  <% if @solutions.present? %>
-    <% @solutions.each.with_index(1) do |solution, index| %>
-      <!-- 回答が１つしかない場合は，【回答1】でなく【回答】と表示するためにindexをnilに変更-->
-      <% index = nil if @solutions.length == 1 %>
-      <hr>
-      <div class="solution">
-        <h3>【回答<%= index %>】</h3>
-        <div class="markdown">
-          <%= markdown(solution.content) %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
 </section>
-<%= render 'questions/solution_form' %>

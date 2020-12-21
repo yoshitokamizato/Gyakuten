@@ -12,7 +12,6 @@
 #
 
 class Question < ApplicationRecord
-  has_many :solutions
   validates :title, presence: { message: "【質問】は空欄にできません" }
   validates :details, presence: { message: "【詳細】は空欄にできません" }
 
