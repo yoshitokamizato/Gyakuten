@@ -1,5 +1,5 @@
 <section id="contents">
-  <h1 class="text-center base-color mb-4">質問集</h1>
+  <h1 class="text-center mb-4">質問集</h1>
   <%= search_form_for @q do |f| %>
     <div class="form-check mb-3">
       <%= f.collection_check_boxes :genre_in, @all_questions, :genre, :genre %>
