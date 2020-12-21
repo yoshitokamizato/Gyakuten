@@ -34,8 +34,7 @@ ja:
         slack_id: Slack メンバー ID
         flag: 利用フラグ
       question:
-        solutions: 回答
-        details: 詳細
+        body: 内容
         solution: 回答
         count: 閲覧回数
       solution:

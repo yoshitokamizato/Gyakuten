@@ -1,29 +1,47 @@
-<%= render 'question_form', title: "新規投稿" %>
-<section id="questions">
-  <div class="container">
-    <% @questions.each do |question| %>
-      <div class="question-container">
-        <%= link_to(question_path(question.id)) do %>
-          <div class="question">
-            <div class="row">
-              <div class="col-md-7">
-                <div class="title-container">
-                  <p class="title">
-                    <%= truncate(question.title, length: 50) %>
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="info text-right">
-                  <p>質問日　<%= question.created_at.strftime('%Y年%m月%d日') %></p>
-                  <p><%= question.count %> Views</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
+<section id="contents">
+  <h1 class="text-center mb-4">質問集</h1>
+  <%= search_form_for @q do |f| %>
+    <div class="form-check mb-3">
+      <%= f.collection_check_boxes :genre_in, @all_questions, :genre, :genre %>
+    </div>
+    <div class="form-group">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">タイトル</div>
+        </div>
+        <%= f.search_field :title_cont, class: "form-control" %>
       </div>
-    <% end %>
+    </div>
+    <div class="form-group">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">キーワード</div>
+        </div>
+        <%= f.search_field :title_or_body_or_solution_cont, class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+  <% end %>
+  <div class="table-container mt-4">
+    <table class="table table-striped">
+      <thead class="text-white base-bg-color">
+      <tr>
+        <th class="genre">ジャンル</th>
+        <th>タイトル</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td class="align-middle">
+            <%= question.genre %>
+          </td>
+          <td>
+            <%= link_to question.title, question, style: "word-break: break-all;" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </section>
-<%= render 'shared/banner' %>

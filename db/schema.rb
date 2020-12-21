@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_045937) do
+ActiveRecord::Schema.define(version: 2020_12_21_051405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,11 +95,11 @@ ActiveRecord::Schema.define(version: 2020_12_01_045937) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
-    t.text "details"
+    t.text "body"
     t.text "solution"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "count", default: 0
+    t.string "genre"
   end
 
   create_table "read_texts", force: :cascade do |t|
@@ -108,13 +108,6 @@ ActiveRecord::Schema.define(version: 2020_12_01_045937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "text_id"], name: "index_read_texts_on_user_id_and_text_id", unique: true
-  end
-
-  create_table "solutions", force: :cascade do |t|
-    t.integer "question_id", null: false
-    t.text "content", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "texts", force: :cascade do |t|

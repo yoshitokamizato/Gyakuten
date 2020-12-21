@@ -23,6 +23,7 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.12"
 gem "rails", "~> 5.2.4"
 gem "rails-ujs"
+gem "ransack"
 gem "redcarpet" # markdown
 gem "rouge" # syntax highlight
 gem "sass-rails", "~> 5.0"
