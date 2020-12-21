@@ -22,7 +22,7 @@ class Text < ApplicationRecord
   PER_PAGE = 10
 
   PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"].freeze
-  OTHER_PROGRAMMING = ["Php", "AWS"].freeze
+  OTHER_PROGRAMMING = ["PHP", "AWS"].freeze
   ALL_PROGRAMMING = PROGRAMMING + OTHER_PROGRAMMING
 
   def self.show_contents_list

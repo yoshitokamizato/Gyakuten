@@ -473,6 +473,7 @@ DEPENDENCIES
   rails (~> 5.2.4)
   rails-erd
   rails-ujs
+  ransack
   redcarpet
   rouge
   rspec-rails
