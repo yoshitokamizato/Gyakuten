@@ -18,7 +18,7 @@ genre:
   Ruby on Rails:
     display_name: "Ruby on Rails"
     color_code: "#dc3545"
-  Php:
+  PHP:
     display_name: "PHP"
     color_code: "#6f42c1"
   Money:
