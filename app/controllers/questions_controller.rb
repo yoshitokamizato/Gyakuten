@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.order(id: :desc)
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(distinct: true).order(id: :desc)
+    @all_questions = Question.all
   end
 
   def show
