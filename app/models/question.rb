@@ -3,7 +3,7 @@
 # Table name: questions
 #
 #  id         :bigint           not null, primary key
-#  details    :text
+#  body       :text
 #  genre      :string
 #  solution   :text
 #  title      :string
@@ -12,6 +12,6 @@
 #
 
 class Question < ApplicationRecord
-  validates :title, presence: { message: "【質問】は空欄にできません" }
-  validates :details, presence: { message: "【詳細】は空欄にできません" }
+  validates :title, presence: true
+  validates :body, presence: true
 end
