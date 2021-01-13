@@ -9,7 +9,7 @@
     </div>
   <% end %>
   <div class="contents-title text-center">
-    <h1>テキスト教材</h1>
+    <h1><%= params[:genre] || "Rails" %> テキスト教材</h1>
   </div>
   <%= render 'shared/search_text' %>
   <div class="row">
