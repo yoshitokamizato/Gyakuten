@@ -9,9 +9,6 @@ genre:
   Git:
     display_name: "Git"
     color_code: "#343a40"
-  HTML&CSS:
-    display_name: "HTML&CSS"
-    color_code: "#ffc107"
   Ruby:
     display_name: "Ruby"
     color_code: "#dc3545"
@@ -21,6 +18,18 @@ genre:
   PHP:
     display_name: "PHP"
     color_code: "#6f42c1"
+  HTML&CSS:
+    display_name: "HTML&CSS"
+    color_code: "#ffc107"
+  JavaScript:
+    display_name: "JavaScript"
+    color_code: "#e6dc00"
+  TypeScript:
+    display_name: "TypeScript"
+    color_code: "#777777"
+  Vue:
+    display_name: "Vue"
+    color_code: "#42b983"
   Money:
     display_name: "マネタイズ講座"
     color_code: "#4169e1"
