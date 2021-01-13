@@ -21,8 +21,8 @@ class Text < ApplicationRecord
 
   PER_PAGE = 10
 
-  PROGRAMMING = ["Basic", "Git", "HTML&CSS", "Ruby", "Ruby on Rails"].freeze
-  OTHER_PROGRAMMING = ["PHP", "AWS"].freeze
+  PROGRAMMING = ["Basic", "Git", "Ruby", "Ruby on Rails"].freeze
+  OTHER_PROGRAMMING = %w[PHP AWS HTML&CSS JavaScript TypeScript Vue].freeze
   ALL_PROGRAMMING = PROGRAMMING + OTHER_PROGRAMMING
 
   def self.show_contents_list

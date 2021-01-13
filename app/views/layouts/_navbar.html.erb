@@ -28,6 +28,17 @@
             <%= link_to "PHP動画教材", movies_path(genre: "PHP"), class: "dropdown-item" %>
           </div>
         </li>
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            フロント
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "HTML&CSS", texts_path(genre: "HTML&CSS"), class: "dropdown-item" %>
+            <%= link_to "JavaScript", texts_path(genre: "JavaScript"), class: "dropdown-item" %>
+            <%= link_to "TypeScript", texts_path(genre: "TypeScript"), class: "dropdown-item" %>
+            <%= link_to "Vue", texts_path(genre: "Vue"), class: "dropdown-item" %>
+          </div>
+        </li>
         <li class="nav-item">
           <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
         </li>

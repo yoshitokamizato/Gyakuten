@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if Rails.env.production?
       # SlackAPIで入力された Slack メンバー ID が存在し，削除済みでないかを確認
       # 問題がない場合は自動で承認済み扱いとする
-      Rails.application.credentials.dig(:slack, :oauth_token).keys.each do |slack_name|
+      Rails.application.credentials.dig(:slack, :oauth_token).each_key do |slack_name|
         client = AutoSlackApproval.new(slack_name: slack_name, slack_id: resource.slack_id)
         resource.flag = client.approval?
         if resource.flag
@@ -29,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     if resource.flag
       # 以下は元ソース通り
-      resource.save
+      resource.save!
       yield resource if block_given?
       if resource.persisted?
         if resource.active_for_authentication?

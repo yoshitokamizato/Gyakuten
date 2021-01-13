@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
         client = AutoSlackApproval.new(slack_name: resource.slack_name.to_sym, slack_id: resource.slack_id)
         resource.flag = client.approval?
       else
-        Rails.application.credentials.dig(:slack, :oauth_token).keys.each do |slack_name|
+        Rails.application.credentials.dig(:slack, :oauth_token).each_key do |slack_name|
           client = AutoSlackApproval.new(slack_name: slack_name, slack_id: resource.slack_id)
           resource.flag = client.approval?
           if resource.flag
