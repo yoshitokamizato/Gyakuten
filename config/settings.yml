@@ -30,6 +30,9 @@ genre:
   Vue:
     display_name: "Vue"
     color_code: "#42b983"
+  Angular:
+    display_name: "Angular"
+    color_code: "#dd0031"
   Money:
     display_name: "マネタイズ講座"
     color_code: "#4169e1"
