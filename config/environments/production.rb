@@ -93,17 +93,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Devise
-  config.action_mailer.default_url_options = {
-    host: 'https://arcane-gorge-21903.herokuapp.com/'
-  }
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    enable_starttls_auto: true,
-    address: "smtp.sendgrid.net",
-    port: 587,
-    domain: "heroku.com",
-    authentication: plain,
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+  host = "https://arcane-gorge-21903.herokuapp.com"
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    port: ENV["MAILGUN_SMTP_PORT"],
+    address: ENV["MAILGUN_SMTP_SERVER"],
+    user_name: ENV["MAILGUN_SMTP_LOGIN"],
+    password: ENV["MAILGUN_SMTP_PASSWORD"],
+    domain: host,
+    authentication: :plain,
   }
 end
