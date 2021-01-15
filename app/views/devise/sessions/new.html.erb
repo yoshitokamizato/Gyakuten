@@ -31,29 +31,27 @@
 <% end %>
 
 <div class="card mt-5">
-  <h5 class="card-header">教材について</h5>
+  <h5 class="card-header">案内</h5>
   <div class="card-body">
     <p class="card-text">
-      この教材は、やんばるCODEオンライン、やんばるエキスパートの会員の方のみの限定公開となっています。
+      アカウントの新規登録をまだ済まされていない方は，以下のリンクからお願いいたします。
     </p>
-    <p class="card-text">
-      申し込みは以下のページよりお願いします。
-    </p>
-    <a href="https://utina.yoshitokamizato.com/entry/2018/09/06/202647">やんばるCODE　オンライン</a><br><br>
-    <a href="https://yanbaru-expert.com/">やんばるCODE　エキスパート</a>
-
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-block" %>
   </div>
 </div>
 
 <div class="card mt-5">
-  <h5 class="card-header">案内</h5>
+  <h5 class="card-header">公開範囲について</h5>
   <div class="card-body">
     <p class="card-text">
-      先日まで，共通のアカウントでログインを行う方式を採用しておりましたが，各自でログインを行う方式に切り替えさせていただきました。
+      こちらの教材は、やんばるCODE、やんばるエキスパートの会員の方のみの限定公開となっています。
     </p>
     <p class="card-text">
-      アカウントの新規登録をまだ済まされていない方は以下のリンクからお願いいたします。メールアドレス・パスワードはご自由に設定下さい。
+      申し込みは以下のページよりお願いいたします。
     </p>
-    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-block" %>
+    <p><a href="https://yanbaru-expert.com/">やんばるエキスパート</a></p>
+    <p><a href="https://utina.yoshitokamizato.com/entry/2018/09/06/202647">やんばるCODE オンライン</a></p>
+    <p><a href="https://utina.yoshitokamizato.com/entry/2020/04/20/164421">やんばるCODE オフライン（月額プラン）</a></p>
+    <p><a href="https://utina.yoshitokamizato.com/entry/2020/05/19/103519">やんばるCODE オフライン（住み込みプラン）</a></p>
   </div>
 </div>
