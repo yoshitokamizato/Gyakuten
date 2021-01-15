@@ -7,7 +7,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :password %>
+    <div class="d-flex">
+      <%= f.label :password %>
+      <small class="ml-auto">
+        <%= link_to "パスワードの再設定はこちら", new_password_path(resource_name) %>
+      </small>
+    </div>
     <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', minlength: 6 %>
   </div>
 

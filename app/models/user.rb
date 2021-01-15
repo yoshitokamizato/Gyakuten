@@ -30,9 +30,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  # :recoverable
   devise :database_authenticatable, :registerable,
-         :rememberable, :trackable, :validatable
+         :rememberable, :trackable, :validatable, :recoverable
   validates :slack_id, presence: true, uniqueness: true
   has_many :watched_movies, dependent: :destroy
   has_many :read_texts, dependent: :destroy
