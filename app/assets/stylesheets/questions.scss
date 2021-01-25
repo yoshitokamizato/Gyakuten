@@ -1,6 +1,7 @@
 #question {
-  .genre {
-    width: 150px;
+  th,
+  td {
+    vertical-align: middle !important;
   }
 
   .catch {
