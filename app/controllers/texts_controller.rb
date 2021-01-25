@@ -1,15 +1,16 @@
 class TextsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: [:index, :show]
   skip_before_action :approval_user!
 
   def index
     if params[:genre].nil?
       @texts = Text.show_contents_list
-      @read_text_ids = current_user.read_texts.pluck(:text_id)
+      @read_text_ids = current_user.read_texts.pluck(:text_id) if user_signed_in?
     elsif Text::OTHER_PROGRAMMING.include?(params[:genre])
       @texts = Text.where(genre: params[:genre]).order(:position)
-      @read_text_ids = current_user.read_texts.pluck(:text_id)
+      @read_text_ids = current_user.read_texts.pluck(:text_id) if user_signed_in?
     end
+    @genre = params[:genre] || "Rails"
   end
 
   def show

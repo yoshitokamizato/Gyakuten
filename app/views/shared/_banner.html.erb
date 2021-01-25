@@ -1,9 +1,7 @@
-<% if user_signed_in? %>
-  <section class="advertising_banner">
-    <div class="cover text-center">
-      <%= link_to "http://yanbaru-expert.com/", target: :_blank, rel: "noopener" do %>
-        <%= image_tag "yanbaru_expert_banner.jpg", loading: "lazy" %>
-      <% end %>
-    </div>
-  </section>
-<% end %>
+<section class="advertising_banner">
+  <div class="cover text-center">
+    <%= link_to "http://yanbaru-expert.com/", target: :_blank, rel: "noopener" do %>
+      <%= image_tag "yanbaru_expert_banner.jpg", loading: "lazy" %>
+    <% end %>
+  </div>
+</section>
