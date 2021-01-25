@@ -30,4 +30,8 @@ module ApplicationHelper
       },
     }
   end
+
+  def add_disabled
+    " disabled" unless user_signed_in?
+  end
 end
