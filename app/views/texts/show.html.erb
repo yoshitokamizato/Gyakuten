@@ -3,7 +3,7 @@
 <% content_for(:twitter_image) { @text.image.url } %>
 <section id="text-contents">
   <h2><%= @text.title %></h2>
-  <% if user_signed_in? && current_user.flag %>
+  <% if user_signed_in? %>
     <%= render "movie" if @movies.present? %>
     <div class="markdown">
       <%= markdown(@text.contents) %>
@@ -38,30 +38,18 @@
         </div>
       </div>
     </div>
-  <% elsif user_signed_in? && !(current_user.flag) %>
-    <section class="text-center mt-5">
-      <p>登録されたSlack IDは削除されております。</p>
-      <p>現在参加中のサロンのSlack IDで新規登録をお願いいたします。</p>
-    </section>
+  <% elsif user_signed_in? %>
+    <div class="info_box">
+      <p class="p-2 text-center">登録されたSlack IDは削除されております。</p>
+      <p class="p-2 text-center">現在参加中のサロンのSlack IDで <%= link_to "新規登録", new_user_registration_path %> をお願いいたします。</p>
+    </div>
+    <%= render "shared/info" %>
+    <%= render "shared/banner" %>
   <% else %>
-    <p>
-      記事を閲覧するには，<%= link_to "ログイン", new_user_session_path %>が必要です。
-    </p>
-    <p class="mb-4">
-      <small>
-        こちらの記事は，
-        <%= link_to "やんばるCODEオンライン", "https://utina.yoshitokamizato.com/entry/2018/09/06/202647" %>
-        もしくは
-        <%= link_to "やんばるエキスパート", "https://yanbaru-expert.com/" %>
-        参加者限定の記事となっております。
-      </small>
-    </p>
-    <section class="advertising_banner">
-      <div class="cover text-center">
-        <%= link_to "http://yanbaru-expert.com/", target: :_blank, rel: "noopener" do %>
-          <%= image_tag "yanbaru_expert_banner.jpg", loading: "lazy" %>
-        <% end %>
-      </div>
-    </section>
+    <div class="info_box">
+      <p class="p-2 text-center">教材を閲覧するには，<%= link_to "ログイン", new_user_session_path %> が必要です。</p>
+    </div>
+    <%= render "shared/info" %>
+    <%= render "shared/banner" %>
   <% end %>
 </section>

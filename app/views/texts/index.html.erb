@@ -1,16 +1,23 @@
+<% content_for(:title) { "#{@genre}テキスト教材" } %>
+<% content_for(:description) { "やんばるCODEの#{@genre}テキスト教材です。" } %>
 <div class="texts-wrapper">
-  <% if Rails.application.credentials.dig(:google_calendar, :yanbaru).present? && request.path == "/" %>
+  <% if user_signed_in? && Rails.application.credentials.dig(:google_calendar, :yanbaru).present? && request.path == "/" %>
     <div class="contents-title text-center">
-      <h1>やんばるCODE <br class="d-sm-none">
-        イベント日程</h1>
+      <h2>やんばるCODE <br class="d-sm-none">
+        イベント日程</h2>
     </div>
     <div class="g-calendar mb-5">
       <iframe src="https://calendar.google.com/calendar/<%= Rails.application.credentials.dig(:google_calendar, :yanbaru) %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
   <% end %>
   <div class="contents-title text-center">
-    <h1><%= params[:genre] || "Rails" %> テキスト教材</h1>
+    <h1><%= @genre %> テキスト教材</h1>
   </div>
+  <% unless user_signed_in? %>
+    <div class="info_box">
+      <p class="p-2 text-center">アカウントを所持されている方は <%= link_to "ログイン", new_user_session_path %> をお願いします。</p>
+    </div>
+<% end %>
   <%= render 'shared/search_text' %>
   <div class="row">
     <% @texts.each do |text| %>
@@ -21,13 +28,15 @@
               <%= image_tag text.image.url, loading: "lazy", alt: text.title, class: "img-fluid" %>
             </div>
             <div class="card-body text-dark text-card-body">
-              <div id="read-text-<%= text.id %>">
-                <% if @read_text_ids.include?(text.id) %>
-                  <%= render "read_text", text_id: text.id %>
-                <% else %>
-                  <%= render "unread_text", text_id: text.id %>
-                <% end %>
-              </div>
+              <% if user_signed_in? %>
+                <div id="read-text-<%= text.id %>">
+                  <% if @read_text_ids.include?(text.id) %>
+                    <%= render "read_text", text_id: text.id %>
+                  <% else %>
+                    <%= render "unread_text", text_id: text.id %>
+                  <% end %>
+                </div>
+              <% end %>
               <p class="card-text text-title">
                 <%= text.title %>
               </p>

@@ -12,9 +12,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Ruby/Rails教材", texts_path, class: "dropdown-item" %>
-            <%= link_to "動画教材", movies_path, class: "dropdown-item" %>
+            <%= link_to "動画教材", movies_path, class: "dropdown-item#{add_disabled}" %>
             <%= link_to "AWS講座", texts_path(genre: "AWS"), class: "dropdown-item" %>
-            <%= link_to Settings.genre.Live.display_name, movies_path(genre: "Live"), class: "dropdown-item" %>
+            <%= link_to Settings.genre.Live.display_name, movies_path(genre: "Live"), class: "dropdown-item#{add_disabled}" %>
             <%= link_to "質問集", questions_path, class: "dropdown-item" %>
             <%= link_to "チャレンジ問題集", challenges_path, class: "dropdown-item" %>
           </div>
@@ -25,7 +25,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "PHPテキスト教材", texts_path(genre: "PHP"), class: "dropdown-item" %>
-            <%= link_to "PHP動画教材", movies_path(genre: "PHP"), class: "dropdown-item" %>
+            <%= link_to "PHP動画教材", movies_path(genre: "PHP"), class: "dropdown-item#{add_disabled}" %>
           </div>
         </li>
         <li class="nav-item active dropdown">
@@ -41,10 +41,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "nav-item nav-link active" %>
+          <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "nav-item nav-link #{user_signed_in? ? 'active' : 'disabled'}" %>
         </li>
         <li class="nav-item">
-          <%= link_to Settings.genre.Money.display_name, movies_path(genre: "Money"), class: "nav-item nav-link active" %>
+          <%= link_to Settings.genre.Money.display_name, movies_path(genre: "Money"), class: "nav-item nav-link #{user_signed_in? ? 'active' : 'disabled'}" %>
         </li>
         <li class="nav-item">
           <%= link_to "LINE", lines_path, class: "nav-item nav-link active" %>

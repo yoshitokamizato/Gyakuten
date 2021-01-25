@@ -1,0 +1,22 @@
+<%= search_form_for @q do |f| %>
+  <div class="form-check mb-3">
+    <%= f.collection_check_boxes :genre_in, @all_questions, :genre, :genre %>
+  </div>
+  <div class="form-group">
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">タイトル</div>
+      </div>
+      <%= f.search_field :title_cont, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">キーワード</div>
+      </div>
+      <%= f.search_field :title_or_body_or_solution_cont, class: "form-control" %>
+    </div>
+  </div>
+  <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+<% end %>
