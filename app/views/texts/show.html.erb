@@ -39,29 +39,17 @@
       </div>
     </div>
   <% elsif user_signed_in? && !(current_user.flag) %>
-    <section class="text-center mt-5">
-      <p>登録されたSlack IDは削除されております。</p>
-      <p>現在参加中のサロンのSlack IDで新規登録をお願いいたします。</p>
-    </section>
+    <div class="info_box">
+      <p class="p-2 text-center">登録されたSlack IDは削除されております。</p>
+      <p class="p-2 text-center">現在参加中のサロンのSlack IDで <%= link_to "新規登録", new_user_registration_path %> をお願いいたします。</p>
+    </div>
+    <%= render "shared/info" %>
+    <%= render "shared/banner" %>
   <% else %>
     <div class="info_box">
-      <p class="p-2 text-center">記事を閲覧するには，<%= link_to "ログイン", new_user_session_path %> が必要です。</p>
+      <p class="p-2 text-center">教材を閲覧するには，<%= link_to "ログイン", new_user_session_path %> が必要です。</p>
     </div>
-    <div class="card my-5">
-      <h5 class="card-header">公開範囲について</h5>
-      <div class="card-body">
-        <p class="card-text">
-          こちらの教材は、やんばるCODE、やんばるエキスパートの会員の方のみの限定公開となっています。
-        </p>
-        <p class="card-text">
-          申し込みは以下のページよりお願いいたします。
-        </p>
-        <p><a href="https://yanbaru-expert.com/">やんばるエキスパート</a></p>
-        <p><a href="https://utina.yoshitokamizato.com/entry/2018/09/06/202647">やんばるCODE オンライン</a></p>
-        <p><a href="https://utina.yoshitokamizato.com/entry/2020/04/20/164421">やんばるCODE オフライン（月額プラン）</a></p>
-        <p><a href="https://utina.yoshitokamizato.com/entry/2020/05/19/103519">やんばるCODE オフライン（住み込みプラン）</a></p>
-      </div>
-    </div>
+    <%= render "shared/info" %>
     <%= render "shared/banner" %>
   <% end %>
 </section>

@@ -1,25 +1,35 @@
+<% content_for(:title) { @challenge.title } %>
+<% content_for(:twitter_image) { @challenge.image.url } %>
+
 <section id="text-contents">
   <h2>【<%= @challenge.theme %>】<%= @challenge.title %></h2>
   <div class="markdown">
     <%= markdown(@challenge.question) %>
   </div>
-  <div class="mb-4">
-    <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapse-hint" role="button" aria-expanded="false" aria-controls="collapse-hint">
-      ヒントはこちら
-    </a>
-    <div class="collapse" id="collapse-hint">
-      <div class="card card-body">
-        <div class="markdown">
-          <%= markdown(@challenge.hint) %>
+  <% if user_signed_in? %>
+    <div class="mb-4">
+      <a class="btn btn-success btn-block" data-toggle="collapse" href="#collapse-hint" role="button" aria-expanded="false" aria-controls="collapse-hint">
+        ヒントはこちら
+      </a>
+      <div class="collapse" id="collapse-hint">
+        <div class="card card-body">
+          <div class="markdown">
+            <%= markdown(@challenge.hint) %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="complete-challenge-<%= @challenge.id %>" class="mb-4">
-    <% if current_user.complete_challenges.find_by(challenge_id: @challenge.id).present? %>
-      <%= render "complete_challenge", challenge_id: @challenge.id %>
-    <% else %>
-      <%= render "incomplete_challenge", challenge_id: @challenge.id %>
-    <% end %>
-  </div>
+    <div id="complete-challenge-<%= @challenge.id %>" class="mb-4">
+      <% if current_user.complete_challenges.find_by(challenge_id: @challenge.id).present? %>
+        <%= render "complete_challenge", challenge_id: @challenge.id %>
+      <% else %>
+        <%= render "incomplete_challenge", challenge_id: @challenge.id %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="info_box">
+      <p class="p-2 text-center">ヒントを閲覧するには，<%= link_to "ログイン", new_user_session_path %> が必要です。</p>
+    </div>
+    <%= render "shared/banner" %>
+  <% end %>
 </section>

@@ -1,10 +1,13 @@
+<% content_for(:title) { "Rubyチャレンジ課題" } %>
+<% content_for(:description) { "やんばるCODEのRubyチャレンジ課題です。" } %>
 <div class="texts-wrapper">
   <div class="contents-title text-center">
     <h1>Rubyチャレンジ問題集</h1>
   </div>
   <div class="info_box">
     <p class="p-2 text-center">Rubyのチャレンジ問題集です。<br>
-      「<a href="http://yanbaru-expert.com" target="_blank" rel="noopener noreferrer">やんばるエキスパート</a>」参加者の皆様には「<a href="https://w1581477116-8hw426585.slack.com/archives/C01FT2VLF2N" target="_blank" rel="noopener noreferrer">チャレンジ課題提出</a>」チャンネルでレビューを行います。</p>
+      「<a href="http://yanbaru-expert.com" target="_blank" rel="noopener noreferrer">やんばるエキスパート</a>」参加者の皆様には「チャレンジ課題提出」チャンネルでレビューを行います。
+    </p>
   </div>
   <div class="row">
     <% @challenges.each do |challenge| %>
@@ -15,13 +18,15 @@
               <%= image_tag challenge.image.url, loading: "lazy", alt: challenge.title, class: "img-fluid" %>
             </div>
             <div class="card-body text-dark text-card-body">
-              <div id="complete-challenge-<%= challenge.id %>">
-                <% if @complete_challenge_ids.include?(challenge.id) %>
-                  <%= render "complete_challenge", challenge_id: challenge.id %>
-                <% else %>
-                  <%= render "incomplete_challenge", challenge_id: challenge.id %>
-                <% end %>
-              </div>
+              <% if user_signed_in? %>
+                <div id="complete-challenge-<%= challenge.id %>">
+                  <% if @complete_challenge_ids.include?(challenge.id) %>
+                    <%= render "complete_challenge", challenge_id: challenge.id %>
+                  <% else %>
+                    <%= render "incomplete_challenge", challenge_id: challenge.id %>
+                  <% end %>
+                </div>
+              <% end %>
               <p class="card-text text-title">
                 【<%= challenge.theme %>】<%= challenge.title %>
               </p>
