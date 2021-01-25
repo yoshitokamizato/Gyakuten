@@ -21,7 +21,7 @@ module ApplicationHelper
         description: :description,
         type: "website",
         url: request.url,
-        image: twitter_image.presence || image_url("/texts/no_image.jpg"),
+        image: twitter_image.presence || "https://d5izmuz0mcjzz.cloudfront.net/yanbaru_code.jpg",
         locale: "ja_JP",
       },
       twitter: {
