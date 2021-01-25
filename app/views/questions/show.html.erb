@@ -1,3 +1,4 @@
+<% content_for(:title) { @question.title } %>
 <section id="question">
   <div class="catch">タイトル</div>
   <%= @question.title %>
@@ -6,8 +7,16 @@
     <%= markdown(@question.body) %>
   </div>
   <div class="catch">回答</div>
-  <div class="markdown">
-    <%= markdown(@question.solution) %>
-  </div>
-  <%= link_to "質問一覧ページへ", questions_path, class: "btn btn-secondary btn-block" %>
+  <% if user_signed_in? %>
+    <div class="markdown">
+      <%= markdown(@question.solution) %>
+      <%= link_to "質問一覧ページへ", questions_path, class: "btn btn-secondary btn-block" %>
+    </div>
+  <% else %>
+    <div class="info_box">
+      <p class="p-2 text-center">回答を閲覧するには，<%= link_to "ログイン", new_user_session_path %> が必要です。</p>
+    </div>
+    <%= render "shared/info" %>
+    <%= render "shared/banner" %>
+  <% end %>
 </section>

@@ -142,3 +142,9 @@ footer {
 ul.pagination {
   justify-content: center;
 }
+
+// どの文字の間でも改行
+
+.break-word {
+  word-break: break-word;
+}
