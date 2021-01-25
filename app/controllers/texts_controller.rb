@@ -1,6 +1,5 @@
 class TextsController < ApplicationController
   skip_before_action :authenticate_user!
-  skip_before_action :approval_user!
 
   def index
     if params[:genre].nil?

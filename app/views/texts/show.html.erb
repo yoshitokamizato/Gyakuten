@@ -3,7 +3,7 @@
 <% content_for(:twitter_image) { @text.image.url } %>
 <section id="text-contents">
   <h2><%= @text.title %></h2>
-  <% if user_signed_in? && current_user.flag %>
+  <% if user_signed_in? %>
     <%= render "movie" if @movies.present? %>
     <div class="markdown">
       <%= markdown(@text.contents) %>
@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-  <% elsif user_signed_in? && !(current_user.flag) %>
+  <% elsif user_signed_in? %>
     <div class="info_box">
       <p class="p-2 text-center">登録されたSlack IDは削除されております。</p>
       <p class="p-2 text-center">現在参加中のサロンのSlack IDで <%= link_to "新規登録", new_user_registration_path %> をお願いいたします。</p>

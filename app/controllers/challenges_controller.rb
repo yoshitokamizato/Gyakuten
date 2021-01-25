@@ -1,6 +1,5 @@
 class ChallengesController < ApplicationController
   skip_before_action :authenticate_user!
-  skip_before_action :approval_user!
 
   def index
     @challenges = Challenge.order(id: :asc)
