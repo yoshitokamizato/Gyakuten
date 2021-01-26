@@ -21,6 +21,7 @@ gem "meta-tags" # 検索エンジン最適化（SEO）プラグイン
 gem "mini_magick"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.12"
+gem "rack-rewrite", "~> 1.5.0"
 gem "rails", "~> 5.2.4"
 gem "rails-ujs"
 gem "ransack"
