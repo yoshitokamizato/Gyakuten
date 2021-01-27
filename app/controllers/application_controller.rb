@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :basic_auth, if: :heroku_staging?
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :sign_out_user, if: :user_signed_in?
@@ -14,6 +15,18 @@ class ApplicationController < ActionController::Base
         flash.clear
         flash.now[:alert] = "現在参加中のサロンのSlack IDで新規登録をお願いいたします。"
         sign_out(current_user)
+      end
+    end
+
+  private
+
+    def heroku_staging?
+      request.url.include?("gyakuten-app-staging.herokuapp.com")
+    end
+
+    def basic_auth
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
       end
     end
 end
