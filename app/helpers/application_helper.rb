@@ -9,7 +9,7 @@ module ApplicationHelper
       charset: "utf-8",
       description: description.presence || Settings.ogp.default_description,
       # keywords: '人生逆転サロン',
-      # canonical: 'https://arcane-gorge-21903.herokuapp.com/',
+      # canonical: 'https://www.yanbaru-code.com/',
       # separator: '|',
       # icon: [
       #   { href: image_url('favicon.ico') }

@@ -1,7 +1,7 @@
 ogp:
-  site_name: "やんばるCODE教材"
+  site_name: "やんばるエキスパート教材"
   twitter_site: "@yoshito410kam"
-  default_description: "やんばるCODEの教材です"
+  default_description: "やんばるエキスパートの教材です"
 genre:
   Basic:
     display_name: "Basic"

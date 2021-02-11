@@ -15,7 +15,7 @@ Closes #10
 マークダウン記法のリンクを用いて記載すること
 
 - ログイン機能
-  - [やんばるCODEアプリ](https://arcane-gorge-21903.herokuapp.com/texts/219)
+  - [やんばるエキスパートアプリ](https://www.yanbaru-code.com/texts/219)
 
 ## チェックリスト
 

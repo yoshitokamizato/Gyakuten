@@ -1,8 +1,7 @@
 if Rails.env.development?
   host = "localhost:3000"
 elsif Rails.env.production?
-  # 各自のドメインに置き換えること
-  host = "arcane-gorge-21903.herokuapp.com"
+  host = "yanbaru-code.com"
 end
 
 if Rails.env.development? || Rails.env.production?
