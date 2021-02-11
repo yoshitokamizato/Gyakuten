@@ -1,9 +1,9 @@
 <% content_for(:title) { "#{@genre}テキスト教材" } %>
-<% content_for(:description) { "やんばるCODEの#{@genre}テキスト教材です。" } %>
+<% content_for(:description) { "やんばるエキスパートの#{@genre}テキスト教材です。" } %>
 <div class="texts-wrapper">
   <% if user_signed_in? && Rails.application.credentials.dig(:google_calendar, :yanbaru).present? && request.path == "/" %>
     <div class="contents-title text-center">
-      <h2>やんばるCODE <br class="d-sm-none">
+      <h2>やんばるエキスパート <br class="d-sm-none">
         イベント日程</h2>
     </div>
     <div class="g-calendar mb-5">
