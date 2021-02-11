@@ -57,11 +57,8 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "進捗管理", my_pages_path, class: "dropdown-item" %>
               <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link active" %>
-          </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
