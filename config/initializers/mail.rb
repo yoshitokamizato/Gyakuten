@@ -1,7 +1,7 @@
 if Rails.env.development?
   host = "localhost:3000"
 elsif Rails.env.production?
-  host = "yanbaru-code.com"
+  host = "www.yanbaru-code.com"
 end
 
 if Rails.env.development? || Rails.env.production?
