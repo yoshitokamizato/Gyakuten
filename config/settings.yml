@@ -37,7 +37,7 @@ genre:
     display_name: "マネタイズ講座"
     color_code: "#4169e1"
   Talk:
-    display_name: "対談"
+    display_name: "勉強会"
     color_code: "#fd7e14"
   Live:
     display_name: "プログラミング勉強会"
