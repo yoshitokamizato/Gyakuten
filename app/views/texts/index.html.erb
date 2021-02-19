@@ -6,7 +6,7 @@
   </div>
   <% unless user_signed_in? %>
     <div class="info_box">
-      <p class="p-2 text-center">アカウントを所持されている方は <%= link_to "ログイン", new_user_session_path %> をお願いします。</p>
+      <p class="p-2 text-center">アカウントをお持ちの方は <%= link_to "ログイン", new_user_session_path %> をお願いします。</p>
     </div>
 <% end %>
   <%= render 'shared/search_text' %>

@@ -8,13 +8,12 @@
       <ul class="navbar-nav">
         <li class="nav-item active dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Rails
+            Ruby
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Ruby/Rails教材", texts_path, class: "dropdown-item" %>
-            <%= link_to "AWS講座", texts_path(genre: "AWS"), class: "dropdown-item" %>
-            <%= link_to "動画教材", movies_path, class: "dropdown-item#{add_disabled}" %>
-            <%= link_to Settings.genre.Live.display_name, movies_path(genre: "Live"), class: "dropdown-item#{add_disabled}" %>
+            <%= link_to "Ruby/Railsテキスト教材", texts_path, class: "dropdown-item" %>
+            <%= link_to "Ruby/Rails動画教材", movies_path, class: "dropdown-item#{add_disabled}" %>
+            <%= link_to "AWSテキスト教材", texts_path(genre: "AWS"), class: "dropdown-item" %>
             <%= link_to "よくある質問集", questions_path, class: "dropdown-item" %>
             <%= link_to "チャレンジ問題集", challenges_path, class: "dropdown-item" %>
           </div>
@@ -40,9 +39,19 @@
             <%= link_to "Vue", texts_path(genre: "Vue"), class: "dropdown-item" %>
           </div>
         </li>
-        <li class="nav-item">
-          <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "nav-item nav-link #{user_signed_in? ? 'active' : 'disabled'}" %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              勉強会
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to Settings.genre.Talk.display_name, movies_path(genre: "Talk"), class: "dropdown-item" %>
+              <%= link_to Settings.genre.Live.display_name, movies_path(genre: "Live"), class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item"><span class="nav-item nav-link disabled">勉強会</span></li>
+        <% end %>
         <li class="nav-item">
           <%= link_to Settings.genre.Money.display_name, movies_path(genre: "Money"), class: "nav-item nav-link #{user_signed_in? ? 'active' : 'disabled'}" %>
         </li>
@@ -60,9 +69,6 @@
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
-          </li>
           <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
           </li>
