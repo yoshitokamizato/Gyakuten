@@ -11,4 +11,17 @@ ActiveAdmin.register Movie do
     column :text_id
     actions
   end
+
+  form do |_f|
+    inputs do
+      input :position
+      input :text
+      input :genre, as: :select, collection: Movie::MYPAGE_LIST
+      input :title
+      input :url
+      input :desc
+    end
+
+    actions
+  end
 end
