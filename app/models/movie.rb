@@ -3,20 +3,22 @@
 # Table name: movies
 #
 #  id         :bigint           not null, primary key
-#  contents   :text
 #  desc       :text
 #  genre      :string
 #  position   :integer
 #  title      :text
+#  url        :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  text_id    :integer
 #
 
 class Movie < ApplicationRecord
+  YOUTUBE_REGEX = %r{\Ahttps://www.youtube.com/embed/[^?&"'>]+\z}
   acts_as_list
+
   validates :title, presence: true
-  validates :contents, presence: true
+  validates :url, presence: true
   validates :genre, presence: true
   has_many :watched_movies, dependent: :destroy
   belongs_to :text, optional: true
@@ -28,6 +30,15 @@ class Movie < ApplicationRecord
   LIVE = ["Salon", "Talk", "Live"].freeze
   GENERAL = ["PHP", "Design", "Other", "Money"].freeze
   MYPAGE_LIST = ["Basic", "Git", "Ruby", "Ruby on Rails", "PHP", "Live", "Talk", "Money"].freeze
+
+  before_save do
+    format_url = YoutubeUrlFormatter.format(url)
+    if format_url.present?
+      self.url = format_url
+    else
+      self.errors.add(:url, "YouTubeのURL以外は無効です")
+    end
+  end
 
   def self.categorized_by(genre, page:)
     case genre
