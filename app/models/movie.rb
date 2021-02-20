@@ -3,11 +3,11 @@
 # Table name: movies
 #
 #  id         :bigint           not null, primary key
-#  contents   :text
 #  desc       :text
 #  genre      :string
 #  position   :integer
 #  title      :text
+#  url        :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  text_id    :integer
@@ -16,7 +16,7 @@
 class Movie < ApplicationRecord
   acts_as_list
   validates :title, presence: true
-  validates :contents, presence: true
+  validates :url, presence: true
   validates :genre, presence: true
   has_many :watched_movies, dependent: :destroy
   belongs_to :text, optional: true

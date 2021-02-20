@@ -41,7 +41,6 @@ ja:
         question: 質問
       text:
       users_web:
-        url: URL
         name: 用途
       word:
         about: 言及
@@ -76,6 +75,7 @@ ja:
     description: Twitterカードの説明
     content: 内容
     contents: 内容
+    url: URL
     body: 内容
     namespace: 名前空間
     resource_type: リソースタイプ

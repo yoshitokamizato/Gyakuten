@@ -1,5 +1,5 @@
 ActiveAdmin.register Movie do
-  permit_params :title, :contents, :desc, :genre, :text_id
+  permit_params :title, :url, :desc, :genre, :text_id
   menu parent: "動画教材"
   config.sort_order = "position_asc"
 

@@ -8,7 +8,7 @@ class Import
     CSV.foreach(path, headers: true) do |row|
       data_list << {
         title: row["Title"],
-        contents: row["Contents"],
+        url: row["Contents"],
         desc: row["Desc"],
         genre: row["Genre"],
       }
