@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_120519) do
+ActiveRecord::Schema.define(version: 2021_02_22_150406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_120519) do
     t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "genre"
+    t.integer "genre_id"
     t.integer "position"
     t.integer "text_id"
   end
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_120519) do
   end
 
   create_table "texts", force: :cascade do |t|
-    t.string "genre"
+    t.integer "genre_id"
     t.text "title"
     t.text "contents"
     t.datetime "created_at", null: false
@@ -184,4 +184,6 @@ ActiveRecord::Schema.define(version: 2021_02_22_120519) do
   add_foreign_key "complete_challenges", "challenges"
   add_foreign_key "complete_challenges", "users"
   add_foreign_key "genres", "genre_groups"
+  add_foreign_key "movies", "genres"
+  add_foreign_key "texts", "genres"
 end
