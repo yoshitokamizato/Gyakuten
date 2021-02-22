@@ -446,6 +446,7 @@ PLATFORMS
 DEPENDENCIES
   active_admin_import
   activeadmin
+  activerecord-import
   acts_as_list
   annotate
   bootsnap (>= 1.1.0)
