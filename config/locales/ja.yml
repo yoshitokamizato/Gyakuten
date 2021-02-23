@@ -25,7 +25,6 @@ ja:
       slack_member: Slackメンバー
       challenge: チャレンジ問題
       genre: ジャンル
-      genre_group: ジャンル群
     attributes:
       admin_user:
       error:
@@ -63,8 +62,6 @@ ja:
         thema: テーマ
         question: 問題
         hint: ヒント
-      genre:
-        genre_group: ジャンル群
   attributes:
     id: ID
     program_id: プログラムID

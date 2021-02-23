@@ -2,21 +2,12 @@
 #
 # Table name: genres
 #
-#  id             :bigint           not null, primary key
-#  color          :string
-#  position       :integer
-#  title          :string           not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  genre_group_id :bigint           not null
-#
-# Indexes
-#
-#  index_genres_on_genre_group_id  (genre_group_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (genre_group_id => genre_groups.id)
+#  id         :bigint           not null, primary key
+#  color      :string
+#  position   :integer
+#  title      :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 class Genre < ApplicationRecord
   CONVERT_LIST = {
@@ -43,24 +34,23 @@ class Genre < ApplicationRecord
   validates :title, presence: true
   validates :color, format: { with: COLOR_REGEX }
 
-  belongs_to :genre_group
   has_many :movies
   has_many :texts
   has_many :questions
 
-  scope :front, -> { where(genre_group_id: 1).order(:position) }
-  scope :ruby, -> { where(genre_group_id: 2).order(:position) }
-  scope :php, -> { where(genre_group_id: 3).order(:position) }
-  scope :react, -> { where(genre_group_id: 4).order(:position) }
-  scope :vue, -> { where(genre_group_id: 5).order(:position) }
-  scope :angular, -> { where(genre_group_id: 6).order(:position) }
-  scope :aws, -> { where(genre_group_id: 7).order(:position) }
+  scope :front, -> { where(id: 6..11).order(:position) }
+  scope :ruby, -> { where(id: 1..4).order(:position) }
+  scope :php, -> { where(id: 6).order(:position) }
+  scope :react, -> { where(id: 9).order(:position) }
+  scope :vue, -> { where(id: 10).order(:position) }
+  scope :angular, -> { where(id: 11).order(:position) }
+  scope :aws, -> { where(id: 12).order(:position) }
 
-  scope :general, -> { where.not(genre_group_id: 8..10).order(:position) }
-  scope :live, -> { where(genre_group_id: 8..9).order(:position) }
+  scope :general, -> { where.not(id: 13..16).order(:position) }
+  scope :live, -> { where(id: 13..15).order(:position) }
 
-  scope :invisible, -> { where(genre_group_id: 10).order(:position) }
-  scope :visible, -> { where.not(genre_group_id: 10).order(:position) }
+  scope :invisible, -> { where(id: 16).order(:position) }
+  scope :visible, -> { where.not(id: 16).order(:position) }
 
   def self.permit_genre(genre)
     self::CONVERT_LIST.keys.include?(genre)

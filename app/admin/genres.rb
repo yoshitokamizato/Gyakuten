@@ -1,11 +1,10 @@
 ActiveAdmin.register Genre do
-  permit_params :position, :genre_group_id, :title, :color
+  permit_params :position, :title, :color
   config.sort_order = "position_asc"
 
   index do
     selectable_column
     column :position
-    column :genre_group
     column :title
     actions
   end
@@ -13,7 +12,6 @@ ActiveAdmin.register Genre do
   show do
     attributes_table do
       row :position
-      row :genre
       row :title
       row :color
     end
@@ -24,7 +22,6 @@ ActiveAdmin.register Genre do
     f.semantic_errors
     f.inputs do
       input :position
-      input :genre_group
       input :title
       input :color
     end
