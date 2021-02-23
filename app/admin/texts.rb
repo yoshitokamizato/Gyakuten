@@ -1,7 +1,7 @@
 ActiveAdmin.register Text do
   # ドロップダウンメニューの親成分を決定
   menu parent: "テキスト教材"
-  permit_params :genre, :title, :contents, :image, :description
+  permit_params :genre_id, :title, :contents, :image, :description
   config.sort_order = "position_asc"
 
   index do
@@ -29,7 +29,7 @@ ActiveAdmin.register Text do
   form do |_f|
     inputs  do
       input :position
-      input :genre, as: :select, collection: Text::ALL_PROGRAMMING
+      input :genre
       input :title, as: :string
       input :contents
       input :image, as: :file

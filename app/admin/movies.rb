@@ -1,5 +1,5 @@
 ActiveAdmin.register Movie do
-  permit_params :title, :url, :desc, :genre, :text_id
+  permit_params :title, :url, :desc, :genre_id, :text_id
   menu parent: "動画教材"
   config.sort_order = "position_asc"
 
@@ -8,7 +8,7 @@ ActiveAdmin.register Movie do
     column :position
     column :genre
     column :title
-    column :text_id
+    column :text
     actions
   end
 
@@ -16,7 +16,7 @@ ActiveAdmin.register Movie do
     inputs do
       input :position
       input :text
-      input :genre, as: :select, collection: Movie::MYPAGE_LIST
+      input :genre
       input :title
       input :url
       input :desc
