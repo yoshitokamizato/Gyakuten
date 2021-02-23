@@ -66,11 +66,11 @@ class Genre < ApplicationRecord
     self::CONVERT_LIST.keys.include?(genre)
   end
 
-  scope :search_ids, -> (genre) {
+  scope :search_ids, ->(genre) {
     permit_genre(genre) ? [Genre::CONVERT_LIST[genre]] : Genre.ruby.ids
   }
 
-  scope :search_genre, -> (genre) {
+  scope :search_genre, ->(genre) {
     permit_genre(genre) ? Genre.find(Genre::CONVERT_LIST[genre]).title : "Ruby"
   }
 

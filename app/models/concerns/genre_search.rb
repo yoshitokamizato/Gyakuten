@@ -10,7 +10,7 @@ module GenreSearch
     scope :angular_group, -> { where(genre_id: Genre.angular).includes(:genre).order("genres.position ASC") }
     scope :aws_group, -> { where(genre_id: Genre.aws).includes(:genre).order("genres.position ASC") }
 
-    scope :general_group, -> { where.(genre_id: Genre.general).includes(:genre).order("genres.position ASC") }
+    scope :general_group, -> { where.call(genre_id: Genre.general).includes(:genre).order("genres.position ASC") }
     scope :live_group, -> { where(genre_id: Genre.live).includes(:genre).order("genres.position ASC") }
 
     scope :others_group, -> { where(genre_id: Genre.others).includes(:genre).order("genres.position ASC") }

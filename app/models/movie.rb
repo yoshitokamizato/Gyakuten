@@ -18,9 +18,9 @@
 #
 
 class Movie < ApplicationRecord
+  include GenreSearch
   YOUTUBE_REGEX = %r{\Ahttps://www.youtube.com/embed/[^?&"'>]+\z}
   acts_as_list
-  include GenreSearch
 
   validates :title, presence: true
   validates :url, presence: true
