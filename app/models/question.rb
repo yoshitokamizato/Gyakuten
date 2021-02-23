@@ -21,5 +21,5 @@ class Question < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   validates :solution, presence: true
-  # belongs_to :genre, optional: true
+  belongs_to :genre, optional: true
 end
