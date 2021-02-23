@@ -4,6 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  color          :string
+#  position       :integer
 #  title          :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
@@ -37,6 +38,7 @@ class Genre < ApplicationRecord
     # "Other" => 16,
   }
 
+  acts_as_list
   COLOR_REGEX = /\A#[0-9a-f]{6}\z/
   validates :title, presence: true
   validates :color, format: { with: COLOR_REGEX }

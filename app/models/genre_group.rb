@@ -3,6 +3,7 @@
 # Table name: genre_groups
 #
 #  id         :bigint           not null, primary key
+#  position   :integer
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -21,6 +22,7 @@ class GenreGroup < ApplicationRecord
   #   "Other" => 10
   # }
 
+  acts_as_list
   has_many :genres, dependent: :destroy
   validates :title, presence: true
 end
