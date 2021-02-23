@@ -26,7 +26,7 @@ class Genre < ApplicationRecord
     "Money" => 13,
     "Talk" => 14,
     "Live" => 15,
-    # "Invisible" => 16,
+    "Invisible" => 16,
   }
 
   acts_as_list
@@ -53,7 +53,7 @@ class Genre < ApplicationRecord
   scope :visible, -> { where.not(id: 16).order(:position) }
 
   def self.permit_genre(genre)
-    self::CONVERT_LIST.keys.include?(genre)
+    (self::CONVERT_LIST.keys - ["Invisible"]).include?(genre)
   end
 
   scope :search_ids, ->(genre) {
@@ -61,7 +61,7 @@ class Genre < ApplicationRecord
   }
 
   scope :search_genre, ->(genre) {
-    permit_genre(genre) ? Genre.find(Genre::CONVERT_LIST[genre]).title : "Ruby"
+    permit_genre(genre) ? Genre.find(Genre::CONVERT_LIST[genre]).title : "Ruby/Rails"
   }
 
   def self.personal_data(completed_count_data, count_data)
