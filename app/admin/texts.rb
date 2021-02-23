@@ -26,16 +26,17 @@ ActiveAdmin.register Text do
     end
   end
 
-  form do |_f|
-    inputs  do
+  form do |f|
+    f.object.position ||= Text.maximum(:position) + 1
+    f.semantic_errors
+    f.inputs do
       input :position
       input :genre
       input :title, as: :string
       input :contents
-      input :image, as: :file
+      input :image
       input :description
     end
-
-    actions
+    f.actions
   end
 end

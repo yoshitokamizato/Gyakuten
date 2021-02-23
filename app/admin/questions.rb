@@ -17,14 +17,14 @@ ActiveAdmin.register Question do
     end
   end
 
-  form do |_f|
-    inputs  do
-      input :genre, as: :select, collection: Text::ALL_PROGRAMMING
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      input :genre, as: :select, collection: Genre.pluck(:title)
       input :title
       input :body
       input :solution
     end
-
-    actions
+    f.actions
   end
 end

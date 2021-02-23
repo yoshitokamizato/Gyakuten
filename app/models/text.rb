@@ -30,7 +30,7 @@ class Text < ApplicationRecord
 
   # 作成時にジャンルごとに整頓する機能
   after_create do
-    texts = Text.order(:genre_id).order(:position)
+    texts = Text.includes(:genre).order("genres.position ASC").order(:position)
     texts.each.with_index(1) do |text, index|
       text.insert_at(index) if text.position != index
     end

@@ -63,6 +63,8 @@ ja:
         thema: テーマ
         question: 問題
         hint: ヒント
+      genre:
+        genre_group: ジャンル群
   attributes:
     id: ID
     program_id: プログラムID

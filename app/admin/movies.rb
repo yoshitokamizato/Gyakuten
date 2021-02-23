@@ -12,8 +12,10 @@ ActiveAdmin.register Movie do
     actions
   end
 
-  form do |_f|
-    inputs do
+  form do |f|
+    f.object.position ||= Movie.maximum(:position) + 1
+    f.semantic_errors
+    f.inputs do
       input :position
       input :text
       input :genre
@@ -21,7 +23,6 @@ ActiveAdmin.register Movie do
       input :url
       input :desc
     end
-
-    actions
+    f.actions
   end
 end

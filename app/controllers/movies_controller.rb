@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  PER_PAGE = 10
+  PER_PAGE = 18
 
   def index
     genre_ids = Genre.search_ids(params[:genre])

@@ -47,19 +47,19 @@ class Genre < ApplicationRecord
   has_many :movies
   has_many :texts
 
-  scope :front, -> { where(genre_group_id: 1) }
-  scope :ruby, -> { where(genre_group_id: 2) }
-  scope :php, -> { where(genre_group_id: 3) }
-  scope :react, -> { where(genre_group_id: 4) }
-  scope :vue, -> { where(genre_group_id: 5) }
-  scope :angular, -> { where(genre_group_id: 6) }
-  scope :aws, -> { where(genre_group_id: 7) }
+  scope :front, -> { where(genre_group_id: 1).order(:position) }
+  scope :ruby, -> { where(genre_group_id: 2).order(:position) }
+  scope :php, -> { where(genre_group_id: 3).order(:position) }
+  scope :react, -> { where(genre_group_id: 4).order(:position) }
+  scope :vue, -> { where(genre_group_id: 5).order(:position) }
+  scope :angular, -> { where(genre_group_id: 6).order(:position) }
+  scope :aws, -> { where(genre_group_id: 7).order(:position) }
 
-  scope :general, -> { where.not(genre_group_id: 8..10) }
-  scope :live, -> { where(genre_group_id: 8..9) }
+  scope :general, -> { where.not(genre_group_id: 8..10).order(:position) }
+  scope :live, -> { where(genre_group_id: 8..9).order(:position) }
 
-  scope :others, -> { where(genre_group_id: 10) }
-  scope :display, -> { where.not(genre_group_id: 10) }
+  scope :others, -> { where(genre_group_id: 10).order(:position) }
+  scope :display, -> { where.not(genre_group_id: 10).order(:position) }
 
   def self.permit_genre(genre)
     self::CONVERT_LIST.keys.include?(genre)
@@ -74,7 +74,7 @@ class Genre < ApplicationRecord
   }
 
   def self.personal_data(completed_count_data, count_data)
-    genres = Genre.where(id: count_data.keys).order(:id)
+    genres = Genre.where(id: count_data.keys).order(:position)
     genres.map do |genre|
       total_count = count_data[genre.id] || 0
       current_count = completed_count_data[genre.id] || 0
