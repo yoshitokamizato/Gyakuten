@@ -10,10 +10,10 @@ module GenreSearch
     scope :angular_group, -> { where(genre_id: Genre.angular).includes(:genre).order("genres.position ASC") }
     scope :aws_group, -> { where(genre_id: Genre.aws).includes(:genre).order("genres.position ASC") }
 
-    scope :general_group, -> { where.call(genre_id: Genre.general).includes(:genre).order("genres.position ASC") }
+    scope :general_group, -> { where(genre_id: Genre.general).includes(:genre).order("genres.position ASC") }
     scope :live_group, -> { where(genre_id: Genre.live).includes(:genre).order("genres.position ASC") }
 
-    scope :others_group, -> { where(genre_id: Genre.others).includes(:genre).order("genres.position ASC") }
-    scope :display_group, -> { where(genre_id: Genre.display).includes(:genre).order("genres.position ASC") }
+    scope :invisible_group, -> { where(genre_id: Genre.invisible).includes(:genre).order("genres.position ASC") }
+    scope :visible_group, -> { where(genre_id: Genre.visible).includes(:genre).order("genres.position ASC") }
   end
 end

@@ -38,8 +38,8 @@ class Text < ApplicationRecord
 
   # 読破済みのデータ
   def self.read_text_data(user)
-    read_texts_count_data = user.read_through_texts.display_group.group(:genre_id).count
-    texts_count_data = Text.display_group.group(:genre_id).count
+    read_texts_count_data = user.read_through_texts.visible_group.group(:genre_id).count
+    texts_count_data = Text.visible_group.group(:genre_id).count
     Genre.personal_data(read_texts_count_data, texts_count_data)
   end
 end

@@ -49,8 +49,8 @@ class Movie < ApplicationRecord
 
   # 視聴済みのデータを取得
   def self.watched_movie_data(user)
-    watched_movies_count_data = user.watched_through_movies.display_group.group(:genre_id).count
-    movies_count_data = Movie.display_group.group(:genre_id).count
+    watched_movies_count_data = user.watched_through_movies.visible_group.group(:genre_id).count
+    movies_count_data = Movie.visible_group.group(:genre_id).count
     Genre.personal_data(watched_movies_count_data, movies_count_data)
   end
 end

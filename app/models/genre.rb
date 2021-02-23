@@ -20,10 +20,10 @@
 #
 class Genre < ApplicationRecord
   CONVERT_LIST = {
-    # "Basic" => 1,
-    # "Git" => 2,
-    # "Ruby" => 3,
-    # "Rails" => 4,
+    "Basic" => 1,
+    "Git" => 2,
+    "Ruby" => 3,
+    "Rails" => 4,
     "PHP" => 5,
     "HTML&CSS" => 6,
     "JavaScript" => 7,
@@ -35,7 +35,7 @@ class Genre < ApplicationRecord
     "Money" => 13,
     "Talk" => 14,
     "Live" => 15,
-    # "Other" => 16,
+    # "Invisible" => 16,
   }
 
   acts_as_list
@@ -59,8 +59,8 @@ class Genre < ApplicationRecord
   scope :general, -> { where.not(genre_group_id: 8..10).order(:position) }
   scope :live, -> { where(genre_group_id: 8..9).order(:position) }
 
-  scope :others, -> { where(genre_group_id: 10).order(:position) }
-  scope :display, -> { where.not(genre_group_id: 10).order(:position) }
+  scope :invisible, -> { where(genre_group_id: 10).order(:position) }
+  scope :visible, -> { where.not(genre_group_id: 10).order(:position) }
 
   def self.permit_genre(genre)
     self::CONVERT_LIST.keys.include?(genre)
