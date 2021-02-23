@@ -1,5 +1,5 @@
 ActiveAdmin.register Question do
-  permit_params :genre, :title, :body, :solution
+  permit_params :genre_id, :title, :body, :solution
 
   index do
     selectable_column
@@ -20,7 +20,7 @@ ActiveAdmin.register Question do
   form do |f|
     f.semantic_errors
     f.inputs do
-      input :genre, as: :select, collection: Genre.pluck(:title)
+      input :genre
       input :title
       input :body
       input :solution

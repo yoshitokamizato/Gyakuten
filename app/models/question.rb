@@ -12,8 +12,8 @@
 #
 
 class Question < ApplicationRecord
-  validates :genre, presence: true
   validates :title, presence: true
   validates :body, presence: true
   validates :solution, presence: true
+  belongs_to :genre, optional: true
 end

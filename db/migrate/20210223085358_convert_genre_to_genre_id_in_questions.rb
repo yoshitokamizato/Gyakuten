@@ -1,4 +1,4 @@
-class ConvertGenreToGenreId < ActiveRecord::Migration[5.2]
+class ConvertGenreToGenreIdInQuestions < ActiveRecord::Migration[5.2]
   def up
     genre_list = {
       "Basic" => 1,
@@ -19,8 +19,7 @@ class ConvertGenreToGenreId < ActiveRecord::Migration[5.2]
       "Other" => 16,
     }
     genre_list.keys.each do |genre|
-      Movie.where(genre: genre).update(genre: genre_list[genre])
-      Text.where(genre: genre).update(genre: genre_list[genre])
+      Question.where(genre: genre).update(genre: genre_list[genre])
     end
   end
 end

@@ -46,6 +46,7 @@ class Genre < ApplicationRecord
   belongs_to :genre_group
   has_many :movies
   has_many :texts
+  has_many :questions
 
   scope :front, -> { where(genre_group_id: 1).order(:position) }
   scope :ruby, -> { where(genre_group_id: 2).order(:position) }
