@@ -37,4 +37,9 @@ $(document).on('turbolinks:load', function () {
 
     // searchWordの実行
     $('#search-text').on('input', searchWord);
+
+    $('.faq-question').on('click', function(){
+        $(this).toggleClass('active');
+        $(this).next().slideToggle();
+    });
 });
