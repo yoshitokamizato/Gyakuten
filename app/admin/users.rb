@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :slack_id, :flag, :password
+  permit_params :email, :slack_name, :slack_id, :flag, :password
 
   controller do
     def update
