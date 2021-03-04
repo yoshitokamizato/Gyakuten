@@ -1,5 +1,5 @@
 ActiveAdmin.register Question do
-  permit_params :position, :genre_id, :title, :body, :solution
+  permit_params :position, :genre_id, :title, :content, :solution
   config.sort_order = "position_asc"
 
   index do
@@ -15,7 +15,7 @@ ActiveAdmin.register Question do
       row :position
       row :genre
       row :title
-      row :body
+      row :content
       row :solution
     end
   end
@@ -27,7 +27,7 @@ ActiveAdmin.register Question do
       input :position
       input :genre
       input :title
-      input :body
+      input :content
       input :solution
     end
     f.actions
