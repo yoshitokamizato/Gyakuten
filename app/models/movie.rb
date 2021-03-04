@@ -20,6 +20,7 @@
 class Movie < ApplicationRecord
   include GenreSearch
   YOUTUBE_REGEX = %r{\Ahttps://www.youtube.com/embed/[^?&"'>]+\z}.freeze
+  SELECT_COLUMNS = "movies.*, genres.code_name, genres.name, genres.color"
   acts_as_list
 
   validates :title, presence: true
@@ -40,8 +41,8 @@ class Movie < ApplicationRecord
   # 作成時にジャンルごとに整頓する機能
   # ライブ系の動画は作成日時降順に並び替える
   after_create do
-    general_movies = Movie.general_group.order(:position)
-    live_movies = Movie.live_group.order(created_at: :desc)
+    general_movies = Movie.general_group.select(SELECT_COLUMNS)
+    live_movies = Movie.live_group.select(SELECT_COLUMNS)
     (general_movies + live_movies).each.with_index(1) do |movie, index|
       movie.insert_at(index) if movie.position != index
     end
@@ -49,8 +50,9 @@ class Movie < ApplicationRecord
 
   # 視聴済みのデータを取得
   def self.watched_movie_data(user)
-    watched_movies_count_data = user.watched_through_movies.visible_group.group(:genre_id).count
-    movies_count_data = Movie.visible_group.group(:genre_id).count
+    invisible_genre_id = Genre.find_by(code_name: "invisible")
+    watched_movies_count_data = user.watched_through_movies.where.not(genre_id: invisible_genre_id).group(:genre_id).count
+    movies_count_data = Movie.where.not(genre_id: invisible_genre_id).group(:genre_id).count
     Genre.personal_data(watched_movies_count_data, movies_count_data)
   end
 end

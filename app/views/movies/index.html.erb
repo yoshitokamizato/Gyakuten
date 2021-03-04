@@ -22,7 +22,7 @@
               <% end %>
             </p>
             <p class="card-text movie-title">
-              <% if ["Basic", "Git", "Ruby", "Ruby on Rails", "Marketing"].include?(movie.genre.title) %>
+              <% if @code_namegd.nil? %>
                 Lv.<%= i %>：<%= movie.title %>
               <% else %>
                 <%= movie.title %>

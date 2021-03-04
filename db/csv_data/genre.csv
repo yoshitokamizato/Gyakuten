@@ -1,17 +1,17 @@
-id,title,color
-1,Basic,#007bff
-2,Git,#343a40
-3,Ruby,#dc3545
-4,Ruby on Rails,#dc3545
-5,PHP,#6f42c1
-6,HTML&CSS,#ffc107
-7,JavaScript,#e6dc00
-8,TypeScript,#777777
-9,React,#63daf9
-10,Vue,#42b983
-11,Angular,#dd0031
-12,AWS,#ec7211
-13,マネタイズ講座,#4169e1
-14,全ての勉強会,#fd7e14
-15,プログラミング勉強会,#f08080
-16,非表示,#000000
+id,code_name,name,color
+1,basic,Basic,#007bff
+2,git,Git,#343a40
+3,ruby,Ruby,#dc3545
+4,rails,Ruby on Rails,#dc3545
+5,php,PHP,#6f42c1
+6,html,HTML&CSS,#ffc107
+7,js,JavaScript,#e6dc00
+8,ts,TypeScript,#777777
+9,react,React,#63daf9
+10,vue,Vue,#42b983
+11,angular,Angular,#dd0031
+12,aws,AWS,#ec7211
+13,money,マネタイズ講座,#4169e1
+14,talk,全ての勉強会,#fd7e14
+15,live,プログラミング勉強会,#f08080
+16,invisible,非表示,#000000

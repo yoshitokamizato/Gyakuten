@@ -3,11 +3,16 @@
 # Table name: genres
 #
 #  id         :bigint           not null, primary key
+#  code_name  :string
 #  color      :string
+#  name       :string           not null
 #  position   :integer
-#  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_genres_on_code_name  (code_name) UNIQUE
 #
 require "rails_helper"
 
