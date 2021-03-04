@@ -36,7 +36,6 @@ ja:
         slack_name: Slackワークスペース名
         flag: 利用フラグ
       question:
-        body: 内容
         solution: 回答
         count: 閲覧回数
       solution:
@@ -82,7 +81,6 @@ ja:
     color: 色
     description: Twitterカードの説明
     content: 内容
-    contents: 内容
     url: URL
     body: 内容
     namespace: 名前空間

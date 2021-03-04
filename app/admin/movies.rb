@@ -19,8 +19,8 @@ ActiveAdmin.register Movie do
       input :position
       input :text
       input :genre
-      input :title, as: :string
-      input :url, as: :string
+      input :title
+      input :url
       input :desc
     end
     f.actions

@@ -6,7 +6,7 @@
   <% if user_signed_in? %>
     <%= render "movie" if @movies.present? %>
     <div class="markdown">
-      <%= markdown(@text.contents) %>
+      <%= markdown(@text.content) %>
     </div>
     <div id="read-text-<%= @text.id %>" class="mb-4">
       <% if @read_text_ids.include?(@text.id) %>

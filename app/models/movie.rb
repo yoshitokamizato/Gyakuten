@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  desc       :text
 #  position   :integer
-#  title      :text
-#  url        :text
+#  title      :string
+#  url        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  genre_id   :integer

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_004153) do
+ActiveRecord::Schema.define(version: 2021_03_04_225931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_004153) do
   create_table "lines", force: :cascade do |t|
     t.string "genre"
     t.string "title"
-    t.text "contents"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,14 +94,14 @@ ActiveRecord::Schema.define(version: 2021_03_04_004153) do
   create_table "money", force: :cascade do |t|
     t.string "genre"
     t.string "title"
-    t.text "contents"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "movies", force: :cascade do |t|
-    t.text "title"
-    t.text "url"
+    t.string "title"
+    t.string "url"
     t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_004153) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
-    t.text "body"
+    t.text "content"
     t.text "solution"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 2021_03_04_004153) do
 
   create_table "texts", force: :cascade do |t|
     t.integer "genre_id"
-    t.text "title"
-    t.text "contents"
+    t.string "title"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description"
