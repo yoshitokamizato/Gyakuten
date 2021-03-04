@@ -22,7 +22,7 @@
               <% end %>
             </p>
             <p class="card-text movie-title">
-              <% if params[:genre].nil? %>
+              <% if @code_namegd.nil? %>
                 Lv.<%= i %>：<%= movie.title %>
               <% else %>
                 <%= movie.title %>
