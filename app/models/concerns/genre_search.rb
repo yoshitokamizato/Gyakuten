@@ -2,18 +2,11 @@ module GenreSearch
   extend ActiveSupport::Concern
 
   included do
-    scope :front_group, -> { where(genre_id: Genre.front).includes(:genre).order("genres.position ASC") }
-    scope :ruby_group, -> { where(genre_id: Genre.ruby).includes(:genre).order("genres.position ASC") }
-    scope :php_group, -> { where(genre_id: Genre.php).includes(:genre).order("genres.position ASC") }
-    scope :react_group, -> { where(genre_id: Genre.react).includes(:genre).order("genres.position ASC") }
-    scope :vue_group, -> { where(genre_id: Genre.vue).includes(:genre).order("genres.position ASC") }
-    scope :angular_group, -> { where(genre_id: Genre.angular).includes(:genre).order("genres.position ASC") }
-    scope :aws_group, -> { where(genre_id: Genre.aws).includes(:genre).order("genres.position ASC") }
+    scope :search_group, ->(code_name) { joins(:genre).where(genres: { code_name: code_name }).order("genres.position ASC").order(:position) }
 
-    scope :general_group, -> { where(genre_id: Genre.general).includes(:genre).order("genres.position ASC") }
-    scope :live_group, -> { where(genre_id: Genre.live).includes(:genre).order("genres.position ASC") }
-
-    scope :invisible_group, -> { where(genre_id: Genre.invisible).includes(:genre).order("genres.position ASC") }
-    scope :visible_group, -> { where(genre_id: Genre.visible).includes(:genre).order("genres.position ASC") }
+    scope :front_group, -> { search_group(Genre::FRONT) }
+    scope :ruby_group, -> { search_group(Genre::RUBY) }
+    scope :general_group, -> { search_group(Genre::GENERAL) }
+    scope :live_group, -> { joins(:genre).where(genres: { code_name: Genre::LIVE }).order("genres.position ASC").order(created_at: :desc) }
   end
 end

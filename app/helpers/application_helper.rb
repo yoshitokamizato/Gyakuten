@@ -36,6 +36,6 @@ module ApplicationHelper
   end
 
   def display_name(genre)
-    @convert_title_list[Genre::CONVERT_LIST[genre]]
+    @convert_display_name[genre]
   end
 end

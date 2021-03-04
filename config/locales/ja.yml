@@ -64,6 +64,9 @@ ja:
         thema: テーマ
         question: 問題
         hint: ヒント
+      genre:
+        code_name: コード名
+        name: 表示名
   attributes:
     id: ID
     program_id: プログラムID

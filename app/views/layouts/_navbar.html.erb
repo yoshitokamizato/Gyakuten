@@ -13,7 +13,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Ruby/Railsテキスト教材", texts_path, class: "dropdown-item" %>
             <%= link_to "Ruby/Rails動画教材", movies_path, class: "dropdown-item#{add_disabled}" %>
-            <%= link_to "AWSテキスト教材", texts_path(genre: "AWS"), class: "dropdown-item" %>
+            <%= link_to "AWSテキスト教材", texts_path(genre: "aws"), class: "dropdown-item" %>
             <%= link_to "よくある質問集", questions_path, class: "dropdown-item" %>
             <%= link_to "チャレンジ問題集", challenges_path, class: "dropdown-item" %>
           </div>
@@ -23,8 +23,8 @@
             PHP
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "PHPテキスト教材", texts_path(genre: "PHP"), class: "dropdown-item" %>
-            <%= link_to "PHP動画教材", movies_path(genre: "PHP"), class: "dropdown-item#{add_disabled}" %>
+            <%= link_to "PHPテキスト教材", texts_path(genre: "php"), class: "dropdown-item" %>
+            <%= link_to "PHP動画教材", movies_path(genre: "php"), class: "dropdown-item#{add_disabled}" %>
           </div>
         </li>
         <li class="nav-item active dropdown">
@@ -32,11 +32,11 @@
             フロント
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to display_name("HTML&CSS"), texts_path(genre: "HTML&CSS"), class: "dropdown-item" %>
-            <%= link_to display_name("JavaScript"), texts_path(genre: "JavaScript"), class: "dropdown-item" %>
-            <%= link_to display_name("TypeScript"), texts_path(genre: "TypeScript"), class: "dropdown-item" %>
-            <%= link_to display_name("Angular"), texts_path(genre: "Angular"), class: "dropdown-item" %>
-            <%= link_to display_name("Vue"), texts_path(genre: "Vue"), class: "dropdown-item" %>
+            <%= link_to display_name("html"), texts_path(genre: "html"), class: "dropdown-item" %>
+            <%= link_to display_name("js"), texts_path(genre: "js"), class: "dropdown-item" %>
+            <%= link_to display_name("ts"), texts_path(genre: "ts"), class: "dropdown-item" %>
+            <%= link_to display_name("angular"), texts_path(genre: "angular"), class: "dropdown-item" %>
+            <%= link_to display_name("vue"), texts_path(genre: "vue"), class: "dropdown-item" %>
           </div>
         </li>
         <% if user_signed_in? %>
@@ -45,15 +45,15 @@
               勉強会
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to display_name("Talk"), movies_path(genre: "Talk"), class: "dropdown-item" %>
-              <%= link_to display_name("Live"), movies_path(genre: "Live"), class: "dropdown-item" %>
+              <%= link_to display_name("talk"), movies_path(genre: "talk"), class: "dropdown-item" %>
+              <%= link_to display_name("live"), movies_path(genre: "live"), class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item"><span class="nav-item nav-link disabled">勉強会</span></li>
         <% end %>
         <li class="nav-item">
-          <%= link_to display_name("Money"), movies_path(genre: "Money"), class: "nav-item nav-link #{user_signed_in? ? 'active' : 'disabled'}" %>
+          <%= link_to display_name("money"), movies_path(genre: "money"), class: "nav-item nav-link #{user_signed_in? ? 'active' : 'disabled'}" %>
         </li>
         <li class="nav-item">
           <%= link_to "LINE", lines_path, class: "nav-item nav-link active" %>

@@ -2,7 +2,7 @@
   <% @existence_genres.each do |genre| %>
     <div class="custom-control custom-checkbox custom-control-inline">
       <input type="checkbox" class="custom-control-input" id="genre-<%= genre.id %>" checked>
-      <label class="custom-control-label" for="genre-<%= genre.id %>"><%= genre.title %></label>
+      <label class="custom-control-label" for="genre-<%= genre.id %>"><%= genre.name %></label>
     </div>
   <% end %>
 </div>

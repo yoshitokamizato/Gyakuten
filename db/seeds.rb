@@ -1,5 +1,7 @@
 require "import_csv"
 
+ImportCsv.execute(model: Genre)
+
 return unless Rails.env.development?
 
 EMAIL = "test@example.com".freeze
@@ -19,5 +21,4 @@ AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |user|
   user.password = PASSWORD
   puts "管理者ユーザーの初期データインポートに成功しました。"
 end
-ImportCsv.execute(model: Genre)
 
