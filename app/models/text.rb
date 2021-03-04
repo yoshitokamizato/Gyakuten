@@ -3,7 +3,7 @@
 # Table name: texts
 #
 #  id          :bigint           not null, primary key
-#  contents    :text
+#  content     :text
 #  description :string
 #  image       :string
 #  position    :integer

@@ -3,7 +3,7 @@
 # Table name: questions
 #
 #  id         :bigint           not null, primary key
-#  body       :text
+#  content    :text
 #  position   :integer
 #  solution   :text
 #  title      :string
