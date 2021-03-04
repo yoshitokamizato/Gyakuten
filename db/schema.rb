@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 2021_02_27_101805) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "color"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "lines", force: :cascade do |t|
     t.string "genre"
     t.string "title"
@@ -91,11 +99,11 @@ ActiveRecord::Schema.define(version: 2021_02_27_101805) do
 
   create_table "movies", force: :cascade do |t|
     t.text "title"
-    t.text "contents"
+    t.text "url"
     t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "genre"
+    t.integer "genre_id"
     t.integer "position"
     t.integer "text_id"
   end
@@ -106,7 +114,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_101805) do
     t.text "solution"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "genre"
+    t.integer "genre_id"
+    t.integer "position"
   end
 
   create_table "read_texts", force: :cascade do |t|
@@ -118,7 +127,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_101805) do
   end
 
   create_table "texts", force: :cascade do |t|
-    t.string "genre"
+    t.integer "genre_id"
     t.text "title"
     t.text "contents"
     t.datetime "created_at", null: false
@@ -143,8 +152,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_101805) do
     t.inet "last_sign_in_ip"
     t.boolean "flag", default: false
     t.string "slack_id", null: false
-    t.datetime "approval_at", default: "2021-02-14 01:46:33"
-    t.string "slack_name"
+    t.datetime "approval_at", default: "2021-03-01 20:36:36"
+    t.integer "slack_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slack_id"], name: "index_users_on_slack_id", unique: true
@@ -175,4 +184,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_101805) do
 
   add_foreign_key "complete_challenges", "challenges"
   add_foreign_key "complete_challenges", "users"
+  add_foreign_key "movies", "genres"
+  add_foreign_key "questions", "genres"
+  add_foreign_key "texts", "genres"
 end

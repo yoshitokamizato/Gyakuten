@@ -24,6 +24,7 @@ ja:
       program: プログラム
       slack_member: Slackメンバー
       challenge: チャレンジ問題
+      genre: ジャンル
     attributes:
       admin_user:
       error:
@@ -31,7 +32,8 @@ ja:
       user:
         name: 名前
         remember_me: 次回から自動的にログイン
-        slack_id: Slack メンバー ID
+        slack_id: SlackメンバーID
+        slack_name: Slackワークスペース名
         flag: 利用フラグ
       question:
         body: 内容
@@ -41,7 +43,6 @@ ja:
         question: 質問
       text:
       users_web:
-        url: URL
         name: 用途
       word:
         about: 言及
@@ -49,7 +50,8 @@ ja:
       line:
       money:
       movie:
-        desc: 降順
+        desc: 説明
+        text: 表示させるテキスト教材
       program:
         name: プログラム名
       slack_member:
@@ -71,11 +73,14 @@ ja:
     password_confirmation: 確認用パスワード
     position: 順番
     genre: ジャンル
+    thema: テーマ
     title: タイトル
     image: 画像
+    color: 色
     description: Twitterカードの説明
     content: 内容
     contents: 内容
+    url: URL
     body: 内容
     namespace: 名前空間
     resource_type: リソースタイプ

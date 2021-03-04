@@ -3,14 +3,18 @@
 # Table name: movies
 #
 #  id         :bigint           not null, primary key
-#  contents   :text
 #  desc       :text
-#  genre      :string
 #  position   :integer
 #  title      :text
+#  url        :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  genre_id   :integer
 #  text_id    :integer
+#
+# Foreign Keys
+#
+#  fk_rails_...  (genre_id => genres.id)
 #
 
 require "rails_helper"

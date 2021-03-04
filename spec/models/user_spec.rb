@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  approval_at            :datetime         default(Sun, 14 Feb 2021 10:46:33 JST +09:00)
+#  approval_at            :datetime         default(Tue, 02 Mar 2021 05:36:36 JST +09:00)
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :inet
 #  email                  :string           default(""), not null
@@ -15,7 +15,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
-#  slack_name             :string
+#  slack_name             :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  slack_id               :string           not null
