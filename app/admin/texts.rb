@@ -32,7 +32,7 @@ ActiveAdmin.register Text do
     f.inputs do
       input :position
       input :genre
-      input :title, as: :string
+      input :title
       input :content
       input :image
       input :description

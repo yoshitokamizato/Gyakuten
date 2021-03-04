@@ -7,7 +7,7 @@
 #  description :string
 #  image       :string
 #  position    :integer
-#  title       :text
+#  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  genre_id    :integer
