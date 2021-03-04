@@ -21,4 +21,3 @@ AdminUser.find_or_create_by!(email: ADMIN_EMAIL) do |user|
   user.password = PASSWORD
   puts "管理者ユーザーの初期データインポートに成功しました。"
 end
-

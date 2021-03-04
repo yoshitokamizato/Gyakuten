@@ -6,9 +6,9 @@ class MoviesController < ApplicationController
     @genre = Genre.search_name(code_name)
     @movies = if code_name.present?
                 Movie.search_group(code_name).page(params[:page]).per(PER_PAGE).select(Movie::SELECT_COLUMNS)
-             else
-               Movie.ruby_group.page(params[:page]).per(PER_PAGE).select(Movie::SELECT_COLUMNS)
-             end
+              else
+                Movie.ruby_group.page(params[:page]).per(PER_PAGE).select(Movie::SELECT_COLUMNS)
+              end
     @watched_movie_ids = current_user.watched_movies.pluck(:movie_id)
   end
 end
