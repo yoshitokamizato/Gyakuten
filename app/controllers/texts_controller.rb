@@ -2,13 +2,9 @@ class TextsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    code_name = Genre.search_code_name(params[:genre])
-    @genre = Genre.search_name(code_name)
-    @texts = if code_name.present?
-               Text.search_group(code_name).select(Text::SELECT_COLUMNS)
-             else
-               Text.ruby_group.select(Text::SELECT_COLUMNS)
-             end
+    code_name = Genre.valid_code_name(params[:genre])
+    @genre = Genre.convert_display_name(code_name)
+    @texts = Text.fetch_from(code_name)
     @read_text_ids = current_user.read_texts.pluck(:text_id) if user_signed_in?
   end
 

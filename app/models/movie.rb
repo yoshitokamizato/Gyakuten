@@ -19,9 +19,11 @@
 
 class Movie < ApplicationRecord
   include GenreSearch
+  acts_as_list
+
   YOUTUBE_REGEX = %r{\Ahttps://www.youtube.com/embed/[^?&"'>]+\z}.freeze
   SELECT_COLUMNS = "movies.*, genres.code_name, genres.name, genres.color"
-  acts_as_list
+  PER_PAGE = 18
 
   validates :title, presence: true
   validates :url, presence: true
@@ -39,12 +41,18 @@ class Movie < ApplicationRecord
   end
 
   # 作成時にジャンルごとに整頓する機能
-  # ライブ系の動画は作成日時降順に並び替える
   after_create do
-    general_movies = Movie.general_group.select(SELECT_COLUMNS)
-    live_movies = Movie.live_group.select(SELECT_COLUMNS)
-    (general_movies + live_movies).each.with_index(1) do |movie, index|
+    movies = Movie.general_group + Movie.live_group + Movie.search_order_created_at("money")
+    movies.each.with_index(1) do |movie, index|
       movie.insert_at(index) if movie.position != index
+    end
+  end
+
+  def self.fetch_from(code_name, page)
+    if code_name.nil?
+      ruby_group.page(page).per(PER_PAGE).select(SELECT_COLUMNS)
+    else
+      search_group(code_name).page(page).per(PER_PAGE).select(SELECT_COLUMNS)
     end
   end
 
