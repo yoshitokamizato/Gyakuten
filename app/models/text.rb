@@ -35,6 +35,14 @@ class Text < ApplicationRecord
     end
   end
 
+  def self.fetch_from(code_name)
+    if code_name.nil?
+      ruby_group.select(SELECT_COLUMNS)
+    else
+      search_group(code_name).select(SELECT_COLUMNS)
+    end
+  end
+
   # 読破済みのデータ
   def self.read_text_data(user)
     invisible_genre_id = Genre.find_by(code_name: "invisible")

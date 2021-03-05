@@ -19,8 +19,8 @@ class Genre < ApplicationRecord
   COLOR_REGEX = /\A#[0-9a-f]{6}\z/.freeze
   FRONT = %w[html js ts react vue angular].freeze
   RUBY = %w[basic git ruby rails].freeze
-  GENERAL = %w[money talk live invisible].freeze
-  LIVE = %w[money talk live].freeze
+  IN_GENERAL = %w[money talk live invisible].freeze
+  LIVE = %w[talk live].freeze
 
   validates :name, presence: true
   validates :color, format: { with: COLOR_REGEX }
@@ -33,11 +33,11 @@ class Genre < ApplicationRecord
     (self.pluck(:code_name) - ["invisible"]).include?(code_name)
   end
 
-  def self.search_code_name(code_name)
+  def self.valid_code_name(code_name)
     permit_genre(code_name) ? code_name : nil
   end
 
-  scope :search_name, ->(code_name) {
+  scope :convert_display_name, ->(code_name) {
     code_name.present? ? Genre.find_by(code_name: code_name).name : "Ruby/Rails"
   }
 
