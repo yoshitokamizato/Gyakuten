@@ -2,9 +2,9 @@ class TextsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    genre_ids = Genre.search_ids(params[:genre])
-    @genre = Genre.search_genre(params[:genre])
-    @texts = Text.where(genre_id: genre_ids).includes(:genre).order("genres.position ASC").order(:position)
+    code_name = Genre.valid_code_name(params[:genre])
+    @genre = Genre.convert_display_name(code_name)
+    @texts = Text.fetch_from(code_name)
     @read_text_ids = current_user.read_texts.pluck(:text_id) if user_signed_in?
   end
 

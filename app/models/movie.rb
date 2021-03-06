@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  desc       :text
 #  position   :integer
-#  title      :text
-#  url        :text
+#  title      :string
+#  url        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  genre_id   :integer
@@ -19,8 +19,11 @@
 
 class Movie < ApplicationRecord
   include GenreSearch
-  YOUTUBE_REGEX = %r{\Ahttps://www.youtube.com/embed/[^?&"'>]+\z}.freeze
   acts_as_list
+
+  YOUTUBE_REGEX = %r{\Ahttps://www.youtube.com/embed/[^?&"'>]+\z}.freeze
+  SELECT_COLUMNS = "movies.*, genres.code_name, genres.name, genres.color"
+  PER_PAGE = 18
 
   validates :title, presence: true
   validates :url, presence: true
@@ -38,19 +41,26 @@ class Movie < ApplicationRecord
   end
 
   # 作成時にジャンルごとに整頓する機能
-  # ライブ系の動画は作成日時降順に並び替える
   after_create do
-    general_movies = Movie.general_group.order(:position)
-    live_movies = Movie.live_group.order(created_at: :desc)
-    (general_movies + live_movies).each.with_index(1) do |movie, index|
+    movies = Movie.general_group + Movie.live_group + Movie.search_order_created_at("money")
+    movies.each.with_index(1) do |movie, index|
       movie.insert_at(index) if movie.position != index
+    end
+  end
+
+  def self.fetch_from(code_name, page)
+    if code_name.nil?
+      ruby_group.page(page).per(PER_PAGE).select(SELECT_COLUMNS)
+    else
+      search_group(code_name).page(page).per(PER_PAGE).select(SELECT_COLUMNS)
     end
   end
 
   # 視聴済みのデータを取得
   def self.watched_movie_data(user)
-    watched_movies_count_data = user.watched_through_movies.visible_group.group(:genre_id).count
-    movies_count_data = Movie.visible_group.group(:genre_id).count
+    invisible_genre_id = Genre.find_by(code_name: "invisible")
+    watched_movies_count_data = user.watched_through_movies.where.not(genre_id: invisible_genre_id).group(:genre_id).count
+    movies_count_data = Movie.where.not(genre_id: invisible_genre_id).group(:genre_id).count
     Genre.personal_data(watched_movies_count_data, movies_count_data)
   end
 end

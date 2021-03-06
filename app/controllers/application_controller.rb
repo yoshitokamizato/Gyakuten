@@ -32,6 +32,6 @@ class ApplicationController < ActionController::Base
     end
 
     def set_genres
-      @convert_title_list = Genre.pluck(:id, :title).to_h
+      @convert_display_name = Genre.pluck(:code_name, :name).to_h
     end
 end

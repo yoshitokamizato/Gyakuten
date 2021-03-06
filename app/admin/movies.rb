@@ -19,8 +19,8 @@ ActiveAdmin.register Movie do
       input :position
       input :text
       input :genre
-      input :title, as: :string
-      input :url, as: :string
+      input :title
+      input :url
       input :desc
     end
     f.actions
@@ -30,7 +30,7 @@ ActiveAdmin.register Movie do
     column :id
     column :position
     column :genre_id
-    column(:genre) {|movie| movie.genre.title }
+    column(:genre) {|movie| movie.genre.name }
     column :text_id
     column :title
     column :url

@@ -3,11 +3,11 @@
 # Table name: texts
 #
 #  id          :bigint           not null, primary key
-#  contents    :text
+#  content     :text
 #  description :string
 #  image       :string
 #  position    :integer
-#  title       :text
+#  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  genre_id    :integer
@@ -21,12 +21,11 @@ class Text < ApplicationRecord
   acts_as_list
   mount_uploader :image, ImageUploader
   include GenreSearch
+  SELECT_COLUMNS = "texts.*, genres.code_name, genres.name, genres.color"
 
   has_many :read_texts, dependent: :destroy
   has_many :movies
   belongs_to :genre, optional: true
-
-  PER_PAGE = 10
 
   # 作成時にジャンルごとに整頓する機能
   after_create do
@@ -36,10 +35,19 @@ class Text < ApplicationRecord
     end
   end
 
+  def self.fetch_from(code_name)
+    if code_name.nil?
+      ruby_group.select(SELECT_COLUMNS)
+    else
+      search_group(code_name).select(SELECT_COLUMNS)
+    end
+  end
+
   # 読破済みのデータ
   def self.read_text_data(user)
-    read_texts_count_data = user.read_through_texts.visible_group.group(:genre_id).count
-    texts_count_data = Text.visible_group.group(:genre_id).count
+    invisible_genre_id = Genre.find_by(code_name: "invisible")
+    read_texts_count_data = user.read_through_texts.where.not(genre_id: invisible_genre_id).group(:genre_id).count
+    texts_count_data = Text.where.not(genre_id: invisible_genre_id).group(:genre_id).count
     Genre.personal_data(read_texts_count_data, texts_count_data)
   end
 end

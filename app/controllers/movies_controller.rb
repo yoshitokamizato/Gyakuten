@@ -1,14 +1,8 @@
 class MoviesController < ApplicationController
-  PER_PAGE = 18
-
   def index
-    genre_ids = Genre.search_ids(params[:genre])
-    @genre = Genre.search_genre(params[:genre])
-    @movies = Movie.where(genre_id: genre_ids).
-                order(:position).
-                page(params[:page]).
-                per(PER_PAGE).
-                includes(:genre)
+    @code_name = Genre.valid_code_name(params[:genre])
+    @genre = Genre.convert_display_name(@code_name)
+    @movies = Movie.fetch_from(@code_name, params[:page])
     @watched_movie_ids = current_user.watched_movies.pluck(:movie_id)
   end
 end
