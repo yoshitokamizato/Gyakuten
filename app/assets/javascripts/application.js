@@ -58,8 +58,10 @@ document.addEventListener('turbolinks:load', () => {
             input.addEventListener('input', filterQuestions)
         }
     }
-    $('.faq-question').on('click', function(){
-        $(this).toggleClass('active');
-        $(this).next().slideToggle();
+    $('.faq-question').click(function () {
+        $(".faq-question").not(this).removeClass("open");
+        $(".faq-question").not(this).next().slideUp(300);
+        $(this).toggleClass("open");
+        $(this).next().slideToggle(300);
     });
 })
