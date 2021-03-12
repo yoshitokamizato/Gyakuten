@@ -18,7 +18,7 @@ ActiveAdmin.register Movie do
     f.inputs do
       input :position
       input :text
-      input :genre
+      input :genre, as: :select, collection: Genre.order(:position)
       input :title
       input :url
       input :desc

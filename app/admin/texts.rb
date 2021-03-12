@@ -31,7 +31,7 @@ ActiveAdmin.register Text do
     f.semantic_errors
     f.inputs do
       input :position
-      input :genre
+      input :genre, as: :select, collection: Genre.order(:position)
       input :title
       input :content
       input :image
