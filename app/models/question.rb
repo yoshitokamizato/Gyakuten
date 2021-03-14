@@ -19,7 +19,7 @@
 class Question < ApplicationRecord
   acts_as_list
   validates :title, presence: true
-  validates :body, presence: true
+  validates :content, presence: true
   validates :solution, presence: true
   belongs_to :genre, optional: true
 end
